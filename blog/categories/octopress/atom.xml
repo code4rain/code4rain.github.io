@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | Code4Rain`s Blog]]></title>
+  <link href="http://code4rain.github.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://code4rain.github.com/"/>
+  <updated>2012-12-13T12:23:49+09:00</updated>
+  <id>http://code4rain.github.com/</id>
+  <author>
+    <name><![CDATA[Alex Kyoungdon Jang]]></name>
+    <email><![CDATA[code4rain@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress 간단 사용법]]></title>
+    <link href="http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob/"/>
+    <updated>2012-11-18T00:05:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob</id>
+    <content type="html"><![CDATA[<h3>Blog Post 만들기</h3>
+
+<p><code>source/_post</code> 아래에 <code>YYYY-MM-DD-post-title.markdown</code> 형태로 저장해야 합니다.
+자동으로 yaml meta data를 추가하여 해당 형태로 만들어주는 명령어가 아래와 같습니다.<br/>
+<code>rake new_post["&lt;블로그 제목&gt;"]</code></p>
+
+<h3>Post 작성하기</h3>
+
+<p><code>rake new_post</code> 명령을 통해 만들어진 <code>source/_post/YYYY-MM-DD-post-title.markdown</code> 파일을 자신이 원하는 에디터로 수정합니다.
+yaml meta data로 선언된 categories는 아래와 같이 방식으로 추가할 수 있습니다.
+```</p>
+
+<h1>One category</h1>
+
+<p>categories: Sass</p>
+
+<h1>Multiple categories example 1</h1>
+
+<p>categories: [CSS3, Sass, Media Queries]</p>
+
+<h1>Multiple categories example 2</h1>
+
+<p>categories:
+- CSS3
+- Sass
+- Media Queries
+```</p>
+
+<p><code>---</code> 아래에 markdown 문법으로 블로그를 작성합니다.</p>
+
+<h3>Page 만들기</h3>
+
+<p>&lt;폴더명>\index.html로 만드는 방식과 &lt;원하는 파일명>.html 형식으로 만들 수 있습니다.</p>
+
+<p>```
+rake new_page[super-awesome]</p>
+
+<h1>creates /source/super-awesome/index.markdown</h1>
+
+<p>rake new_page[super-awesome/page.html]</p>
+
+<h1>creates /source/super-awesome/page.html</h1>
+
+<p>```</p>
+
+<h3>만든 Post &amp; Page 게시하기</h3>
+
+<ul>
+<li>markdown으로 만들어진 문서를 html로 변경하는 명령<br/>
+<code>rake generate</code></li>
+<li>만들어진 문서를 미리보기<br/>
+<code>rake preview</code></li>
+<li><p>웹으로 게시하기<br/>
+<code>rake deploy</code></p></li>
+<li><p><code>rake generat</code>와 <code>rake deploy</code>를 동시에 수행하기<br/>
+<code>rake gen_deploy</code></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

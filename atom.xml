@@ -1,169 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Code4Rain`s Blog</title>
-  <meta name="author" content="Alex Kyoungdon Jang">
-
-  
-  <meta name="description" content="">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><![CDATA[Code4Rain`s Blog]]></title>
+  <link href="http://code4rain.github.com/atom.xml" rel="self"/>
+  <link href="http://code4rain.github.com/"/>
+  <updated>2012-12-13T12:23:49+09:00</updated>
+  <id>http://code4rain.github.com/</id>
+  <author>
+    <name><![CDATA[Alex Kyoungdon Jang]]></name>
+    <email><![CDATA[code4rain@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-  <link rel="canonical" href="http://code4rain.github.com">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/stylesheets/syntax/syntax.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <style type="text/css">
-    body {
-      padding-bottom: 40px;
-    }
-    h1 {
-      margin-bottom: 15px;
-    }
-    img {
-      max-width: 100%;
-    }
-    .sharing, .meta, .pager {
-      margin: 20px 0px 20px 0px;
-    }
-    .page-footer p {
-      text-align: center;
-    }
-  </style>
-  <script src="/javascripts/libs/jquery.js"></script>
-  <script src="/javascripts/libs/modernizr-2.0.js"></script>
-  <script src="/javascripts/libs/bootstrap.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="Code4Rain`s Blog" type="application/atom+xml">
-  
-  
-
-</head>
-
-<body   >
-  <nav role="navigation"><div class="navbar">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-
-      <a class="brand" href="/">Code4Rain`s Blog</a>
-
-      <div class="nav-collapse">
-        <ul class="nav">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-
-        <ul class="nav pull-right" data-subscription="rss">
-          <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-          
-        </ul>
-
-        
-          <form class="pull-right navbar-search" action="http://google.com/search" method="get">
-            <fieldset role="search">
-              <input type="hidden" name="q" value="site:code4rain.github.com" />
-              <input class="search-query" type="text" name="q" results="0" placeholder="Search"/>
-            </fieldset>
-          </form>
-        
-      </div>
-    </div>
-  </div>
-</div>
-</nav>
-  <div class="container">
-    <div class="row-fluid">
-      <div class="span9">
-  
-  
-  
-    <article>
-      
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/">Gvim 기본 시작 위치 변경</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-13T10:40:00+09:00" pubdate data-updated="true">Dec 13<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장된다. 예를 들면 <code>:w test.md</code>라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 된다.</p>
+  <entry>
+    <title type="html"><![CDATA[Gvim 기본 시작 위치 변경]]></title>
+    <link href="http://code4rain.github.com/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/"/>
+    <updated>2012-12-13T10:40:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong</id>
+    <content type="html"><![CDATA[<p>Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장된다. 예를 들면 <code>:w test.md</code>라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 된다.</p>
 
 <p>이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 <code>시작 위치(S):</code>에 자신이 원하는 디렉토리를 아래처럼 추가시켜준다.
 <img src="source/_posts/gvim_cap00.png" title="[Gvim short cut sample]" ></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/18/octopress-gandan-sayongbeob/">Octopress 간단 사용법</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-18T00:05:00+09:00" pubdate data-updated="true">Nov 18<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/11/18/octopress-gandan-sayongbeob/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Blog Post 만들기</h3>
+  <entry>
+    <title type="html"><![CDATA[Octopress 간단 사용법]]></title>
+    <link href="http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob/"/>
+    <updated>2012-11-18T00:05:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob</id>
+    <content type="html"><![CDATA[<h3>Blog Post 만들기</h3>
 
 <p><code>source/_post</code> 아래에 <code>YYYY-MM-DD-post-title.markdown</code> 형태로 저장해야 합니다.
 자동으로 yaml meta data를 추가하여 해당 형태로 만들어주는 명령어가 아래와 같습니다.<br/>
@@ -229,44 +96,15 @@ yaml meta data로 선언된 categories는 아래와 같이 방식으로 추가�
 <code>rake gen_deploy</code></p></li>
 </ul>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/28/octopress-seolcihagi/">Octopress 설치하기</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-28T13:51:00+09:00" pubdate data-updated="true">Sep 28<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/09/28/octopress-seolcihagi/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://octopress.org/images/logo.png?1346949399"></p>
+  <entry>
+    <title type="html"><![CDATA[Octopress 설치하기]]></title>
+    <link href="http://code4rain.github.com/blog/2012/09/28/octopress-seolcihagi/"/>
+    <updated>2012-09-28T13:51:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/09/28/octopress-seolcihagi</id>
+    <content type="html"><![CDATA[<p><img src="http://octopress.org/images/logo.png?1346949399"></p>
 
 <h2>Octopress란?</h2>
 
@@ -330,106 +168,7 @@ Website 기능을 원활하게 사용하기 위해서 여러가지 Tool들이 �
 
 <p>1: <a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a> : 영문으로된 id.github.com 설정방법<br/>
 2: <a href="https://github.com/mojombo/jekyll/wiki/blog-migrations">https://github.com/mojombo/jekyll/wiki/blog-migrations</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <ul class="pager">
-    
-    <li><a href="/blog/archives">Blog Archives</a></li>
-    
-  </ul>
-</div>
-<aside class="sidebar-nav span3">
-  
-    <section>
-  <h1>Categories</h1>
-    <ul id="category-list"><li><a href='/blog/categories/blog'>Blog (1)</a></li><li><a href='/blog/categories/octopress'>Octopress (1)</a></li><li><a href='/blog/categories/octopress-blog'>Octopress,Blog (1)</a></li><li><a href='/blog/categories/tip'>TIP (1)</a></li></ul>
-</section>
-<section class="well">
-  <ul id="recent_posts" class="nav nav-list">
-    <li class="nav-header">Recent Posts</li>
-    
-      <li class="post">
-        <a href="/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/">Gvim 기본 시작 위치 변경</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/11/18/octopress-gandan-sayongbeob/">Octopress 간단 사용법</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/09/28/octopress-seolcihagi/">Octopress 설치하기</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section class="well">
-  <ul id="gh_repos" class="nav">
-    <li class="nav-header">GitHub Repos</li>
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/code4rain">@code4rain</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        github.showRepos({
-            user: 'code4rain',
-            count: 5,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/asides/github.js" type="text/javascript"> </script>
-</section>
-
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo" class="page-footer"><hr>
-<p>
-  Copyright &copy; 2012 - Alex Kyoungdon Jang -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'code4rainsblog';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
+</feed>
