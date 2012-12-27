@@ -4,7 +4,7 @@
   <title><![CDATA[Code4Rain`s Blog]]></title>
   <link href="http://code4rain.github.com/atom.xml" rel="self"/>
   <link href="http://code4rain.github.com/"/>
-  <updated>2012-12-27T11:07:46+09:00</updated>
+  <updated>2012-12-27T11:14:13+09:00</updated>
   <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
@@ -101,15 +101,6 @@ http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-ema
 
 <p>위 방법을 사용하더라도 conversation view(대화 형식 보기)에서는 Re: Fwd:가 남아있음.<br/>
 MSDN을 찾아보니 conversation view에서는 ConversationTopic을 Subject로 사용하고, ConversationTopic은 Readonly attribute을 가지고 있어 수정이 안됨.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">more 1</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GIT-P4로 Perforce에서 git clone하기]]></title>
-    <link href="http://code4rain.github.com/blog/2012/12/17/git-p4ro-perforceeseo-git-clonehagi/"/>
-    <updated>2012-12-17T23:09:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2012/12/17/git-p4ro-perforceeseo-git-clonehagi</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   
