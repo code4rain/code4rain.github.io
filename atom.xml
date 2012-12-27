@@ -4,7 +4,7 @@
   <title><![CDATA[Code4Rain`s Blog]]></title>
   <link href="http://code4rain.github.com/atom.xml" rel="self"/>
   <link href="http://code4rain.github.com/"/>
-  <updated>2012-12-14T13:10:51+09:00</updated>
+  <updated>2012-12-27T11:07:46+09:00</updated>
   <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
@@ -12,6 +12,106 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Change Outlook Subject with Python]]></title>
+    <link href="http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python/"/>
+    <updated>2012-12-27T10:42:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python</id>
+    <content type="html"><![CDATA[<h2>동기</h2>
+
+<p>아웃룩의 제목에 Re: Fwd: 등의 문자열이 들어가서 제목을 한 눈에 알아볼 수가 없어서 찾기 시작</p>
+
+<h2>Reference</h2>
+
+<p>Stack Overflow
+http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython</p>
+
+<h2>설치 방법</h2>
+
+<ol>
+<li>Download and install <a href="http://sourceforge.net/projects/pywin32/">pywin32</a></li>
+<li>python은 가자 많이 사용하는 2.7.3 버전 설치(windows용) - [Download][http://www.python.org/getit/]</li>
+<li>pywin32는 버전에 맞는 library설치 (여기서는 pywin32-218.win32-py2.7.exe 설치) - [Download][http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/]</li>
+<li>아래와 같이 test script 작성(save as test.py)</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">re</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">win32com.client</span>
+</span><span class='line'><span class="c">#session = win32com.client.gencache.EnsureDispatch(&quot;MAPI.session&quot;)</span>
+</span><span class='line'><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gencache</span><span class="o">.</span><span class="n">EnsureDispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">outlook</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Dispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c">#print &#39;\n&#39;.join(dir(outlook))</span>
+</span><span class='line'><span class="n">mapi</span> <span class="o">=</span> <span class="n">outlook</span><span class="o">.</span><span class="n">GetNamespace</span><span class="p">(</span><span class="s">&#39;MAPI&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">inbox</span> <span class="o">=</span>  <span class="n">mapi</span><span class="o">.</span><span class="n">GetDefaultFolder</span><span class="p">(</span><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">olFolderInbox</span><span class="p">)</span>
+</span><span class='line'><span class="n">items</span> <span class="o">=</span> <span class="n">inbox</span><span class="o">.</span><span class="n">Items</span>
+</span><span class='line'><span class="c">#items.Restrict(&quot;[Unread] = true&quot;)</span>
+</span><span class='line'><span class="c">#print &#39;\n&#39;.join(dir(items))</span>
+</span><span class='line'><span class="c">#print &quot;hello&quot;</span>
+</span><span class='line'>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">item</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">GetNext</span><span class="p">()</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span> <span class="k">break</span>
+</span><span class='line'>        <span class="c">#print &#39;\n&#39;.join(dir(item))</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">):</span>
+</span><span class='line'>        <span class="c"># print item.Subject.encode(&#39;euc-kr&#39;)</span>
+</span><span class='line'>        <span class="c"># print item.Body</span>
+</span><span class='line'>        <span class="c"># works VVVV</span>
+</span><span class='line'>        <span class="c"># item.Body = &#39;whoya!&#39;</span>
+</span><span class='line'>        <span class="n">item</span><span class="o">.</span><span class="n">Subject</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: &#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">item</span><span class="o">.</span><span class="n">Save</span><span class="p">()</span>
+</span><span class='line'>        <span class="c"># print item.Subject.encode(&#39;euc-kr&#39;)</span>
+</span><span class='line'>        <span class="c"># break</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>원하는 문자열로 바꾸고 싶다면 re.compile, re.sub 뒤에 오는 regular expression을 수정하면됨.</li>
+</ol>
+
+
+<h2>TODO more</h2>
+
+<p>위 방법을 사용하더라도 conversation view(대화 형식 보기)에서는 Re: Fwd:가 남아있음.<br/>
+MSDN을 찾아보니 conversation view에서는 ConversationTopic을 Subject로 사용하고, ConversationTopic은 Readonly attribute을 가지고 있어 수정이 안됨.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">more 1</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GIT-P4로 Perforce에서 git clone하기]]></title>
+    <link href="http://code4rain.github.com/blog/2012/12/17/git-p4ro-perforceeseo-git-clonehagi/"/>
+    <updated>2012-12-17T23:09:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/12/17/git-p4ro-perforceeseo-git-clonehagi</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PUSH된 COMMIT내용 수정하기(Gerrit Review전)]]></title>

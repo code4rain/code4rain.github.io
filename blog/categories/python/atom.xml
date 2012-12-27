@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Python | Code4Rain`s Blog]]></title>
+  <link href="http://code4rain.github.com/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://code4rain.github.com/"/>
+  <updated>2012-12-27T11:07:46+09:00</updated>
+  <id>http://code4rain.github.com/</id>
+  <author>
+    <name><![CDATA[Alex Kyoungdon Jang]]></name>
+    <email><![CDATA[code4rain@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Change Outlook Subject with Python]]></title>
+    <link href="http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python/"/>
+    <updated>2012-12-27T10:42:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python</id>
+    <content type="html"><![CDATA[<h2>동기</h2>
+
+<p>아웃룩의 제목에 Re: Fwd: 등의 문자열이 들어가서 제목을 한 눈에 알아볼 수가 없어서 찾기 시작</p>
+
+<h2>Reference</h2>
+
+<p>Stack Overflow
+http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython</p>
+
+<h2>설치 방법</h2>
+
+<ol>
+<li>Download and install <a href="http://sourceforge.net/projects/pywin32/">pywin32</a></li>
+<li>python은 가자 많이 사용하는 2.7.3 버전 설치(windows용) - [Download][http://www.python.org/getit/]</li>
+<li>pywin32는 버전에 맞는 library설치 (여기서는 pywin32-218.win32-py2.7.exe 설치) - [Download][http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/]</li>
+<li>아래와 같이 test script 작성(save as test.py)</li>
+</ol>
+
+
+<p>``` python
+import os, sys, re
+import win32com.client</p>
+
+<h1>session = win32com.client.gencache.EnsureDispatch("MAPI.session")</h1>
+
+<p>win32com.client.gencache.EnsureDispatch("Outlook.Application")
+outlook = win32com.client.Dispatch("Outlook.Application")</p>
+
+<h1>print '\n'.join(dir(outlook))</h1>
+
+<p>mapi = outlook.GetNamespace('MAPI')
+inbox =  mapi.GetDefaultFolder(win32com.client.constants.olFolderInbox)
+items = inbox.Items</p>
+
+<h1>items.Restrict("[Unread] = true")</h1>
+
+<h1>print '\n'.join(dir(items))</h1>
+
+<h1>print "hello"</h1>
+
+<pre><code>while True:
+item = items.GetNext()
+if item == None: break
+    #print '\n'.join(dir(item))
+
+    if re.compile(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: ').search(item.Subject):
+    # print item.Subject.encode('euc-kr')
+    # print item.Body
+    # works VVVV
+    # item.Body = 'whoya!'
+    item.Subject = re.sub(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: ','', item.Subject)
+    item.Save()
+    # print item.Subject.encode('euc-kr')
+    # break
+</code></pre>
+
+<p>```
+3. 원하는 문자열로 바꾸고 싶다면 re.compile, re.sub 뒤에 오는 regular expression을 수정하면됨.</p>
+
+<h2>TODO more</h2>
+
+<p>위 방법을 사용하더라도 conversation view(대화 형식 보기)에서는 Re: Fwd:가 남아있음.<br/>
+MSDN을 찾아보니 conversation view에서는 ConversationTopic을 Subject로 사용하고, ConversationTopic은 Readonly attribute을 가지고 있어 수정이 안됨.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">more 1</a></p>
+]]></content>
+  </entry>
+  
+</feed>
