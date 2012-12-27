@@ -4,7 +4,7 @@
   <title><![CDATA[Code4Rain`s Blog]]></title>
   <link href="http://code4rain.github.com/atom.xml" rel="self"/>
   <link href="http://code4rain.github.com/"/>
-  <updated>2012-12-27T11:14:13+09:00</updated>
+  <updated>2012-12-27T12:45:23+09:00</updated>
   <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
@@ -24,15 +24,19 @@
 
 <h2>Reference</h2>
 
-<p>Stack Overflow
-http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython</p>
+<p>Stack Overflow:<br/>
+<em><a href="http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython">http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython</a></em></p>
 
 <h2>설치 방법</h2>
 
 <ol>
-<li>Download and install <a href="http://sourceforge.net/projects/pywin32/">pywin32</a></li>
-<li>python은 가자 많이 사용하는 2.7.3 버전 설치(windows용) - [Download][http://www.python.org/getit/]</li>
-<li>pywin32는 버전에 맞는 library설치 (여기서는 pywin32-218.win32-py2.7.exe 설치) - [Download][http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/]</li>
+<li>Download and install <a href="http://sourceforge.net/projects/pywin32/">pywin32</a>
+
+<ul>
+<li>python은 가자 많이 사용하는 2.7.3 버전 설치(windows용) - <a href="http://www.python.org/getit/">Download</a></li>
+<li>pywin32는 버전에 맞는 library설치 (여기서는 pywin32-218.win32-py2.7.exe 설치) - <a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/">Download</a></li>
+</ul>
+</li>
 <li>아래와 같이 test script 작성(save as test.py)</li>
 </ol>
 
@@ -100,7 +104,8 @@ http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-ema
 <h2>TODO more</h2>
 
 <p>위 방법을 사용하더라도 conversation view(대화 형식 보기)에서는 Re: Fwd:가 남아있음.<br/>
-MSDN을 찾아보니 conversation view에서는 ConversationTopic을 Subject로 사용하고, ConversationTopic은 Readonly attribute을 가지고 있어 수정이 안됨.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">more 1</a></p>
+MSDN을 찾아보니 conversation view에서는 ConversationTopic을 Subject로 사용하고, ConversationTopic은 Readonly attribute을 가지고 있어 수정이 안됨.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN LINK</a><br/>
+임시로 Conversation View를 Off하고 보는 중</p>
 ]]></content>
   </entry>
   
