@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Code4Rain`s Blog]]></title>
   <link href="http://code4rain.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://code4rain.github.com/"/>
-  <updated>2012-12-27T12:45:23+09:00</updated>
+  <updated>2013-01-10T10:06:53+09:00</updated>
   <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
@@ -80,6 +80,46 @@ if item == None: break
 
 <p>```
 3. 원하는 문자열로 바꾸고 싶다면 re.compile, re.sub 뒤에 오는 regular expression을 수정하면됨.</p>
+
+<h2>2013-01-10 Update.</h2>
+
+<p>기존 version의 경우 default Inbox에서만 검색해서 Subject를 수정함.
+Recursive로 하위 폴더에 대해서도 Subject를 수정하도록 변경함.
+``` python
+import os, sys, re
+import win32com.client
+from win32com.client import Dispatch, constants</p>
+
+<p>def parse_folder(folder):</p>
+
+<pre><code>print folder.Name.encode('euc-kr')
+items = folder.Items
+while True:
+    item = items.GetNext()
+    if item == None: break
+    #print '\n'.join(dir(item))
+
+    if re.compile(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: |Fwd\d*: |Re\d* :|Fwd\(*\d*\)*: |Re\(*\d*\)*: |Re:\(*\d*\)* |RE\**\d*: |Fwd:\(*\d*\)* ').search(item.Subject):
+        # print item.Subject
+        print item.Subject.encode('euc-kr')
+        # print item.Body
+        # works VVVV
+        # item.Body = 'whoya!'
+        item.Subject = re.sub(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: |Fwd\d*: |Re\d* :|Fwd\(*\d*\)*: |Re\(*\d*\)*: |Re:\(*\d*\)* |RE\**\d*: |Fwd:\(*\d*\)* ','', item.Subject)
+        item.Save()
+        # print item.Subject.encode('euc-kr')
+        # break
+for i in range(1, folder.Folders.Count + 1):
+    parse_folder(folder.Folders[i])
+</code></pre>
+
+<p>win32com.client.gencache.EnsureDispatch("Outlook.Application")
+outlook = win32com.client.Dispatch("Outlook.Application")
+mapi = outlook.GetNamespace('MAPI')
+inbox =  mapi.GetDefaultFolder(win32com.client.constants.olFolderInbox)
+items = inbox.Items
+parse_folder(inbox)
+```</p>
 
 <h2>TODO more</h2>
 
