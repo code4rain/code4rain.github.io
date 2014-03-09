@@ -1,299 +1,295 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Code4Rain`s Blog]]></title>
-  <link href="http://code4rain.github.com/atom.xml" rel="self"/>
-  <link href="http://code4rain.github.com/"/>
-  <updated>2012-12-27T12:45:23+09:00</updated>
-  <id>http://code4rain.github.com/</id>
-  <author>
-    <name><![CDATA[Alex Kyoungdon Jang]]></name>
-    <email><![CDATA[code4rain@gmail.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+ <title>Life Log</title>
+ <link href="http://code4rain.github.io/atom.xml" rel="self"/>
+ <link href="http://code4rain.github.io/"/>
+ <updated>2014-03-09T21:26:53+09:00</updated>
+ <id>http://code4rain.github.io</id>
+ <author>
+   <name></name>
+   <email>code4rain@gmail.com</email>
+ </author>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Change Outlook Subject with Python]]></title>
-    <link href="http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python/"/>
-    <updated>2012-12-27T10:42:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python</id>
-    <content type="html"><![CDATA[<h2>동기</h2>
+ 
+ <entry>
+   <title>SSH 로그인시 접속지연 해결방법</title>
+   <link href="http://code4rain.github.io/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/"/>
+   <updated>2014-03-09T20:14:00+09:00</updated>
+   <id>http://code4rain.github.io/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob</id>
+   <content type="html">&lt;p&gt;사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시&lt;/p&gt;
 
-<p>아웃룩의 제목에 Re: Fwd: 등의 문자열이 들어가서 제목을 한 눈에 알아볼 수가 없어서 찾기 시작</p>
+&lt;p&gt;로그인 과정에서 3,4초 딜레이가 발생한다.&lt;/p&gt;
 
-<h2>Reference</h2>
+&lt;p&gt;/etc/ssh/sshd_config 파일에 &quot;UseDNS no&quot;로 설정하면, 딜레이를 줄일 수 있다.&lt;/p&gt;
 
-<p>Stack Overflow:<br/>
-<em><a href="http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython">http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython</a></em></p>
+&lt;p&gt;ssh 데몬 재시작이 필요.
+&lt;code&gt;$sudo /etc/init.d/ssh restart 혹은 service ssh restart&lt;/code&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Change Outlook Subject with Python</title>
+   <link href="http://code4rain.github.io/python/outlook/2012/12/27/change-outlook-subject-with-python/"/>
+   <updated>2012-12-27T10:42:00+09:00</updated>
+   <id>http://code4rain.github.io/python/outlook/2012/12/27/change-outlook-subject-with-python</id>
+   <content type="html">&lt;h2&gt;동기&lt;/h2&gt;
 
-<h2>설치 방법</h2>
+&lt;p&gt;아웃룩의 제목에 Re: Fwd: 등의 문자열이 들어가서 제목을 한 눈에 알아볼 수가 없어서 찾기 시작&lt;/p&gt;
 
-<ol>
-<li>Download and install <a href="http://sourceforge.net/projects/pywin32/">pywin32</a>
+&lt;h2&gt;Reference&lt;/h2&gt;
 
-<ul>
-<li>python은 가자 많이 사용하는 2.7.3 버전 설치(windows용) - <a href="http://www.python.org/getit/">Download</a></li>
-<li>pywin32는 버전에 맞는 library설치 (여기서는 pywin32-218.win32-py2.7.exe 설치) - <a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/">Download</a></li>
-</ul>
-</li>
-<li>아래와 같이 test script 작성(save as test.py)</li>
-</ol>
+&lt;p&gt;Stack Overflow:&lt;br/&gt;
+&lt;em&gt;&lt;a href=&quot;http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython&quot;&gt;http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 
+&lt;h2&gt;설치 방법&lt;/h2&gt;
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">re</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">win32com.client</span>
-</span><span class='line'><span class="c">#session = win32com.client.gencache.EnsureDispatch(&quot;MAPI.session&quot;)</span>
-</span><span class='line'><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gencache</span><span class="o">.</span><span class="n">EnsureDispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="n">outlook</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Dispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c">#print &#39;\n&#39;.join(dir(outlook))</span>
-</span><span class='line'><span class="n">mapi</span> <span class="o">=</span> <span class="n">outlook</span><span class="o">.</span><span class="n">GetNamespace</span><span class="p">(</span><span class="s">&#39;MAPI&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">inbox</span> <span class="o">=</span>  <span class="n">mapi</span><span class="o">.</span><span class="n">GetDefaultFolder</span><span class="p">(</span><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">olFolderInbox</span><span class="p">)</span>
-</span><span class='line'><span class="n">items</span> <span class="o">=</span> <span class="n">inbox</span><span class="o">.</span><span class="n">Items</span>
-</span><span class='line'><span class="c">#items.Restrict(&quot;[Unread] = true&quot;)</span>
-</span><span class='line'><span class="c">#print &#39;\n&#39;.join(dir(items))</span>
-</span><span class='line'><span class="c">#print &quot;hello&quot;</span>
-</span><span class='line'>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">item</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">GetNext</span><span class="p">()</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span> <span class="k">break</span>
-</span><span class='line'>        <span class="c">#print &#39;\n&#39;.join(dir(item))</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">):</span>
-</span><span class='line'>        <span class="c"># print item.Subject.encode(&#39;euc-kr&#39;)</span>
-</span><span class='line'>        <span class="c"># print item.Body</span>
-</span><span class='line'>        <span class="c"># works VVVV</span>
-</span><span class='line'>        <span class="c"># item.Body = &#39;whoya!&#39;</span>
-</span><span class='line'>        <span class="n">item</span><span class="o">.</span><span class="n">Subject</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: &#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">item</span><span class="o">.</span><span class="n">Save</span><span class="p">()</span>
-</span><span class='line'>        <span class="c"># print item.Subject.encode(&#39;euc-kr&#39;)</span>
-</span><span class='line'>        <span class="c"># break</span>
-</span></code></pre></td></tr></table></div></figure>
+&lt;ol&gt;
+&lt;li&gt;Download and install &lt;a href=&quot;http://sourceforge.net/projects/pywin32/&quot;&gt;pywin32&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;python은 가자 많이 사용하는 2.7.3 버전 설치(windows용) - &lt;a href=&quot;http://www.python.org/getit/&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;pywin32는 버전에 맞는 library설치 (여기서는 pywin32-218.win32-py2.7.exe 설치) - &lt;a href=&quot;http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/&quot;&gt;Download&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;아래와 같이 test script 작성(save as test.py)&lt;/li&gt;
+&lt;/ol&gt;
 
 
-<ol>
-<li>원하는 문자열로 바꾸고 싶다면 re.compile, re.sub 뒤에 오는 regular expression을 수정하면됨.</li>
-</ol>
+&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;import os, sys, re
+import win32com.client
+#session = win32com.client.gencache.EnsureDispatch(&quot;MAPI.session&quot;)
+win32com.client.gencache.EnsureDispatch(&quot;Outlook.Application&quot;)
+outlook = win32com.client.Dispatch(&quot;Outlook.Application&quot;)
+#print '\n'.join(dir(outlook))
+mapi = outlook.GetNamespace('MAPI')
+inbox =  mapi.GetDefaultFolder(win32com.client.constants.olFolderInbox)
+items = inbox.Items
+#items.Restrict(&quot;[Unread] = true&quot;)
+#print '\n'.join(dir(items))
+#print &quot;hello&quot;
+    while True:
+    item = items.GetNext()
+    if item == None: break
+        #print '\n'.join(dir(item))
+
+        if re.compile(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: ').search(item.Subject):
+        # print item.Subject.encode('euc-kr')
+        # print item.Body
+        # works VVVV
+        # item.Body = 'whoya!'
+        item.Subject = re.sub(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: ','', item.Subject)
+        item.Save()
+        # print item.Subject.encode('euc-kr')
+        # break
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;원하는 문자열로 바꾸고 싶다면 re.compile, re.sub 뒤에 오는 regular expression을 수정하면됨.&lt;/li&gt;
+&lt;/ol&gt;
 
 
-<h2>TODO more</h2>
+&lt;h2&gt;2013-01-10 Update.&lt;/h2&gt;
 
-<p>위 방법을 사용하더라도 conversation view(대화 형식 보기)에서는 Re: Fwd:가 남아있음.<br/>
-MSDN을 찾아보니 conversation view에서는 ConversationTopic을 Subject로 사용하고, ConversationTopic은 Readonly attribute을 가지고 있어 수정이 안됨.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN LINK</a><br/>
-임시로 Conversation View를 Off하고 보는 중</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PUSH된 COMMIT내용 수정하기(Gerrit Review전)]]></title>
-    <link href="http://code4rain.github.com/blog/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/"/>
-    <updated>2012-12-14T12:59:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon</id>
-    <content type="html"><![CDATA[<p>Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.</p>
+&lt;p&gt;기존 version의 경우 default Inbox에서만 검색해서 Subject를 수정함.
+Recursive로 하위 폴더에 대해서도 Subject를 수정하도록 변경함.
+``` python
+import os, sys, re
+import win32com.client
+from win32com.client import Dispatch, constants&lt;/p&gt;
 
-<p><code>수정하고 싶은 commit이 현재 HEAD라고 가정</code></p>
+&lt;p&gt;def parse_folder(folder):
+    print folder.Name.encode('euc-kr')
+    items = folder.Items
+    while True:
+        item = items.GetNext()
+        if item == None: break
+        #print '\n'.join(dir(item))&lt;/p&gt;
 
-<h3>comit에 있는 일부 파일만 변경하고 싶을 때</h3>
+&lt;pre&gt;&lt;code&gt;    if re.compile(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: |Fwd\d*: |Re\d* :|Fwd\(*\d*\)*: |Re\(*\d*\)*: |Re:\(*\d*\)* |RE\**\d*: |Fwd:\(*\d*\)* ').search(item.Subject):
+        # print item.Subject
+        print item.Subject.encode('euc-kr')
+        # print item.Body
+        # works VVVV
+        # item.Body = 'whoya!'
+        item.Subject = re.sub(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: |Fwd\d*: |Re\d* :|Fwd\(*\d*\)*: |Re\(*\d*\)*: |Re:\(*\d*\)* |RE\**\d*: |Fwd:\(*\d*\)* ','', item.Subject)
+        item.Save()
+        # print item.Subject.encode('euc-kr')
+        # break
+for i in range(1, folder.Folders.Count + 1):
+    parse_folder(folder.Folders[i])
+&lt;/code&gt;&lt;/pre&gt;
 
-<pre><code>1. 수정하고 싶은 파일(a.c) 편집
+&lt;p&gt;win32com.client.gencache.EnsureDispatch(&quot;Outlook.Application&quot;)
+outlook = win32com.client.Dispatch(&quot;Outlook.Application&quot;)
+mapi = outlook.GetNamespace('MAPI')
+inbox =  mapi.GetDefaultFolder(win32com.client.constants.olFolderInbox)
+items = inbox.Items
+parse_folder(inbox)
+```&lt;/p&gt;
+
+&lt;h2&gt;TODO more&lt;/h2&gt;
+
+&lt;p&gt;위 방법을 사용하더라도 conversation view(대화 형식 보기)에서는 Re: Fwd:가 남아있음.&lt;br/&gt;
+MSDN을 찾아보니 conversation view에서는 ConversationTopic을 Subject로 사용하고, ConversationTopic은 Readonly attribute을 가지고 있어 수정이 안됨.&lt;a href=&quot;http://msdn.microsoft.com/en-us/library/office/ff869318.aspx&quot;&gt;MSDN LINK&lt;/a&gt;&lt;br/&gt;
+임시로 Conversation View를 Off하고 보는 중&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>PUSH된 COMMIT내용 수정하기(Gerrit Review전)</title>
+   <link href="http://code4rain.github.io/tip/git/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/"/>
+   <updated>2012-12-14T12:59:00+09:00</updated>
+   <id>http://code4rain.github.io/tip/git/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon</id>
+   <content type="html">&lt;p&gt;Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;수정하고 싶은 commit이 현재 HEAD라고 가정&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;comit에 있는 일부 파일만 변경하고 싶을 때&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;1. 수정하고 싶은 파일(a.c) 편집
 2. git add a.c
 3. git commit --amend -C HEAD // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.
 4. git push 
-</code></pre>
+&lt;/code&gt;&lt;/pre&gt;
 
-<h3>commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h3>
+&lt;h3&gt;commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄&lt;/h3&gt;
 
-<pre><code>1. git checkout HEAD^ -- &lt;돌리고 싶은 파일명&gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.
-2. git add &lt;돌리고 싶은 파일명&gt;
+&lt;pre&gt;&lt;code&gt;1. git checkout HEAD^ -- &amp;lt;돌리고 싶은 파일명&amp;gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.
+2. git add &amp;lt;돌리고 싶은 파일명&amp;gt;
 3. git commit --amend -C HEAD
 4. git push
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Gvim 기본 시작 위치 변경]]></title>
-    <link href="http://code4rain.github.com/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/"/>
-    <updated>2012-12-13T10:40:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong</id>
-    <content type="html"><![CDATA[<p>Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장된다.<br/>
-예를 들면 <code>:w test.md</code>라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 된다.</p>
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Gvim 기본 시작 위치 변경</title>
+   <link href="http://code4rain.github.io/vim/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/"/>
+   <updated>2012-12-13T10:40:00+09:00</updated>
+   <id>http://code4rain.github.io/vim/2012/12/13/gvim-gibon-sijag-wici-byeongyeong</id>
+   <content type="html">&lt;p&gt;Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장된다.&lt;br/&gt;
+예를 들면 &lt;code&gt;:w test.md&lt;/code&gt;라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 된다.&lt;/p&gt;
 
-<p>이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 <code>시작 위치(S):</code>에 자신이 원하는 디렉토리를 아래처럼 추가시켜준다.</p>
+&lt;p&gt;이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 &lt;code&gt;시작 위치(S):&lt;/code&gt;에 자신이 원하는 디렉토리를 아래처럼 추가시켜준다.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Octopress 간단 사용법</title>
+   <link href="http://code4rain.github.io/octopress/blog/2012/11/18/octopress-gandan-sayongbeob/"/>
+   <updated>2012-11-18T00:05:00+09:00</updated>
+   <id>http://code4rain.github.io/octopress/blog/2012/11/18/octopress-gandan-sayongbeob</id>
+   <content type="html">&lt;h3&gt;Blog Post 만들기&lt;/h3&gt;
 
-<p><img src="http://code4rain.github.com/images/gvim_cap00.png" title="[Gvim short cut sample]" ></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress 간단 사용법]]></title>
-    <link href="http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob/"/>
-    <updated>2012-11-18T00:05:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob</id>
-    <content type="html"><![CDATA[<h3>Blog Post 만들기</h3>
+&lt;p&gt;&lt;code&gt;source/_post&lt;/code&gt; 아래에 &lt;code&gt;YYYY-MM-DD-post-title.markdown&lt;/code&gt; 형태로 저장해야 합니다.
+자동으로 yaml meta data를 추가하여 해당 형태로 만들어주는 명령어가 아래와 같습니다.
+&lt;code&gt;rake new_post[&quot;&amp;lt;블로그 제목&amp;gt;&quot;]&lt;/code&gt;&lt;/p&gt;
 
-<p><code>source/_post</code> 아래에 <code>YYYY-MM-DD-post-title.markdown</code> 형태로 저장해야 합니다.
-자동으로 yaml meta data를 추가하여 해당 형태로 만들어주는 명령어가 아래와 같습니다.<br/>
-<code>rake new_post["&lt;블로그 제목&gt;"]</code></p>
+&lt;h3&gt;Post 작성하기&lt;/h3&gt;
 
-<h3>Post 작성하기</h3>
+&lt;p&gt;&lt;code&gt;rake new_post&lt;/code&gt; 명령을 통해 만들어진 &lt;code&gt;source/_post/YYYY-MM-DD-post-title.markdown&lt;/code&gt; 파일을 자신이 원하는 에디터로 수정합니다.
+yaml meta data로 선언된 categories는 아래와 같이 방식으로 추가할 수 있습니다.
+```&lt;/p&gt;
 
-<p><code>rake new_post</code> 명령을 통해 만들어진 <code>source/_post/YYYY-MM-DD-post-title.markdown</code> 파일을 자신이 원하는 에디터로 수정합니다.
-yaml meta data로 선언된 categories는 아래와 같이 방식으로 추가할 수 있습니다.</p>
+&lt;h1&gt;One category&lt;/h1&gt;
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># One category
-</span><span class='line'>categories: Sass
-</span><span class='line'>
-</span><span class='line'># Multiple categories example 1
-</span><span class='line'>categories: [CSS3, Sass, Media Queries]
-</span><span class='line'>
-</span><span class='line'># Multiple categories example 2
-</span><span class='line'>categories:
-</span><span class='line'>- CSS3
-</span><span class='line'>- Sass
-</span><span class='line'>- Media Queries</span></code></pre></td></tr></table></div></figure>
+&lt;p&gt;categories: Sass&lt;/p&gt;
 
+&lt;h1&gt;Multiple categories example 1&lt;/h1&gt;
 
-<p><code>---</code> 아래에 markdown 문법으로 블로그를 작성합니다.</p>
+&lt;p&gt;categories: [CSS3, Sass, Media Queries]&lt;/p&gt;
 
-<h3>Page 만들기</h3>
+&lt;h1&gt;Multiple categories example 2&lt;/h1&gt;
 
-<p>&lt;폴더명>\index.html로 만드는 방식과 &lt;원하는 파일명>.html 형식으로 만들 수 있습니다.</p>
+&lt;p&gt;categories:
+- CSS3
+- Sass
+- Media Queries
+```&lt;/p&gt;
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_page[super-awesome]
-</span><span class='line'># creates /source/super-awesome/index.markdown
-</span><span class='line'>
-</span><span class='line'>rake new_page[super-awesome/page.html]
-</span><span class='line'># creates /source/super-awesome/page.html</span></code></pre></td></tr></table></div></figure>
+&lt;p&gt;&lt;code&gt;---&lt;/code&gt; 아래에 markdown 문법으로 블로그를 작성합니다.&lt;/p&gt;
 
+&lt;h3&gt;Page 만들기&lt;/h3&gt;
 
-<h3>만든 Post &amp; Page 게시하기</h3>
+&lt;p&gt;&amp;lt;폴더명&gt;\index.html로 만드는 방식과 &amp;lt;원하는 파일명&gt;.html 형식으로 만들 수 있습니다.&lt;/p&gt;
 
-<ul>
-<li>markdown으로 만들어진 문서를 html로 변경하는 명령<br/>
-<code>rake generate</code></li>
-<li>만들어진 문서를 미리보기<br/>
-<code>rake preview</code></li>
-<li><p>웹으로 게시하기<br/>
-<code>rake deploy</code></p></li>
-<li><p><code>rake generat</code>와 <code>rake deploy</code>를 동시에 수행하기<br/>
-<code>rake gen_deploy</code></p></li>
-</ul>
+&lt;pre&gt;&lt;code&gt;rake new_page[super-awesome]
+# creates /source/super-awesome/index.markdown
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress 설치하기]]></title>
-    <link href="http://code4rain.github.com/blog/2012/09/28/octopress-seolcihagi/"/>
-    <updated>2012-09-28T13:51:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2012/09/28/octopress-seolcihagi</id>
-    <content type="html"><![CDATA[<p><img src="http://octopress.org/images/logo.png?1346949399"></p>
+rake new_page[super-awesome/page.html]
+# creates /source/super-awesome/page.html
+&lt;/code&gt;&lt;/pre&gt;
 
-<h2>Octopress란?</h2>
+&lt;h3&gt;만든 Post &amp;amp; Page 게시하기&lt;/h3&gt;
 
-<p><a href="http://github.com">github.com</a>에서는 public git기능뿐만 아니라 Website기능도 제공하고 있습니다.<a href="http://octopress.org/docs/deploying/github/">1</a>
-Website 기능을 원활하게 사용하기 위해서 여러가지 Tool들이 존재하는데 그중에 <a href="https://github.com/mojombo/jekyll/wiki">jekyll</a>는 markdown으로 작성된 문서를 HTML로 변환해주어 github에서 사용이 가능합니다.
-이 <a href="https://github.com/mojombo/jekyll/wiki">jekyll</a>를 base로 blog에 사용하기 편하도록 wrapping한 Tool이 Octopress입니다.</p>
+&lt;ul&gt;
+&lt;li&gt;markdown으로 만들어진 문서를 html로 변경하는 명령
+&lt;code&gt;rake generate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;만들어진 문서를 미리보기
+&lt;code&gt;rake preview&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;웹으로 게시하기
+&lt;code&gt;rake deploy&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;rake generat&lt;/code&gt;와 &lt;code&gt;rake deploy&lt;/code&gt;를 동시에 수행하기
+&lt;code&gt;rake gen_deploy&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-<h2>Octopress 설치 방법(Getting Strted)</h2>
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Octopress 설치하기</title>
+   <link href="http://code4rain.github.io/octopress/blog/2012/09/28/octopress-seolcihagi/"/>
+   <updated>2012-09-28T13:51:00+09:00</updated>
+   <id>http://code4rain.github.io/octopress/blog/2012/09/28/octopress-seolcihagi</id>
+   <content type="html">&lt;h2&gt;Octopress란?&lt;/h2&gt;
 
-<p>여기서부터는 Octopress의 설치 방법에 관한 문서입니다. 해외에서 많이 사용되는 blog platform(ex. wordpress)에서 blog를 운영하고 있다면 <a href="https://github.com/mojombo/jekyll/wiki/blog-migrations">Jekyll&#8217;s Migration page</a>을 참고해서 이사를 하시면됩니다.</p>
+&lt;p&gt;&lt;a href=&quot;http://github.com&quot;&gt;github.com&lt;/a&gt;에서는 public git기능뿐만 아니라 Website기능도 제공하고 있습니다.&lt;a href=&quot;http://octopress.org/docs/deploying/github/&quot;&gt;1&lt;/a&gt;
+Website 기능을 원활하게 사용하기 위해서 여러가지 Tool들이 존재하는데 그중에 &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki&quot;&gt;jekyll&lt;/a&gt;는 markdown으로 작성된 문서를 HTML로 변환해주어 github에서 사용이 가능합니다.
+이 &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki&quot;&gt;jekyll&lt;/a&gt;를 base로 blog에 사용하기 편하도록 wrapping한 Tool이 Octopress입니다.&lt;/p&gt;
 
-<h3>초기 설정하기 - 소스코드를 받아오고, 설치에 관련된 tool설치</h3>
+&lt;h2&gt;Octopress 설치 방법(Getting Strted)&lt;/h2&gt;
 
-<p>Octopress는 Hacker를 위한 blog platform이라는 거창한 타이틀을 가지고 있습니다. Geek스럽다고나 할까요. Command line으로 작업하는데 익숙하지 않으시다면, 설치부터 난항을 겪으실지도 모르겠습니다.(나름 이해하기 쉽게 설명하려고 합니다만)</p>
+&lt;p&gt;여기서부터는 Octopress의 설치 방법에 관한 문서입니다. 해외에서 많이 사용되는 blog platform(ex. wordpress)에서 blog를 운영하고 있다면 &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/blog-migrations&quot;&gt;Jekyll's Migration page&lt;/a&gt;을 참고해서 이사를 하시면됩니다.&lt;/p&gt;
 
-<ul>
-<li><a href="http://git-scm.com/">Git 설치하기</a> - octopress는 GIT기반으로 문서를 관리합니다.</li>
-<li>Ruby 1.9.3 설치하기 - <a href="http://octopress.org/docs/setup/rbenv/">rbenv</a>와 <a href="http://octopress.org/docs/setup/rvm/">RVM</a>을 통해 설치하는 방법이 있습니다.
-  개인적으로 RVM을 통한 설치가 더 편리했습니다. :)<br/>
-  저는 Ubuntu 10.04 LTS 위에서 설치를 시도하였는데 기존에 설치된 ruby1.8버전이 있어서<br/>
-  <code>sudo apt-get remove ruby1.8 ruby1.8-dev</code><br/>
-  를 하고 위 설치 방법을 따라서 설치했습니다.<br/>
-  그리고 rake install시에 openssl-dev를 못찾는  에러가 난다면 추가적으로<br/>
-  <code>sudo apt-get install openssl-dev</code>로 설치해주셔야 합니다.<br/>
-  설치가 끝나면 <code>ruby --version</code>으로 1.9.3버전이 정상적으로 설치되었는지 확인해보세요.</li>
-<li>git을 통해 Octopress 소스 다운받기</li>
-</ul>
+&lt;h3&gt;초기 설정하기 - 소스코드를 받아오고, 설치에 관련된 tool설치&lt;/h3&gt;
 
+&lt;p&gt;Octopress는 Hacker를 위한 blog platform이라는 거창한 타이틀을 가지고 있습니다. Geek스럽다고나 할까요. Command line으로 작업하는데 익숙하지 않으시다면, 설치부터 난항을 겪으실지도 모르겠습니다.(나름 이해하기 쉽게 설명하려고 합니다만)&lt;/p&gt;
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'>cd octopress    # If you use RVM, You'll be asked if you trust the .rvmrc file (say yes).
-</span><span class='line'>ruby --version  # Should report Ruby 1.9.3</span></code></pre></td></tr></table></div></figure>
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://git-scm.com/&quot;&gt;Git 설치하기&lt;/a&gt; - octopress는 GIT기반으로 문서를 관리합니다.&lt;/li&gt;
+&lt;li&gt;Ruby 1.9.3 설치하기 - &lt;a href=&quot;http://octopress.org/docs/setup/rbenv/&quot;&gt;rbenv&lt;/a&gt;와 &lt;a href=&quot;http://octopress.org/docs/setup/rvm/&quot;&gt;RVM&lt;/a&gt;을 통해 설치하는 방법이 있습니다.
+  개인적으로 RVM을 통한 설치가 더 편리했습니다. :)&lt;br/&gt;
+  저는 Ubuntu 10.04 LTS 위에서 설치를 시도하였는데 기존에 설치된 ruby1.8버전이 있어서&lt;br/&gt;
+  &lt;code&gt;sudo apt-get remove ruby1.8 ruby1.8-dev&lt;/code&gt;&lt;br/&gt;
+  를 하고 위 설치 방법을 따라서 설치했습니다.&lt;br/&gt;
+  그리고 rake install시에 openssl-dev를 못찾는  에러가 난다면 추가적으로&lt;br/&gt;
+  &lt;code&gt;sudo apt-get install openssl-dev&lt;/code&gt;로 설치해주셔야 합니다.&lt;br/&gt;
+  설치가 끝나면 &lt;code&gt;ruby --version&lt;/code&gt;으로 1.9.3버전이 정상적으로 설치되었는지 확인해보세요.&lt;/li&gt;
+&lt;li&gt;git을 통해 Octopress 소스 다운받기
+&lt;code&gt;
+git clone git://github.com/imathis/octopress.git octopress
+cd octopress    # If you use RVM, You'll be asked if you trust the .rvmrc file (say yes).
+ruby --version  # Should report Ruby 1.9.3
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;연관된 module 설치하기
+&lt;code&gt;
+gem install bundler
+rbenv rehash    # If you use rbenv, rehash to be able to run the bundle command
+bundle install
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;octopress용 초기 theme 설정하기
+&lt;code&gt;
+rake install
+&lt;/code&gt;
+이로써 설치가 끝났습니다.&lt;/li&gt;
+&lt;/ul&gt;
 
 
-<ul>
-<li>연관된 module 설치하기</li>
-</ul>
+&lt;p&gt;1: &lt;a href=&quot;http://octopress.org/docs/deploying/github/&quot;&gt;http://octopress.org/docs/deploying/github/&lt;/a&gt; : 영문으로된 id.github.com 설정방법&lt;br/&gt;
+2: &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/blog-migrations&quot;&gt;https://github.com/mojombo/jekyll/wiki/blog-migrations&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem install bundler
-</span><span class='line'>rbenv rehash    # If you use rbenv, rehash to be able to run the bundle command
-</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>octopress용 초기 theme 설정하기</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
-
-
-<p>이로써 설치가 끝났습니다.</p>
-
-<p>1: <a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a> : 영문으로된 id.github.com 설정방법<br/>
-2: <a href="https://github.com/mojombo/jekyll/wiki/blog-migrations">https://github.com/mojombo/jekyll/wiki/blog-migrations</a></p>
-]]></content>
-  </entry>
-  
 </feed>
