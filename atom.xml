@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Code4Rain`s Blog]]></title>
+  <link href="http://code4rain.github.com/atom.xml" rel="self"/>
+  <link href="http://code4rain.github.com/"/>
+  <updated>2014-03-09T22:26:39+09:00</updated>
+  <id>http://code4rain.github.com/</id>
+  <author>
+    <name><![CDATA[Alex Kyoungdon Jang]]></name>
+    <email><![CDATA[code4rain@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SSH 로그인시 접속지연 해결방법]]></title>
+    <link href="http://code4rain.github.com/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/"/>
+    <updated>2014-03-09T20:14:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob</id>
+    <content type="html"><![CDATA[<p>사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시</p>
+
+<p>로그인 과정에서 3,4초 딜레이가 발생한다.</p>
+
+<p>/etc/ssh/sshd_config 파일에 &#8220;UseDNS no&#8221;로 설정하면, 딜레이를 줄일 수 있다.</p>
+
+<p>ssh 데몬 재시작이 필요.
+<code>$sudo /etc/init.d/ssh restart 혹은 service ssh restart</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Change Outlook Subject with Python]]></title>
+    <link href="http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python/"/>
+    <updated>2012-12-27T10:42:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python</id>
+    <content type="html"><![CDATA[<h2>동기</h2>
+
+<p>아웃룩의 제목에 Re: Fwd: 등의 문자열이 들어가서 제목을 한 눈에 알아볼 수가 없어서 찾기 시작</p>
+
+<h2>Reference</h2>
+
+<p>Stack Overflow:<br/>
+<em><a href="http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython">http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython</a></em></p>
+
+<h2>설치 방법</h2>
+
+<ol>
+<li>Download and install <a href="http://sourceforge.net/projects/pywin32/">pywin32</a>
+
+<ul>
+<li>python은 가자 많이 사용하는 2.7.3 버전 설치(windows용) - <a href="http://www.python.org/getit/">Download</a></li>
+<li>pywin32는 버전에 맞는 library설치 (여기서는 pywin32-218.win32-py2.7.exe 설치) - <a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/">Download</a></li>
+</ul>
+</li>
+<li>아래와 같이 test script 작성(save as test.py)</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">re</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">win32com.client</span>
+</span><span class='line'><span class="c">#session = win32com.client.gencache.EnsureDispatch(&quot;MAPI.session&quot;)</span>
+</span><span class='line'><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gencache</span><span class="o">.</span><span class="n">EnsureDispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">outlook</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Dispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c">#print &#39;\n&#39;.join(dir(outlook))</span>
+</span><span class='line'><span class="n">mapi</span> <span class="o">=</span> <span class="n">outlook</span><span class="o">.</span><span class="n">GetNamespace</span><span class="p">(</span><span class="s">&#39;MAPI&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">inbox</span> <span class="o">=</span>  <span class="n">mapi</span><span class="o">.</span><span class="n">GetDefaultFolder</span><span class="p">(</span><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">olFolderInbox</span><span class="p">)</span>
+</span><span class='line'><span class="n">items</span> <span class="o">=</span> <span class="n">inbox</span><span class="o">.</span><span class="n">Items</span>
+</span><span class='line'><span class="c">#items.Restrict(&quot;[Unread] = true&quot;)</span>
+</span><span class='line'><span class="c">#print &#39;\n&#39;.join(dir(items))</span>
+</span><span class='line'><span class="c">#print &quot;hello&quot;</span>
+</span><span class='line'>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">item</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">GetNext</span><span class="p">()</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span> <span class="k">break</span>
+</span><span class='line'>        <span class="c">#print &#39;\n&#39;.join(dir(item))</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">):</span>
+</span><span class='line'>        <span class="c"># print item.Subject.encode(&#39;euc-kr&#39;)</span>
+</span><span class='line'>        <span class="c"># print item.Body</span>
+</span><span class='line'>        <span class="c"># works VVVV</span>
+</span><span class='line'>        <span class="c"># item.Body = &#39;whoya!&#39;</span>
+</span><span class='line'>        <span class="n">item</span><span class="o">.</span><span class="n">Subject</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: &#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">item</span><span class="o">.</span><span class="n">Save</span><span class="p">()</span>
+</span><span class='line'>        <span class="c"># print item.Subject.encode(&#39;euc-kr&#39;)</span>
+</span><span class='line'>        <span class="c"># break</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>원하는 문자열로 바꾸고 싶다면 re.compile, re.sub 뒤에 오는 regular expression을 수정하면됨.</li>
+</ol>
+
+
+<h2>2013-01-10 Update.</h2>
+
+<p>기존 version의 경우 default Inbox에서만 검색해서 Subject를 수정함.
+Recursive로 하위 폴더에 대해서도 Subject를 수정하도록 변경함.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">re</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">win32com.client</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">win32com.client</span> <span class="kn">import</span> <span class="n">Dispatch</span><span class="p">,</span> <span class="n">constants</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">parse_folder</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">print</span> <span class="n">folder</span><span class="o">.</span><span class="n">Name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;euc-kr&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">items</span> <span class="o">=</span> <span class="n">folder</span><span class="o">.</span><span class="n">Items</span>
+</span><span class='line'>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">item</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">GetNext</span><span class="p">()</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span> <span class="k">break</span>
+</span><span class='line'>        <span class="c">#print &#39;\n&#39;.join(dir(item))</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: |Fwd\d*: |Re\d* :|Fwd\(*\d*\)*: |Re\(*\d*\)*: |Re:\(*\d*\)* |RE\**\d*: |Fwd:\(*\d*\)* &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">):</span>
+</span><span class='line'>            <span class="c"># print item.Subject</span>
+</span><span class='line'>            <span class="k">print</span> <span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;euc-kr&#39;</span><span class="p">)</span>
+</span><span class='line'>            <span class="c"># print item.Body</span>
+</span><span class='line'>            <span class="c"># works VVVV</span>
+</span><span class='line'>            <span class="c"># item.Body = &#39;whoya!&#39;</span>
+</span><span class='line'>            <span class="n">item</span><span class="o">.</span><span class="n">Subject</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: |Fwd\d*: |Re\d* :|Fwd\(*\d*\)*: |Re\(*\d*\)*: |Re:\(*\d*\)* |RE\**\d*: |Fwd:\(*\d*\)* &#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">item</span><span class="o">.</span><span class="n">Save</span><span class="p">()</span>
+</span><span class='line'>            <span class="c"># print item.Subject.encode(&#39;euc-kr&#39;)</span>
+</span><span class='line'>            <span class="c"># break</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">folder</span><span class="o">.</span><span class="n">Folders</span><span class="o">.</span><span class="n">Count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">parse_folder</span><span class="p">(</span><span class="n">folder</span><span class="o">.</span><span class="n">Folders</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gencache</span><span class="o">.</span><span class="n">EnsureDispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">outlook</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Dispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">mapi</span> <span class="o">=</span> <span class="n">outlook</span><span class="o">.</span><span class="n">GetNamespace</span><span class="p">(</span><span class="s">&#39;MAPI&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">inbox</span> <span class="o">=</span>  <span class="n">mapi</span><span class="o">.</span><span class="n">GetDefaultFolder</span><span class="p">(</span><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">olFolderInbox</span><span class="p">)</span>
+</span><span class='line'><span class="n">items</span> <span class="o">=</span> <span class="n">inbox</span><span class="o">.</span><span class="n">Items</span>
+</span><span class='line'><span class="n">parse_folder</span><span class="p">(</span><span class="n">inbox</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>TODO more</h2>
+
+<p>위 방법을 사용하더라도 conversation view(대화 형식 보기)에서는 Re: Fwd:가 남아있음.<br/>
+MSDN을 찾아보니 conversation view에서는 ConversationTopic을 Subject로 사용하고, ConversationTopic은 Readonly attribute을 가지고 있어 수정이 안됨.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN LINK</a><br/>
+임시로 Conversation View를 Off하고 보는 중</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PUSH된 COMMIT내용 수정하기(Gerrit Review전)]]></title>
+    <link href="http://code4rain.github.com/blog/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/"/>
+    <updated>2012-12-14T12:59:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon</id>
+    <content type="html"><![CDATA[<p>Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.</p>
+
+<p><code>수정하고 싶은 commit이 현재 HEAD라고 가정</code></p>
+
+<h3>comit에 있는 일부 파일만 변경하고 싶을 때</h3>
+
+<pre><code>1. 수정하고 싶은 파일(a.c) 편집
+2. git add a.c
+3. git commit --amend -C HEAD // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.
+4. git push 
+</code></pre>
+
+<h3>commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h3>
+
+<pre><code>1. git checkout HEAD^ -- &lt;돌리고 싶은 파일명&gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.
+2. git add &lt;돌리고 싶은 파일명&gt;
+3. git commit --amend -C HEAD
+4. git push
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gvim 기본 시작 위치 변경]]></title>
+    <link href="http://code4rain.github.com/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/"/>
+    <updated>2012-12-13T10:40:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong</id>
+    <content type="html"><![CDATA[<p>Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장된다.<br/>
+예를 들면 <code>:w test.md</code>라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 된다.</p>
+
+<p>이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 <code>시작 위치(S):</code>에 자신이 원하는 디렉토리를 아래처럼 추가시켜준다.</p>
+
+<p><img src="http://code4rain.github.com/images/gvim_cap00.png" title="[Gvim short cut sample]" ></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress 간단 사용법]]></title>
+    <link href="http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob/"/>
+    <updated>2012-11-18T00:05:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob</id>
+    <content type="html"><![CDATA[<h3>Blog Post 만들기</h3>
+
+<p><code>source/_post</code> 아래에 <code>YYYY-MM-DD-post-title.markdown</code> 형태로 저장해야 합니다.
+자동으로 yaml meta data를 추가하여 해당 형태로 만들어주는 명령어가 아래와 같습니다.<br/>
+<code>rake new_post["&lt;블로그 제목&gt;"]</code></p>
+
+<h3>Post 작성하기</h3>
+
+<p><code>rake new_post</code> 명령을 통해 만들어진 <code>source/_post/YYYY-MM-DD-post-title.markdown</code> 파일을 자신이 원하는 에디터로 수정합니다.
+yaml meta data로 선언된 categories는 아래와 같이 방식으로 추가할 수 있습니다.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># One category
+</span><span class='line'>categories: Sass
+</span><span class='line'>
+</span><span class='line'># Multiple categories example 1
+</span><span class='line'>categories: [CSS3, Sass, Media Queries]
+</span><span class='line'>
+</span><span class='line'># Multiple categories example 2
+</span><span class='line'>categories:
+</span><span class='line'>- CSS3
+</span><span class='line'>- Sass
+</span><span class='line'>- Media Queries</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>---</code> 아래에 markdown 문법으로 블로그를 작성합니다.</p>
+
+<h3>Page 만들기</h3>
+
+<p>&lt;폴더명>\index.html로 만드는 방식과 &lt;원하는 파일명>.html 형식으로 만들 수 있습니다.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_page[super-awesome]
+</span><span class='line'># creates /source/super-awesome/index.markdown
+</span><span class='line'>
+</span><span class='line'>rake new_page[super-awesome/page.html]
+</span><span class='line'># creates /source/super-awesome/page.html</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>만든 Post &amp; Page 게시하기</h3>
+
+<ul>
+<li>markdown으로 만들어진 문서를 html로 변경하는 명령<br/>
+<code>rake generate</code></li>
+<li>만들어진 문서를 미리보기<br/>
+<code>rake preview</code></li>
+<li><p>웹으로 게시하기<br/>
+<code>rake deploy</code></p></li>
+<li><p><code>rake generat</code>와 <code>rake deploy</code>를 동시에 수행하기<br/>
+<code>rake gen_deploy</code></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress 설치하기]]></title>
+    <link href="http://code4rain.github.com/blog/2012/09/28/octopress-seolcihagi/"/>
+    <updated>2012-09-28T13:51:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2012/09/28/octopress-seolcihagi</id>
+    <content type="html"><![CDATA[<p><img src="http://octopress.org/images/logo.png?1346949399"></p>
+
+<h2>Octopress란?</h2>
+
+<p><a href="http://github.com">github.com</a>에서는 public git기능뿐만 아니라 Website기능도 제공하고 있습니다.<a href="http://octopress.org/docs/deploying/github/">1</a>
+Website 기능을 원활하게 사용하기 위해서 여러가지 Tool들이 존재하는데 그중에 <a href="https://github.com/mojombo/jekyll/wiki">jekyll</a>는 markdown으로 작성된 문서를 HTML로 변환해주어 github에서 사용이 가능합니다.
+이 <a href="https://github.com/mojombo/jekyll/wiki">jekyll</a>를 base로 blog에 사용하기 편하도록 wrapping한 Tool이 Octopress입니다.</p>
+
+<h2>Octopress 설치 방법(Getting Strted)</h2>
+
+<p>여기서부터는 Octopress의 설치 방법에 관한 문서입니다. 해외에서 많이 사용되는 blog platform(ex. wordpress)에서 blog를 운영하고 있다면 <a href="https://github.com/mojombo/jekyll/wiki/blog-migrations">Jekyll&#8217;s Migration page</a>을 참고해서 이사를 하시면됩니다.</p>
+
+<h3>초기 설정하기 - 소스코드를 받아오고, 설치에 관련된 tool설치</h3>
+
+<p>Octopress는 Hacker를 위한 blog platform이라는 거창한 타이틀을 가지고 있습니다. Geek스럽다고나 할까요. Command line으로 작업하는데 익숙하지 않으시다면, 설치부터 난항을 겪으실지도 모르겠습니다.(나름 이해하기 쉽게 설명하려고 합니다만)</p>
+
+<ul>
+<li><a href="http://git-scm.com/">Git 설치하기</a> - octopress는 GIT기반으로 문서를 관리합니다.</li>
+<li>Ruby 1.9.3 설치하기 - <a href="http://octopress.org/docs/setup/rbenv/">rbenv</a>와 <a href="http://octopress.org/docs/setup/rvm/">RVM</a>을 통해 설치하는 방법이 있습니다.
+  개인적으로 RVM을 통한 설치가 더 편리했습니다. :)<br/>
+  저는 Ubuntu 10.04 LTS 위에서 설치를 시도하였는데 기존에 설치된 ruby1.8버전이 있어서<br/>
+  <code>sudo apt-get remove ruby1.8 ruby1.8-dev</code><br/>
+  를 하고 위 설치 방법을 따라서 설치했습니다.<br/>
+  그리고 rake install시에 openssl-dev를 못찾는  에러가 난다면 추가적으로<br/>
+  <code>sudo apt-get install openssl-dev</code>로 설치해주셔야 합니다.<br/>
+  설치가 끝나면 <code>ruby --version</code>으로 1.9.3버전이 정상적으로 설치되었는지 확인해보세요.</li>
+<li>git을 통해 Octopress 소스 다운받기</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>cd octopress    # If you use RVM, You'll be asked if you trust the .rvmrc file (say yes).
+</span><span class='line'>ruby --version  # Should report Ruby 1.9.3</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>연관된 module 설치하기</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install bundler
+</span><span class='line'>rbenv rehash    # If you use rbenv, rehash to be able to run the bundle command
+</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>octopress용 초기 theme 설정하기</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>이로써 설치가 끝났습니다.</p>
+
+<p>1: <a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a> : 영문으로된 id.github.com 설정방법<br/>
+2: <a href="https://github.com/mojombo/jekyll/wiki/blog-migrations">https://github.com/mojombo/jekyll/wiki/blog-migrations</a></p>
+]]></content>
+  </entry>
+  
+</feed>
