@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress 간단 사용법 - Code4Rain`s Blog</title>
+  <title>Categories - Code4Rain`s Blog</title>
   <meta name="author" content="Alex Kyoungdon Jang">
 
   
-  <meta name="description" content="Blog Post 만들기 source/_post 아래에 YYYY-MM-DD-post-title.markdown 형태로 저장해야 합니다.
-자동으로 yaml meta data를 추가하여 해당 형태로 만들어주는 명령어가 아래와 같습니다.
-rake new_post["&lt; &hellip;">
+  <meta name="description" content="Categories Jul 28th, 2013 Blog [ 2 ] Octopress [ 2 ] Vim [ 1 ] Git [ 1 ] Tip [ 1 ] Outlook [ 1 ] Python [ 1 ] Jul 28th, 2013 Comments Please enable &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ rake new_post["&lt; &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob/">
+  <link rel="canonical" href="http://code4rain.github.com/blog/categories/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -65,15 +63,11 @@ rake new_post["&lt; &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article class="hentry" role="article">
+<article role="article">
   
   <header>
-    
-      <h1 class="entry-title">Octopress 간단 사용법</h1>
-    
-    
-      <p class="meta">
-        
+    <h1 class="entry-title">Categories</h1>
+    <p class="meta">
 
 
 
@@ -85,92 +79,33 @@ rake new_post["&lt; &hellip;">
   
 
 
-<time datetime="2012-11-18T00:05:00+09:00" pubdate data-updated="true">Nov 18<span>th</span>, 2012</time>
-        
-         | <a href="#disqus_thread">Comments</a>
-        
-      </p>
-    
+<time datetime="2013-07-28T23:11:00+09:00" pubdate data-updated="true">Jul 28<span>th</span>, 2013</time></p>
   </header>
+  
+  <ul>
 
+    <li><a href="/blog/categories/Blog/">Blog</a> [ 2 ]</li>
 
-<div class="entry-content"><h3>Blog Post 만들기</h3>
+    <li><a href="/blog/categories/Octopress/">Octopress</a> [ 2 ]</li>
 
-<p><code>source/_post</code> 아래에 <code>YYYY-MM-DD-post-title.markdown</code> 형태로 저장해야 합니다.
-자동으로 yaml meta data를 추가하여 해당 형태로 만들어주는 명령어가 아래와 같습니다.<br/>
-<code>rake new_post["&lt;블로그 제목&gt;"]</code></p>
+    <li><a href="/blog/categories/VIM/">Vim</a> [ 1 ]</li>
 
-<h3>Post 작성하기</h3>
+    <li><a href="/blog/categories/GIT/">Git</a> [ 1 ]</li>
 
-<p><code>rake new_post</code> 명령을 통해 만들어진 <code>source/_post/YYYY-MM-DD-post-title.markdown</code> 파일을 자신이 원하는 에디터로 수정합니다.
-yaml meta data로 선언된 categories는 아래와 같이 방식으로 추가할 수 있습니다.</p>
+    <li><a href="/blog/categories/TIP/">Tip</a> [ 1 ]</li>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># One category
-</span><span class='line'>categories: Sass
-</span><span class='line'>
-</span><span class='line'># Multiple categories example 1
-</span><span class='line'>categories: [CSS3, Sass, Media Queries]
-</span><span class='line'>
-</span><span class='line'># Multiple categories example 2
-</span><span class='line'>categories:
-</span><span class='line'>- CSS3
-</span><span class='line'>- Sass
-</span><span class='line'>- Media Queries</span></code></pre></td></tr></table></div></figure>
+    <li><a href="/blog/categories/Outlook/">Outlook</a> [ 1 ]</li>
 
+    <li><a href="/blog/categories/Python/">Python</a> [ 1 ]</li>
 
-<p><code>---</code> 아래에 markdown 문법으로 블로그를 작성합니다.</p>
-
-<h3>Page 만들기</h3>
-
-<p>&lt;폴더명>\index.html로 만드는 방식과 &lt;원하는 파일명>.html 형식으로 만들 수 있습니다.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_page[super-awesome]
-</span><span class='line'># creates /source/super-awesome/index.markdown
-</span><span class='line'>
-</span><span class='line'>rake new_page[super-awesome/page.html]
-</span><span class='line'># creates /source/super-awesome/page.html</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>만든 Post &amp; Page 게시하기</h3>
-
-<ul>
-<li>markdown으로 만들어진 문서를 html로 변경하는 명령<br/>
-<code>rake generate</code></li>
-<li>만들어진 문서를 미리보기<br/>
-<code>rake preview</code></li>
-<li><p>웹으로 게시하기<br/>
-<code>rake deploy</code></p></li>
-<li><p><code>rake generat</code>와 <code>rake deploy</code>를 동시에 수행하기<br/>
-<code>rake gen_deploy</code></p></li>
 </ul>
 
-</div>
 
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Alex Kyoungdon Jang</span></span>
-
-      
+    <footer>
+      <p class="meta">
+        
+        
 
 
 
@@ -182,34 +117,12 @@ yaml meta data로 선언된 categories는 아래와 같이 방식으로 추가�
   
 
 
-<time datetime="2012-11-18T00:05:00+09:00" pubdate data-updated="true">Nov 18<span>th</span>, 2012</time>
+<time datetime="2013-07-28T23:11:00+09:00" pubdate data-updated="true">Jul 28<span>th</span>, 2013</time>
+        
+      </p>
       
-
-<span class="categories">
+    </footer>
   
-    <a class='category' href='/blog/categories/blog/'>Blog</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2012/09/28/octopress-seolcihagi/" title="Previous Post: Octopress 설치하기">&laquo; Octopress 설치하기</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/" title="Next Post: Gvim 기본 시작 위치 변경">Gvim 기본 시작 위치 변경 &raquo;</a>
-      
-    </p>
-  </footer>
 </article>
 
   <section>
@@ -310,8 +223,8 @@ yaml meta data로 선언된 categories는 아래와 같이 방식으로 추가�
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob/';
-        var disqus_url = 'http://code4rain.github.com/blog/2012/11/18/octopress-gandan-sayongbeob/';
+        var disqus_identifier = 'http://code4rain.github.com/blog/categories/index.html';
+        var disqus_url = 'http://code4rain.github.com/blog/categories/index.html';
         var disqus_script = 'embed.js';
       
     (function () {
