@@ -4,7 +4,7 @@
   <title><![CDATA[Code4Rain`s Blog]]></title>
   <link href="http://code4rain.github.com/atom.xml" rel="self"/>
   <link href="http://code4rain.github.com/"/>
-  <updated>2014-03-20T23:39:08+09:00</updated>
+  <updated>2014-03-21T11:46:10+09:00</updated>
   <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
@@ -14,113 +14,32 @@
 
   
   <entry>
-    <title type="html"><![CDATA[SSH 로그인시 접속지연 해결방법]]></title>
-    <link href="http://code4rain.github.com/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/"/>
-    <updated>2014-03-09T20:14:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob</id>
-    <content type="html"><![CDATA[<p>사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시</p>
-
-<p>로그인 과정에서 3,4초 딜레이가 발생한다.</p>
-
-<p>/etc/ssh/sshd_config 파일에 &#8220;UseDNS no&#8221;로 설정하면, 딜레이를 줄일 수 있다.</p>
-
-<p>ssh 데몬 재시작이 필요.
-<code>$sudo /etc/init.d/ssh restart 혹은 service ssh restart</code></p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Change Outlook Subject with Python]]></title>
-    <link href="http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python/"/>
-    <updated>2012-12-27T10:42:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python</id>
-    <content type="html"><![CDATA[<h2>동기</h2>
+    <link href="http://code4rain.github.com/blog/2014/03/21/change-outlook-subject-with-python/"/>
+    <updated>2014-03-21T10:42:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2014/03/21/change-outlook-subject-with-python</id>
+    <content type="html"><![CDATA[<h3>동기</h3>
 
-<p>아웃룩의 제목에 Re: Fwd: 등의 문자열이 들어가서 제목을 한 눈에 알아볼 수가 없어서 찾기 시작</p>
+<p>회사 메일의 prefix들 - <code>Re:</code>, <code>RE:</code>, <code>Fwd:</code>, <code>FWD:</code>로 인해서 아웃룩 대화보기가 되지 않았습니다. (대화보기를 사용하면 같은 주제별로 메일을 묶어주니 확인해야할 양이 많이 줄어들죠.)</p>
 
-<h2>Reference</h2>
+<h3>Reference</h3>
 
-<p>Stack Overflow:<br/>
+<p>Stack Overflow:
 <em><a href="http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython">http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython</a></em></p>
 
-<h2>설치 방법</h2>
+<h3>적용 방법</h3>
 
 <ol>
-<li>Download and install <a href="http://sourceforge.net/projects/pywin32/">pywin32</a>
-
-<ul>
-<li>python은 가자 많이 사용하는 2.7.3 버전 설치(windows용) - <a href="http://www.python.org/getit/">Download</a></li>
-<li>pywin32는 버전에 맞는 library설치 (여기서는 pywin32-218.win32-py2.7.exe 설치) - <a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/">Download</a></li>
-</ul>
-</li>
-<li>아래와 같이 test script 작성(save as test.py)</li>
+<li>Download Python
+Test version 2.7.5 <a href="http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi">python</a></li>
+<li>Download pywin
+Test version pywin32-218-win32-py2.7 <a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build">pywin32</a></li>
+<li>Download Redemption DLL
+Test version <a href="http://www.dimastr.com/redemption/Redemption.zip">Redemption</a>
+&#8211; IF you use OUTLOOK 64bit, download python, pywin 64bit(x64) instead of 32bit(x86).</li>
+<li>Make script - convert.py</li>
 </ol>
 
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">re</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">win32com.client</span>
-</span><span class='line'><span class="c">#session = win32com.client.gencache.EnsureDispatch(&quot;MAPI.session&quot;)</span>
-</span><span class='line'><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gencache</span><span class="o">.</span><span class="n">EnsureDispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="n">outlook</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Dispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="c">#print &#39;\n&#39;.join(dir(outlook))</span>
-</span><span class='line'><span class="n">mapi</span> <span class="o">=</span> <span class="n">outlook</span><span class="o">.</span><span class="n">GetNamespace</span><span class="p">(</span><span class="s">&#39;MAPI&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">inbox</span> <span class="o">=</span>  <span class="n">mapi</span><span class="o">.</span><span class="n">GetDefaultFolder</span><span class="p">(</span><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">olFolderInbox</span><span class="p">)</span>
-</span><span class='line'><span class="n">items</span> <span class="o">=</span> <span class="n">inbox</span><span class="o">.</span><span class="n">Items</span>
-</span><span class='line'><span class="c">#items.Restrict(&quot;[Unread] = true&quot;)</span>
-</span><span class='line'><span class="c">#print &#39;\n&#39;.join(dir(items))</span>
-</span><span class='line'><span class="c">#print &quot;hello&quot;</span>
-</span><span class='line'>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">item</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">GetNext</span><span class="p">()</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span> <span class="k">break</span>
-</span><span class='line'>        <span class="c">#print &#39;\n&#39;.join(dir(item))</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">):</span>
-</span><span class='line'>        <span class="c"># print item.Subject.encode(&#39;euc-kr&#39;)</span>
-</span><span class='line'>        <span class="c"># print item.Body</span>
-</span><span class='line'>        <span class="c"># works VVVV</span>
-</span><span class='line'>        <span class="c"># item.Body = &#39;whoya!&#39;</span>
-</span><span class='line'>        <span class="n">item</span><span class="o">.</span><span class="n">Subject</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: &#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">item</span><span class="o">.</span><span class="n">Save</span><span class="p">()</span>
-</span><span class='line'>        <span class="c"># print item.Subject.encode(&#39;euc-kr&#39;)</span>
-</span><span class='line'>        <span class="c"># break</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>원하는 문자열로 바꾸고 싶다면 re.compile, re.sub 뒤에 오는 regular expression을 수정하면됨.</li>
-</ol>
-
-
-<h2>2013-01-10 Update.</h2>
-
-<p>기존 version의 경우 default Inbox에서만 검색해서 Subject를 수정함.
-Recursive로 하위 폴더에 대해서도 Subject를 수정하도록 변경함.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -153,45 +72,97 @@ Recursive로 하위 폴더에 대해서도 Subject를 수정하도록 변경함.
 <span class='line-number'>29</span>
 <span class='line-number'>30</span>
 <span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">re</span>
 </span><span class='line'><span class="kn">import</span> <span class="nn">win32com.client</span>
+</span><span class='line'>
 </span><span class='line'><span class="kn">from</span> <span class="nn">win32com.client</span> <span class="kn">import</span> <span class="n">Dispatch</span><span class="p">,</span> <span class="n">constants</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">def</span> <span class="nf">parse_folder</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
-</span><span class='line'>    <span class="k">print</span> <span class="n">folder</span><span class="o">.</span><span class="n">Name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;euc-kr&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">print</span> <span class="s">&quot;Processing ## </span><span class="si">%s</span><span class="s"> &quot;</span><span class="o">%</span><span class="n">folder</span><span class="o">.</span><span class="n">Name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;euc-kr&#39;</span><span class="p">)</span>
 </span><span class='line'>    <span class="n">items</span> <span class="o">=</span> <span class="n">folder</span><span class="o">.</span><span class="n">Items</span>
 </span><span class='line'>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
 </span><span class='line'>        <span class="n">item</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">GetNext</span><span class="p">()</span>
-</span><span class='line'>        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span> <span class="k">break</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+</span><span class='line'>            <span class="k">print</span> <span class="s">&quot;Done&quot;</span>
+</span><span class='line'>            <span class="k">break</span>
 </span><span class='line'>        <span class="c">#print &#39;\n&#39;.join(dir(item))</span>
 </span><span class='line'>
-</span><span class='line'>        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: |Fwd\d*: |Re\d* :|Fwd\(*\d*\)*: |Re\(*\d*\)*: |Re:\(*\d*\)* |RE\**\d*: |Fwd:\(*\d*\)* &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">):</span>
-</span><span class='line'>            <span class="c"># print item.Subject</span>
-</span><span class='line'>            <span class="k">print</span> <span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;euc-kr&#39;</span><span class="p">)</span>
-</span><span class='line'>            <span class="c"># print item.Body</span>
-</span><span class='line'>            <span class="c"># works VVVV</span>
-</span><span class='line'>            <span class="c"># item.Body = &#39;whoya!&#39;</span>
-</span><span class='line'>            <span class="n">item</span><span class="o">.</span><span class="n">Subject</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: |Fwd\d*: |Re\d* :|Fwd\(*\d*\)*: |Re\(*\d*\)*: |Re:\(*\d*\)* |RE\**\d*: |Fwd:\(*\d*\)* &#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">)</span>
-</span><span class='line'>            <span class="n">item</span><span class="o">.</span><span class="n">Save</span><span class="p">()</span>
-</span><span class='line'>            <span class="c"># print item.Subject.encode(&#39;euc-kr&#39;)</span>
-</span><span class='line'>            <span class="c"># break</span>
+</span><span class='line'>        <span class="n">objrdoitem</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">GetMessageFromID</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">EntryID</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Parent</span><span class="o">.</span><span class="n">StoreID</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="n">objrdoitem</span><span class="o">.</span><span class="n">ConversationIndex</span> <span class="o">==</span> <span class="s">&#39;&#39;</span> <span class="p">:</span>
+</span><span class='line'>            <span class="k">continue</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="n">objrdoitem</span><span class="o">.</span><span class="n">ConversationIndex</span> <span class="o">!=</span> <span class="s">&#39;&#39;</span> <span class="p">:</span>
+</span><span class='line'>            <span class="n">objrdoitem</span><span class="o">.</span><span class="n">ConversationIndex</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+</span><span class='line'>            <span class="n">objrdoitem</span><span class="o">.</span><span class="n">Save</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;(Re|RE|Fwd|FW|Rq)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">ConversationTopic</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">NewTopic</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;(Re|RE|Fwd|FW)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">ConversationTopic</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">objrdoitem</span><span class="o">.</span><span class="n">ConversationTopic</span> <span class="o">=</span> <span class="n">NewTopic</span>
+</span><span class='line'>            <span class="n">objrdoitem</span><span class="o">.</span><span class="n">Save</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r&#39;(Re|RE|Fwd|FW|Rq)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">):</span>
+</span><span class='line'>            <span class="n">NewTopic</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;(Re|RE|Fwd|FW)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">Subject</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">objrdoitem</span><span class="o">.</span><span class="n">ConversationTopic</span> <span class="o">=</span> <span class="n">NewTopic</span>
+</span><span class='line'>            <span class="n">objrdoitem</span><span class="o">.</span><span class="n">Save</span><span class="p">()</span>
+</span><span class='line'>            <span class="c">#break</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">folder</span><span class="o">.</span><span class="n">Folders</span><span class="o">.</span><span class="n">Count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
 </span><span class='line'>        <span class="n">parse_folder</span><span class="p">(</span><span class="n">folder</span><span class="o">.</span><span class="n">Folders</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">gencache</span><span class="o">.</span><span class="n">EnsureDispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
 </span><span class='line'><span class="n">outlook</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Dispatch</span><span class="p">(</span><span class="s">&quot;Outlook.Application&quot;</span><span class="p">)</span>
 </span><span class='line'><span class="n">mapi</span> <span class="o">=</span> <span class="n">outlook</span><span class="o">.</span><span class="n">GetNamespace</span><span class="p">(</span><span class="s">&#39;MAPI&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="n">inbox</span> <span class="o">=</span>  <span class="n">mapi</span><span class="o">.</span><span class="n">GetDefaultFolder</span><span class="p">(</span><span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">constants</span><span class="o">.</span><span class="n">olFolderInbox</span><span class="p">)</span>
-</span><span class='line'><span class="n">items</span> <span class="o">=</span> <span class="n">inbox</span><span class="o">.</span><span class="n">Items</span>
-</span><span class='line'><span class="n">parse_folder</span><span class="p">(</span><span class="n">inbox</span><span class="p">)</span>
+</span><span class='line'><span class="n">mapi</span><span class="o">.</span><span class="n">Logon</span><span class="p">()</span>
+</span><span class='line'><span class="n">session</span> <span class="o">=</span> <span class="n">win32com</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Dispatch</span><span class="p">(</span><span class="s">&quot;Redemption.RDOSession&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">session</span><span class="o">.</span><span class="n">Logon</span><span class="p">()</span>
+</span><span class='line'><span class="c">#top = mapi.Folders.Item(&quot;Archives&quot;)</span>
+</span><span class='line'><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">mapi</span><span class="o">.</span><span class="n">Folders</span><span class="o">.</span><span class="n">Count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">parse_folder</span><span class="p">(</span><span class="n">mapi</span><span class="o">.</span><span class="n">Folders</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>TODO more</h2>
+<ol>
+<li>Run script
+ <code>&lt;python path&gt;\python convert.py</code></li>
+</ol>
 
-<p>위 방법을 사용하더라도 conversation view(대화 형식 보기)에서는 Re: Fwd:가 남아있음.<br/>
-MSDN을 찾아보니 conversation view에서는 ConversationTopic을 Subject로 사용하고, ConversationTopic은 Readonly attribute을 가지고 있어 수정이 안됨.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN LINK</a><br/>
-임시로 Conversation View를 Off하고 보는 중</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SSH 로그인시 접속지연 해결방법]]></title>
+    <link href="http://code4rain.github.com/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/"/>
+    <updated>2014-03-09T20:14:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob</id>
+    <content type="html"><![CDATA[<p>사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시</p>
+
+<p>로그인 과정에서 3,4초 딜레이가 발생한다.</p>
+
+<p>/etc/ssh/sshd_config 파일에 &#8220;UseDNS no&#8221;로 설정하면, 딜레이를 줄일 수 있다.</p>
+
+<p>ssh 데몬 재시작이 필요.
+<code>$sudo /etc/init.d/ssh restart 혹은 service ssh restart</code></p>
 ]]></content>
   </entry>
   

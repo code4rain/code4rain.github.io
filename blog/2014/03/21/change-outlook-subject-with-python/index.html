@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Code4Rain`s Blog</title>
+  <title>Change Outlook Subject with Python - Code4Rain`s Blog</title>
   <meta name="author" content="Alex Kyoungdon Jang">
 
   
@@ -19,7 +19,7 @@ http:// &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://code4rain.github.com">
+  <link rel="canonical" href="http://code4rain.github.com/blog/2014/03/21/change-outlook-subject-with-python">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Code4Rain`s Blog" type="application/atom+xml">
@@ -64,15 +64,12 @@ http:// &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/03/21/change-outlook-subject-with-python/">Change Outlook Subject With Python</a></h1>
+      <h1 class="entry-title">Change Outlook Subject With Python</h1>
     
     
       <p class="meta">
@@ -90,14 +87,14 @@ http:// &hellip;">
 
 <time datetime="2014-03-21T10:42:00+09:00" pubdate data-updated="true">Mar 21<span>st</span>, 2014</time>
         
-         | <a href="/blog/2014/03/21/change-outlook-subject-with-python/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h3>동기</h3>
+<div class="entry-content"><h3>동기</h3>
 
 <p>회사 메일의 prefix들 - <code>Re:</code>, <code>RE:</code>, <code>Fwd:</code>, <code>FWD:</code>로 인해서 아웃룩 대화보기가 되지 않았습니다. (대화보기를 사용하면 같은 주제별로 메일을 묶어주니 확인해야할 양이 많이 줄어들죠.)</p>
 
@@ -227,67 +224,16 @@ Test version <a href="http://www.dimastr.com/redemption/Redemption.zip">Redempti
 </ol>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/">SSH 로그인시 접속지연 해결방법</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Alex Kyoungdon Jang</span></span>
 
-<time datetime="2014-03-09T20:14:00+09:00" pubdate data-updated="true">Mar 9<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시</p>
-
-<p>로그인 과정에서 3,4초 딜레이가 발생한다.</p>
-
-<p>/etc/ssh/sshd_config 파일에 &#8220;UseDNS no&#8221;로 설정하면, 딜레이를 줄일 수 있다.</p>
-
-<p>ssh 데몬 재시작이 필요.
-<code>$sudo /etc/init.d/ssh restart 혹은 service ssh restart</code></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/">PUSH된 COMMIT내용 수정하기(Gerrit Review전)</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -299,294 +245,43 @@ Test version <a href="http://www.dimastr.com/redemption/Redemption.zip">Redempti
   
 
 
-<time datetime="2012-12-14T12:59:00+09:00" pubdate data-updated="true">Dec 14<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.</p>
-
-<p><code>수정하고 싶은 commit이 현재 HEAD라고 가정</code></p>
-
-<h3>comit에 있는 일부 파일만 변경하고 싶을 때</h3>
-
-<pre><code>1. 수정하고 싶은 파일(a.c) 편집
-2. git add a.c
-3. git commit --amend -C HEAD // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.
-4. git push 
-</code></pre>
-
-<h3>commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h3>
-
-<pre><code>1. git checkout HEAD^ -- &lt;돌리고 싶은 파일명&gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.
-2. git add &lt;돌리고 싶은 파일명&gt;
-3. git commit --amend -C HEAD
-4. git push
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2014-03-21T10:42:00+09:00" pubdate data-updated="true">Mar 21<span>st</span>, 2014</time>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/">Gvim 기본 시작 위치 변경</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
-
-
-
-
+<span class="categories">
   
+    <a class='category' href='/blog/categories/outlook/'>Outlook</a>, <a class='category' href='/blog/categories/python/'>Python</a>
+  
+</span>
 
 
-<time datetime="2012-12-13T10:40:00+09:00" pubdate data-updated="true">Dec 13<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/#disqus_thread">Comments</a>
-        
-      </p>
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장된다.<br/>
-예를 들면 <code>:w test.md</code>라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 된다.</p>
-
-<p>이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 <code>시작 위치(S):</code>에 자신이 원하는 디렉토리를 아래처럼 추가시켜준다.</p>
-
-<p><img src="/images/gvim_cap00.png" title="[Gvim short cut sample]" ></p>
+      <div class="sharing">
+  
+  
+  
 </div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/11/18/octopress-gandan-sayongbeob/">Octopress 간단 사용법</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-18T00:05:00+09:00" pubdate data-updated="true">Nov 18<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/11/18/octopress-gandan-sayongbeob/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Blog Post 만들기</h3>
-
-<p><code>source/_post</code> 아래에 <code>YYYY-MM-DD-post-title.markdown</code> 형태로 저장해야 합니다.
-자동으로 yaml meta data를 추가하여 해당 형태로 만들어주는 명령어가 아래와 같습니다.<br/>
-<code>rake new_post["&lt;블로그 제목&gt;"]</code></p>
-
-<h3>Post 작성하기</h3>
-
-<p><code>rake new_post</code> 명령을 통해 만들어진 <code>source/_post/YYYY-MM-DD-post-title.markdown</code> 파일을 자신이 원하는 에디터로 수정합니다.
-yaml meta data로 선언된 categories는 아래와 같이 방식으로 추가할 수 있습니다.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># One category
-</span><span class='line'>categories: Sass
-</span><span class='line'>
-</span><span class='line'># Multiple categories example 1
-</span><span class='line'>categories: [CSS3, Sass, Media Queries]
-</span><span class='line'>
-</span><span class='line'># Multiple categories example 2
-</span><span class='line'>categories:
-</span><span class='line'>- CSS3
-</span><span class='line'>- Sass
-</span><span class='line'>- Media Queries</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>---</code> 아래에 markdown 문법으로 블로그를 작성합니다.</p>
-
-<h3>Page 만들기</h3>
-
-<p>&lt;폴더명>\index.html로 만드는 방식과 &lt;원하는 파일명>.html 형식으로 만들 수 있습니다.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_page[super-awesome]
-</span><span class='line'># creates /source/super-awesome/index.markdown
-</span><span class='line'>
-</span><span class='line'>rake new_page[super-awesome/page.html]
-</span><span class='line'># creates /source/super-awesome/page.html</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>만든 Post &amp; Page 게시하기</h3>
-
-<ul>
-<li>markdown으로 만들어진 문서를 html로 변경하는 명령<br/>
-<code>rake generate</code></li>
-<li>만들어진 문서를 미리보기<br/>
-<code>rake preview</code></li>
-<li><p>웹으로 게시하기<br/>
-<code>rake deploy</code></p></li>
-<li><p><code>rake generat</code>와 <code>rake deploy</code>를 동시에 수행하기<br/>
-<code>rake gen_deploy</code></p></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+        <a class="basic-alignment left" href="/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/" title="Previous Post: SSH 로그인시 접속지연 해결방법">&laquo; SSH 로그인시 접속지연 해결방법</a>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/28/octopress-seolcihagi/">Octopress 설치하기</a></h1>
-    
-    
-      <p class="meta">
-        
+      
+    </p>
+  </footer>
+</article>
 
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-28T13:51:00+09:00" pubdate data-updated="true">Sep 28<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/09/28/octopress-seolcihagi/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://octopress.org/images/logo.png?1346949399"></p>
-
-<h2>Octopress란?</h2>
-
-<p><a href="http://github.com">github.com</a>에서는 public git기능뿐만 아니라 Website기능도 제공하고 있습니다.<a href="http://octopress.org/docs/deploying/github/">1</a>
-Website 기능을 원활하게 사용하기 위해서 여러가지 Tool들이 존재하는데 그중에 <a href="https://github.com/mojombo/jekyll/wiki">jekyll</a>는 markdown으로 작성된 문서를 HTML로 변환해주어 github에서 사용이 가능합니다.
-이 <a href="https://github.com/mojombo/jekyll/wiki">jekyll</a>를 base로 blog에 사용하기 편하도록 wrapping한 Tool이 Octopress입니다.</p>
-
-<h2>Octopress 설치 방법(Getting Strted)</h2>
-
-<p>여기서부터는 Octopress의 설치 방법에 관한 문서입니다. 해외에서 많이 사용되는 blog platform(ex. wordpress)에서 blog를 운영하고 있다면 <a href="https://github.com/mojombo/jekyll/wiki/blog-migrations">Jekyll&#8217;s Migration page</a>을 참고해서 이사를 하시면됩니다.</p>
-
-<h3>초기 설정하기 - 소스코드를 받아오고, 설치에 관련된 tool설치</h3>
-
-<p>Octopress는 Hacker를 위한 blog platform이라는 거창한 타이틀을 가지고 있습니다. Geek스럽다고나 할까요. Command line으로 작업하는데 익숙하지 않으시다면, 설치부터 난항을 겪으실지도 모르겠습니다.(나름 이해하기 쉽게 설명하려고 합니다만)</p>
-
-<ul>
-<li><a href="http://git-scm.com/">Git 설치하기</a> - octopress는 GIT기반으로 문서를 관리합니다.</li>
-<li>Ruby 1.9.3 설치하기 - <a href="http://octopress.org/docs/setup/rbenv/">rbenv</a>와 <a href="http://octopress.org/docs/setup/rvm/">RVM</a>을 통해 설치하는 방법이 있습니다.
-  개인적으로 RVM을 통한 설치가 더 편리했습니다. :)<br/>
-  저는 Ubuntu 10.04 LTS 위에서 설치를 시도하였는데 기존에 설치된 ruby1.8버전이 있어서<br/>
-  <code>sudo apt-get remove ruby1.8 ruby1.8-dev</code><br/>
-  를 하고 위 설치 방법을 따라서 설치했습니다.<br/>
-  그리고 rake install시에 openssl-dev를 못찾는  에러가 난다면 추가적으로<br/>
-  <code>sudo apt-get install openssl-dev</code>로 설치해주셔야 합니다.<br/>
-  설치가 끝나면 <code>ruby --version</code>으로 1.9.3버전이 정상적으로 설치되었는지 확인해보세요.</li>
-<li>git을 통해 Octopress 소스 다운받기</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'>cd octopress    # If you use RVM, You'll be asked if you trust the .rvmrc file (say yes).
-</span><span class='line'>ruby --version  # Should report Ruby 1.9.3</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>연관된 module 설치하기</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem install bundler
-</span><span class='line'>rbenv rehash    # If you use rbenv, rehash to be able to run the bundle command
-</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>octopress용 초기 theme 설정하기</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
-
-
-<p>이로써 설치가 끝났습니다.</p>
-
-<p>1: <a href="http://octopress.org/docs/deploying/github/">http://octopress.org/docs/deploying/github/</a> : 영문으로된 id.github.com 설정방법<br/>
-2: <a href="https://github.com/mojombo/jekyll/wiki/blog-migrations">https://github.com/mojombo/jekyll/wiki/blog-migrations</a></p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  
-  
+  </section>
 
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -627,7 +322,7 @@ Website 기능을 원활하게 사용하기 위해서 여러가지 Tool들이 �
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/code4rain">@code4rain</a> on GitHub
@@ -661,6 +356,7 @@ Website 기능을 원활하게 사용하기 위해서 여러가지 Tool들이 �
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -675,7 +371,10 @@ Website 기능을 원활하게 사용하기 위해서 여러가지 Tool들이 �
       var disqus_shortname = 'code4rainsblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://code4rain.github.com/blog/2014/03/21/change-outlook-subject-with-python/';
+        var disqus_url = 'http://code4rain.github.com/blog/2014/03/21/change-outlook-subject-with-python/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
