@@ -4,7 +4,7 @@
   <title><![CDATA[Code4Rain`s Blog]]></title>
   <link href="http://code4rain.github.com/atom.xml" rel="self"/>
   <link href="http://code4rain.github.com/"/>
-  <updated>2014-03-24T18:12:55+09:00</updated>
+  <updated>2014-03-25T00:03:49+09:00</updated>
   <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
@@ -18,7 +18,7 @@
     <link href="http://code4rain.github.com/blog/2014/03/24/change-outlook-subject-with-python/"/>
     <updated>2014-03-24T10:42:00+09:00</updated>
     <id>http://code4rain.github.com/blog/2014/03/24/change-outlook-subject-with-python</id>
-    <content type="html"><![CDATA[<h2>Why make it?</h2>
+    <content type="html"><![CDATA[<h2>Progress..</h2>
 
 <p>직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.</p>
 
@@ -40,13 +40,13 @@ Python으로 뭔가 쿵짝쿵짝하면 될 것같은 느낌이 듭니다. 오호
 <p><strong>뭔가 되는 듯하더니 안됩니다.ㅠㅠ</strong></p>
 
 <p>음 다시 Google과 stackoverflow를 뒤져봅니다.
-MSDN에 나온 걸 보니 conversationTopic을 변경이 안된다고 합니다.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN</a></p>
+<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN</a>에 나온 걸 보니 conversationTopic을 변경이 안된다고 합니다.</p>
 
 <p>이런&#8230;</p>
 
 <p>하지만 또 뒤져봅니다.</p>
 
-<p>&#8230; (<em> </em>) (- - ) ( - -)</p>
+<p>&#8230; (_ _) (- - ) ( - -)</p>
 
 <p>걸렸습니다. Redemption DLL을 깔면 수정할 수 있답니다. (예~)</p>
 
@@ -191,7 +191,7 @@ python이 제대로 설치되었다면 conversation.py를 double click하면 잘
 <h2>Bonus</h2>
 
 <p>메일이 오면 자동으로 변경해주는 건 VBA스크립트를 만들어야 합니다.
-방법이 살짝 귀찮으니 다음 Posting에 올립니다. :)</p>
+방법이 살짝 귀찮으니 다음 Posting에 올립니다. :-)</p>
 ]]></content>
   </entry>
   
@@ -200,14 +200,13 @@ python이 제대로 설치되었다면 conversation.py를 double click하면 잘
     <link href="http://code4rain.github.com/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/"/>
     <updated>2014-03-09T20:14:00+09:00</updated>
     <id>http://code4rain.github.com/blog/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob</id>
-    <content type="html"><![CDATA[<p>사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시</p>
+    <content type="html"><![CDATA[<p>사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시 로그인 과정에서 3,4초 딜레이가 발생한다.</p>
 
-<p>로그인 과정에서 3,4초 딜레이가 발생한다.</p>
+<p><code>/etc/ssh/sshd_config</code>파일에 <code>UseDNS no</code>을 추가하면 딜레이를 없앨 수 있다.</p>
 
-<p>/etc/ssh/sshd_config 파일에 &#8220;UseDNS no&#8221;로 설정하면, 딜레이를 줄일 수 있다.</p>
+<p>파일 수정 수 ssh 데몬 재시작이 필요.</p>
 
-<p>ssh 데몬 재시작이 필요.
-<code>$sudo /etc/init.d/ssh restart 혹은 service ssh restart</code></p>
+<p><code>$sudo /etc/init.d/ssh restart 혹은 service ssh restart</code></p>
 ]]></content>
   </entry>
   
