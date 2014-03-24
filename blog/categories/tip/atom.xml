@@ -4,7 +4,7 @@
   <title><![CDATA[Category: TIP | Code4Rain`s Blog]]></title>
   <link href="http://code4rain.github.com/blog/categories/tip/atom.xml" rel="self"/>
   <link href="http://code4rain.github.com/"/>
-  <updated>2014-03-25T00:07:56+09:00</updated>
+  <updated>2014-03-25T00:10:55+09:00</updated>
   <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
@@ -24,19 +24,23 @@
 
 <h3>comit에 있는 일부 파일만 변경하고 싶을 때</h3>
 
-<pre><code>1. 수정하고 싶은 파일(a.c) 편집
-2. git add a.c
-3. git commit --amend -C HEAD // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.
-4. git push 
-</code></pre>
+<ol>
+<li>수정하고 싶은 파일(a.c) 편집</li>
+<li>git add a.c</li>
+<li>git commit --amend -C HEAD // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.</li>
+<li>git push</li>
+</ol>
+
 
 <h3>commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h3>
 
-<pre><code>1. git checkout HEAD^ -- &lt;돌리고 싶은 파일명&gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.
-2. git add &lt;돌리고 싶은 파일명&gt;
-3. git commit --amend -C HEAD
-4. git push
-</code></pre>
+<ol>
+<li>git checkout HEAD^ -- &lt;돌리고 싶은 파일명> // HEAD<sup>는</sup> 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.</li>
+<li>git add &lt;돌리고 싶은 파일명></li>
+<li>git commit --amend -C HEAD</li>
+<li>git push</li>
+</ol>
+
 ]]></content>
   </entry>
   
