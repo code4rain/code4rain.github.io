@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Outlook | Code4Rain`s Blog]]></title>
   <link href="http://code4rain.github.com/blog/categories/outlook/atom.xml" rel="self"/>
   <link href="http://code4rain.github.com/"/>
-  <updated>2014-03-24T16:45:50+09:00</updated>
+  <updated>2014-03-24T17:58:26+09:00</updated>
   <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
@@ -15,100 +15,117 @@
   
   <entry>
     <title type="html"><![CDATA[Change Outlook Subject with Python]]></title>
-    <link href="http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python/"/>
-    <updated>2012-12-27T10:42:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2012/12/27/change-outlook-subject-with-python</id>
-    <content type="html"><![CDATA[<h2>동기</h2>
+    <link href="http://code4rain.github.com/blog/2014/03/24/change-outlook-subject-with-python/"/>
+    <updated>2014-03-24T10:42:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2014/03/24/change-outlook-subject-with-python</id>
+    <content type="html"><![CDATA[<h2>Why make it?</h2>
 
-<p>아웃룩의 제목에 Re: Fwd: 등의 문자열이 들어가서 제목을 한 눈에 알아볼 수가 없어서 찾기 시작</p>
+<p>직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.</p>
 
-<h2>Reference</h2>
+<p>아웃룩 2003까지는 뭐 그러려니 하고 search plugin을 설치해서 쓰고 있다가, 2007에 conversation view(대화보기)라는 기능이 추가된 것을 알게 되었습니다. 메일 제목을 기준으로(엄밀히 이야기하면 메일 제목은 아닙니다만 :) 메일을 묶어주는 기능입니다.</p>
 
-<p>Stack Overflow:<br/>
-<em><a href="http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython">http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython</a></em></p>
+<p>하루에 오는 메일들이 대부분 Reply나 Foword 형식이기 때문에 이 기능을 쓰게 되면 하루에 오는 몇 백통의 메일을 몇 십개로 묶어서 보여주는 효과가 있습니다.</p>
+
+<p><strong>오호라~!</strong></p>
+
+<p>하지만 난관에 봉착합니다. 이 기능은 아웃룩에서 수발신한 메일들만 묶어줍니다. 회사메일에서 reply, foword를 하게되면 다른 conversation subject를 가진 메일로 인식하고 묶어주질 못하는 거죠. (통재라.ㅠㅠ)</p>
+
+<p>SW engineer가 이대로 포기할 순 없어서 검색해보기 시작합니다.</p>
+
+<p>우리의 친구 Google과 stackoverflow를 찾아보다가 <a href="http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython">힌트</a>를 발견합니다.
+Python으로 뭔가 쿵짝쿵짝하면 될 것같은 느낌이 듭니다. 오호~</p>
+
+<p>열심히 스크립트도 만들고 수정해봅니다.</p>
+
+<p><strong>뭔가 되는 듯하더니 안됩니다.ㅠㅠ</strong></p>
+
+<p>음 다시 Google과 stackoverflow를 뒤져봅니다.
+MSDN에 나온 걸 보니 conversationTopic을 변경이 안된다고 합니다.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN</a></p>
+
+<p>이런...</p>
+
+<p>하지만 또 뒤져봅니다.</p>
+
+<p>... (<em> </em>) (- - ) ( - -)</p>
+
+<p>걸렸습니다. Redemption DLL을 깔면 수정할 수 있답니다. (예~)</p>
+
+<p>그래서 기존에 온 메일을 일괄 정리하는 스크립트를 만듭니다. 쓱싹쓱싹 돌 때 심심하니 메일 하나를 처리하면 .하나를 찍어주도록 합니다.
+다 되고 나서 Conversation View로 바꿔봅니다.</p>
+
+<p><strong>오예</strong></p>
+
+<p>잘됩니다.ㅋㅋㅋㅋ</p>
+
+<p>이제 매번 스크립트를 돌리기가 귀찮아집니다. 보통은 여기까지하고 그만두지만, 이번엔 아웃룩 VBA까지 건들여봅니다. 뚝딱뚝딱</p>
+
+<p><strong>이힝~</strong></p>
+
+<p>이제 메일이 오면 자동으로 정리해주도록 변경합니다. 아.. 내가 만든 VBA스크립트는 인증받지 않은 스크립트라 보안을 해제해줘야 합니다.
+설마 회사에 스팸용 VBA 스크립트가 들어오진 않을테니, 보안담당자를 믿고 보안도 해제합니다.</p>
+
+<p>길고긴 삽질이 끝났습니다.</p>
 
 <h2>설치 방법</h2>
 
 <ol>
-<li>Download and install <a href="http://sourceforge.net/projects/pywin32/">pywin32</a>
+<li><p>Download and install</p>
 
 <ul>
-<li>python은 가자 많이 사용하는 2.7.3 버전 설치(windows용) - <a href="http://www.python.org/getit/">Download</a></li>
-<li>pywin32는 버전에 맞는 library설치 (여기서는 pywin32-218.win32-py2.7.exe 설치) - <a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/">Download</a></li>
+<li>Windows용 Python을 설치합니다.</li>
+<li>Python은 Outlook을 32bit을 설치했으면 32bit을, 64bit을 설치했으면 64bit을 설치합니다.</li>
+<li>다른 addon과의 호환성을 고려해서(attachemement remover는 32bit에서만 동작합니다.ㅠㅠ) 32bit을 설치합니다.</li>
+<li>Python Download : <a href="http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi">2.7.5 32bit</a></li>
+<li>Python용 win32 library도 다운받습니다. : <a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe/download">pywin32-218.win32-py2.7.exe</a></li>
+<li>Redemption DLL도 설치합니다. (설치가 잘 안되면 관리자 권한으로 설치합니다.) : <a href="http://www.dimastr.com/redemption/Redemption.zip">Redemption</a></li>
 </ul>
 </li>
-<li>아래와 같이 test script 작성(save as test.py)</li>
+<li><p>Make script</p></li>
 </ol>
 
+
+<p>스크립트를 작성합니다. 아래 내용을 복붙해서 conversation.py로 만듭니다.
+python이 제대로 설치되었다면 conversation.py를 double click하면 잘 실행이 됩니다.</p>
 
 <p>``` python
 import os, sys, re
 import win32com.client</p>
 
-<h1>session = win32com.client.gencache.EnsureDispatch("MAPI.session")</h1>
-
-<p>win32com.client.gencache.EnsureDispatch("Outlook.Application")
-outlook = win32com.client.Dispatch("Outlook.Application")</p>
-
-<h1>print '\n'.join(dir(outlook))</h1>
-
-<p>mapi = outlook.GetNamespace('MAPI')
-inbox =  mapi.GetDefaultFolder(win32com.client.constants.olFolderInbox)
-items = inbox.Items</p>
-
-<h1>items.Restrict("[Unread] = true")</h1>
-
-<h1>print '\n'.join(dir(items))</h1>
-
-<h1>print "hello"</h1>
-
-<pre><code>while True:
-item = items.GetNext()
-if item == None: break
-    #print '\n'.join(dir(item))
-
-    if re.compile(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: ').search(item.Subject):
-    # print item.Subject.encode('euc-kr')
-    # print item.Body
-    # works VVVV
-    # item.Body = 'whoya!'
-    item.Subject = re.sub(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: ','', item.Subject)
-    item.Save()
-    # print item.Subject.encode('euc-kr')
-    # break
-</code></pre>
-
-<p>```
-3. 원하는 문자열로 바꾸고 싶다면 re.compile, re.sub 뒤에 오는 regular expression을 수정하면됨.</p>
-
-<h2>2013-01-10 Update.</h2>
-
-<p>기존 version의 경우 default Inbox에서만 검색해서 Subject를 수정함.
-Recursive로 하위 폴더에 대해서도 Subject를 수정하도록 변경함.
-``` python
-import os, sys, re
-import win32com.client
-from win32com.client import Dispatch, constants</p>
+<p>from win32com.client import Dispatch, constants</p>
 
 <p>def parse_folder(folder):</p>
 
-<pre><code>print folder.Name.encode('euc-kr')
+<pre><code>print "Processing ## %s "%folder.Name.encode('euc-kr')
 items = folder.Items
 while True:
     item = items.GetNext()
-    if item == None: break
+    if item == None:
+        print "Done"
+        break
     #print '\n'.join(dir(item))
 
-    if re.compile(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: |Fwd\d*: |Re\d* :|Fwd\(*\d*\)*: |Re\(*\d*\)*: |Re:\(*\d*\)* |RE\**\d*: |Fwd:\(*\d*\)* ').search(item.Subject):
-        # print item.Subject
-        print item.Subject.encode('euc-kr')
-        # print item.Body
-        # works VVVV
-        # item.Body = 'whoya!'
-        item.Subject = re.sub(r'Fwd\[*\d*\]*: |FW\[*\d*\]*: |Re\[*\d*\]*: |RE\[*\d*\]*: |Fwd\d*: |Re\d* :|Fwd\(*\d*\)*: |Re\(*\d*\)*: |Re:\(*\d*\)* |RE\**\d*: |Fwd:\(*\d*\)* ','', item.Subject)
-        item.Save()
-        # print item.Subject.encode('euc-kr')
-        # break
+    objrdoitem = session.GetMessageFromID(item.EntryID, item.Parent.StoreID)
+
+    sys.stdout.write('.')
+
+    if objrdoitem.ConversationIndex == '' :
+        continue
+
+    if objrdoitem.ConversationIndex != '' :
+        objrdoitem.ConversationIndex = ''
+        objrdoitem.Save()
+
+    if re.compile(r'(Re|RE|Fwd|FW|Rq)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*').search(item.ConversationTopic):
+        NewTopic = re.sub(r'(Re|RE|Fwd|FW)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*','', item.ConversationTopic)
+        objrdoitem.ConversationTopic = NewTopic
+        objrdoitem.Save()
+
+    if re.compile(r'(Re|RE|Fwd|FW|Rq)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*').search(item.Subject):
+        NewTopic = re.sub(r'(Re|RE|Fwd|FW)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*','', item.Subject)
+        objrdoitem.ConversationTopic = NewTopic
+        objrdoitem.Save()
+        #break
+
 for i in range(1, folder.Folders.Count + 1):
     parse_folder(folder.Folders[i])
 </code></pre>
@@ -116,16 +133,23 @@ for i in range(1, folder.Folders.Count + 1):
 <p>win32com.client.gencache.EnsureDispatch("Outlook.Application")
 outlook = win32com.client.Dispatch("Outlook.Application")
 mapi = outlook.GetNamespace('MAPI')
-inbox =  mapi.GetDefaultFolder(win32com.client.constants.olFolderInbox)
-items = inbox.Items
-parse_folder(inbox)
-```</p>
+mapi.Logon()
+session = win32com.client.Dispatch("Redemption.RDOSession")
+session.Logon()</p>
 
-<h2>TODO more</h2>
+<h1>top = mapi.Folders.Item("Archives")</h1>
 
-<p>위 방법을 사용하더라도 conversation view(대화 형식 보기)에서는 Re: Fwd:가 남아있음.<br/>
-MSDN을 찾아보니 conversation view에서는 ConversationTopic을 Subject로 사용하고, ConversationTopic은 Readonly attribute을 가지고 있어 수정이 안됨.<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN LINK</a><br/>
-임시로 Conversation View를 Off하고 보는 중</p>
+<p>for i in range(1, mapi.Folders.Count + 1):</p>
+
+<pre><code>    parse_folder(mapi.Folders[i])
+</code></pre>
+
+<p>```</p>
+
+<h2>Bonus</h2>
+
+<p>메일이 오면 자동으로 변경해주는 건 VBA스크립트를 만들어야 합니다.
+방법이 살짝 귀찮으니 다음 Posting에 올립니다. :)</p>
 ]]></content>
   </entry>
   
