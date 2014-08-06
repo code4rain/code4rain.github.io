@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Tool | Code4Rain`s Blog]]></title>
+  <link href="http://code4rain.github.com/blog/categories/tool/atom.xml" rel="self"/>
+  <link href="http://code4rain.github.com/"/>
+  <updated>2014-08-06T17:43:22+09:00</updated>
+  <id>http://code4rain.github.com/</id>
+  <author>
+    <name><![CDATA[Alex Kyoungdon Jang]]></name>
+    <email><![CDATA[code4rain@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[TMUX설정]]></title>
+    <link href="http://code4rain.github.com/blog/2014/08/06/tmuxseoljeong/"/>
+    <updated>2014-08-06T16:46:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2014/08/06/tmuxseoljeong</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>

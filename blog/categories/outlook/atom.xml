@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Outlook | Code4Rain`s Blog]]></title>
-  <link href="http://code4rain.github.io/blog/categories/outlook/atom.xml" rel="self"/>
-  <link href="http://code4rain.github.io/"/>
-  <updated>2014-08-06T13:39:25+09:00</updated>
-  <id>http://code4rain.github.io/</id>
+  <link href="http://code4rain.github.com/blog/categories/outlook/atom.xml" rel="self"/>
+  <link href="http://code4rain.github.com/"/>
+  <updated>2014-08-06T17:43:22+09:00</updated>
+  <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
     <email><![CDATA[code4rain@gmail.com]]></email>
@@ -14,94 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Change Outlook Conversation topic #2]]></title>
-    <link href="http://code4rain.github.io/blog/2014/03/25/change-outlook-conversation-topic-number-2/"/>
-    <updated>2014-03-25T17:11:00+09:00</updated>
-    <id>http://code4rain.github.io/blog/2014/03/25/change-outlook-conversation-topic-number-2</id>
-    <content type="html"><![CDATA[<p>앞 포스팅과 이어지는 내용입니다.</p>
-
-<h2>HowTo</h2>
-
-<ol>
-<li>Outlook을 열어제낍니다.</li>
-<li><code>Alt + F11</code>을 누르면 VB Editor창이 열립니다.</li>
-<li></li>
-<li>아래 내용을 붙여넣습니다.</li>
-<li>MyOutlook -> 자신의 PST 파일명
-받은 편지함 -> 신규 메일이 오면 들어오는 폴더명
-으로 변경합니다.
-``` VBA
-m outlookNameSpace As Outlook.NameSpace
-Dim inbox As Outlook.MAPIFolder
-Private WithEvents items As Outlook.items</li>
-</ol>
-
-
-<p>Dim WithEvents myInboxMailItem As Outlook.items
-Dim WithEvents mySentboxMailItem As Outlook.items</p>
-
-<p>Private Sub myInboxMailItem_ItemAdd(ByVal Item As Object)</p>
-
-<pre><code>Dim oNS As Object
-Dim oRDOSess As Object
-Dim oRDOItem As Object
-Dim sEntryID As String
-Dim sStoreID As String
-Dim regEx As New VBScript_RegExp_55.RegExp
-
-Dim NewConversationTopic As String
-
-Set oRDOSess = CreateObject("Redemption.RDOSession")
-Set oNS = Nothing
-Set oNS = Outlook.GetNamespace("MAPI")
-oNS.Logon
-oRDOSess.MAPIOBJECT = oNS.MAPIOBJECT
-
-strEntryID = Item.EntryID
-strStoreID = Item.Parent.StoreID
-Set objrdoitem = oRDOSess.GetMessageFromID(strEntryID, strStoreID)
-regEx.Pattern = "(Re|RE|Fwd|FW|Rq)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*"
-regEx.IgnoreCase = False
-regEx.Global = True
-S = regEx.Replace(objrdoitem.ConversationTopic, "")
-
-'Apply what modifications to topic you want here - dumb example string manipulation shown
-objrdoitem.ConversationTopic = S
-objrdoitem.ConversationIndex = ""
-
-objrdoitem.Save
-'Call MsgBox(S, vbOKOnly, objrdoitem.ConversationTopic)
-</code></pre>
-
-<p>End Sub</p>
-
-<p>Private Sub Initialize_Handler()
-Dim fldInbox As Outlook.MAPIFolder
-Dim gnspNameSpace As Outlook.NameSpace</p>
-
-<pre><code>Set gnspNameSpace = Outlook.GetNamespace("MAPI") 'Outlook Object
-Set fldInbox = gnspNameSpace.Folders("MyOutlook").Folders("받은 편지함")
-Set myInboxMailItem = fldInbox.items
-</code></pre>
-
-<p>End Sub</p>
-
-<p>Private Sub Application_Startup()</p>
-
-<pre><code>Call Initialize_Handler
-</code></pre>
-
-<p>End Sub</p>
-
-<p>```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Change Outlook Subject with Python]]></title>
-    <link href="http://code4rain.github.io/blog/2014/03/24/change-outlook-subject-with-python/"/>
+    <title type="html"><![CDATA[Change Outlook Subject With Python]]></title>
+    <link href="http://code4rain.github.com/blog/2014/03/24/change-outlook-subject-with-python/"/>
     <updated>2014-03-24T10:42:00+09:00</updated>
-    <id>http://code4rain.github.io/blog/2014/03/24/change-outlook-subject-with-python</id>
+    <id>http://code4rain.github.com/blog/2014/03/24/change-outlook-subject-with-python</id>
     <content type="html"><![CDATA[<h2>Progress..</h2>
 
 <p>직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.</p>
