@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Outlook | Code4Rain`s Blog]]></title>
   <link href="http://code4rain.github.com/blog/categories/outlook/atom.xml" rel="self"/>
   <link href="http://code4rain.github.com/"/>
-  <updated>2014-03-25T16:59:48+09:00</updated>
+  <updated>2014-08-06T13:34:13+09:00</updated>
   <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
@@ -12,6 +12,90 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Change Outlook Conversation topic #2]]></title>
+    <link href="http://code4rain.github.com/blog/2014/03/25/change-outlook-conversation-topic-number-2/"/>
+    <updated>2014-03-25T17:11:00+09:00</updated>
+    <id>http://code4rain.github.com/blog/2014/03/25/change-outlook-conversation-topic-number-2</id>
+    <content type="html"><![CDATA[<p>앞 포스팅과 이어지는 내용입니다.</p>
+
+<h2>HowTo</h2>
+
+<ol>
+<li>Outlook을 열어제낍니다.</li>
+<li><code>Alt + F11</code>을 누르면 VB Editor창이 열립니다.</li>
+<li></li>
+<li>아래 내용을 붙여넣습니다.</li>
+<li>MyOutlook -> 자신의 PST 파일명
+받은 편지함 -> 신규 메일이 오면 들어오는 폴더명
+으로 변경합니다.
+``` VBA
+m outlookNameSpace As Outlook.NameSpace
+Dim inbox As Outlook.MAPIFolder
+Private WithEvents items As Outlook.items</li>
+</ol>
+
+
+<p>Dim WithEvents myInboxMailItem As Outlook.items
+Dim WithEvents mySentboxMailItem As Outlook.items</p>
+
+<p>Private Sub myInboxMailItem_ItemAdd(ByVal Item As Object)</p>
+
+<pre><code>Dim oNS As Object
+Dim oRDOSess As Object
+Dim oRDOItem As Object
+Dim sEntryID As String
+Dim sStoreID As String
+Dim regEx As New VBScript_RegExp_55.RegExp
+
+Dim NewConversationTopic As String
+
+Set oRDOSess = CreateObject("Redemption.RDOSession")
+Set oNS = Nothing
+Set oNS = Outlook.GetNamespace("MAPI")
+oNS.Logon
+oRDOSess.MAPIOBJECT = oNS.MAPIOBJECT
+
+strEntryID = Item.EntryID
+strStoreID = Item.Parent.StoreID
+Set objrdoitem = oRDOSess.GetMessageFromID(strEntryID, strStoreID)
+regEx.Pattern = "(Re|RE|Fwd|FW|Rq)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*"
+regEx.IgnoreCase = False
+regEx.Global = True
+S = regEx.Replace(objrdoitem.ConversationTopic, "")
+
+'Apply what modifications to topic you want here - dumb example string manipulation shown
+objrdoitem.ConversationTopic = S
+objrdoitem.ConversationIndex = ""
+
+objrdoitem.Save
+'Call MsgBox(S, vbOKOnly, objrdoitem.ConversationTopic)
+</code></pre>
+
+<p>End Sub</p>
+
+<p>Private Sub Initialize_Handler()
+Dim fldInbox As Outlook.MAPIFolder
+Dim gnspNameSpace As Outlook.NameSpace</p>
+
+<pre><code>Set gnspNameSpace = Outlook.GetNamespace("MAPI") 'Outlook Object
+Set fldInbox = gnspNameSpace.Folders("MyOutlook").Folders("받은 편지함")
+Set myInboxMailItem = fldInbox.items
+</code></pre>
+
+<p>End Sub</p>
+
+<p>Private Sub Application_Startup()</p>
+
+<pre><code>Call Initialize_Handler
+</code></pre>
+
+<p>End Sub</p>
+
+<p>```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Change Outlook Subject with Python]]></title>
