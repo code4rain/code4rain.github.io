@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: TIP | Code4Rain`s Blog]]></title>
-  <link href="http://code4rain.github.com/blog/categories/tip/atom.xml" rel="self"/>
-  <link href="http://code4rain.github.com/"/>
-  <updated>2014-08-06T13:34:13+09:00</updated>
-  <id>http://code4rain.github.com/</id>
+  <link href="http://code4rain.github.io/blog/categories/tip/atom.xml" rel="self"/>
+  <link href="http://code4rain.github.io/"/>
+  <updated>2014-08-06T13:39:25+09:00</updated>
+  <id>http://code4rain.github.io/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
     <email><![CDATA[code4rain@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[PUSH된 COMMIT내용 수정하기(Gerrit Review전)]]></title>
-    <link href="http://code4rain.github.com/blog/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/"/>
+    <link href="http://code4rain.github.io/blog/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/"/>
     <updated>2012-12-14T12:59:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon</id>
+    <id>http://code4rain.github.io/blog/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon</id>
     <content type="html"><![CDATA[<p>Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.</p>
 
 <p><code>수정하고 싶은 commit이 현재 HEAD라고 가정</code></p>

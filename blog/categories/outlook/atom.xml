@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Outlook | Code4Rain`s Blog]]></title>
-  <link href="http://code4rain.github.com/blog/categories/outlook/atom.xml" rel="self"/>
-  <link href="http://code4rain.github.com/"/>
-  <updated>2014-08-06T13:34:13+09:00</updated>
-  <id>http://code4rain.github.com/</id>
+  <link href="http://code4rain.github.io/blog/categories/outlook/atom.xml" rel="self"/>
+  <link href="http://code4rain.github.io/"/>
+  <updated>2014-08-06T13:39:25+09:00</updated>
+  <id>http://code4rain.github.io/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
     <email><![CDATA[code4rain@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Change Outlook Conversation topic #2]]></title>
-    <link href="http://code4rain.github.com/blog/2014/03/25/change-outlook-conversation-topic-number-2/"/>
+    <link href="http://code4rain.github.io/blog/2014/03/25/change-outlook-conversation-topic-number-2/"/>
     <updated>2014-03-25T17:11:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2014/03/25/change-outlook-conversation-topic-number-2</id>
+    <id>http://code4rain.github.io/blog/2014/03/25/change-outlook-conversation-topic-number-2</id>
     <content type="html"><![CDATA[<p>앞 포스팅과 이어지는 내용입니다.</p>
 
 <h2>HowTo</h2>
@@ -99,9 +99,9 @@ Set myInboxMailItem = fldInbox.items
   
   <entry>
     <title type="html"><![CDATA[Change Outlook Subject with Python]]></title>
-    <link href="http://code4rain.github.com/blog/2014/03/24/change-outlook-subject-with-python/"/>
+    <link href="http://code4rain.github.io/blog/2014/03/24/change-outlook-subject-with-python/"/>
     <updated>2014-03-24T10:42:00+09:00</updated>
-    <id>http://code4rain.github.com/blog/2014/03/24/change-outlook-subject-with-python</id>
+    <id>http://code4rain.github.io/blog/2014/03/24/change-outlook-subject-with-python</id>
     <content type="html"><![CDATA[<h2>Progress..</h2>
 
 <p>직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.</p>
