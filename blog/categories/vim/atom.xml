@@ -4,7 +4,7 @@
   <title><![CDATA[Category: VIM | Code4Rain`s Blog]]></title>
   <link href="http://code4rain.github.com/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://code4rain.github.com/"/>
-  <updated>2014-08-08T13:54:45+09:00</updated>
+  <updated>2014-08-08T21:23:53+09:00</updated>
   <id>http://code4rain.github.com/</id>
   <author>
     <name><![CDATA[Alex Kyoungdon Jang]]></name>
@@ -23,7 +23,7 @@
 
 <p>이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 <code>시작 위치(S):</code>에 자신이 원하는 디렉토리를 아래처럼 추가시켜준다.</p>
 
-<p><img src="/images/gvim_cap00.png" title="[Gvim short cut sample]" ></p>
+<p>{% img /images/gvim_cap00.png [Gvim short cut sample] %}</p>
 ]]></content>
   </entry>
   
