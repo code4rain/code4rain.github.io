@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://code4rain.github.com/sitemap.xml 
