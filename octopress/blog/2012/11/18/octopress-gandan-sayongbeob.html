@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Alex Kyoungdon's Blog</title>
-  <meta name="description" content="Alex Kyoungdon Jang's Blog.
-">
+  <title>Octopress 간단 사용법</title>
+  <meta name="description" content="Blog Post 만들기">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://code4rain.github.io/">
+  <link rel="canonical" href="http://code4rain.github.io/octopress/blog/2012/11/18/octopress-gandan-sayongbeob.html">
   <link rel="alternate" type="application/rss+xml" title="Alex Kyoungdon's Blog" href="http://code4rain.github.io/feed.xml" />
 </head>
 
@@ -55,71 +54,66 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Octopress 간단 사용법</h1>
+    <p class="post-meta">Nov 18, 2012</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Feb 17, 2015</span>
+  <article class="post-content">
+    <h3 id="blog-post-">Blog Post 만들기</h3>
 
-        <h2>
-          <a class="post-link" href="/outlook/vba/2015/02/17/outlook-conversation-topicbyeongyeonghagi-by-vba-sciprt.html">Outlook Conversation Topic변경하기 by VBA sciprt</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 6, 2014</span>
+<p><code class="highlighter-rouge">source/_post</code> 아래에 <code class="highlighter-rouge">YYYY-MM-DD-post-title.markdown</code> 형태로 저장해야 합니다.
+자동으로 yaml meta data를 추가하여 해당 형태로 만들어주는 명령어가 아래와 같습니다.<br />
+<code class="highlighter-rouge">rake new_post["&lt;블로그 제목&gt;"]</code></p>
 
-        <h2>
-          <a class="post-link" href="/tool/2014/08/06/tmuxseoljeong.html">TMUX설정</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 24, 2014</span>
+<h3 id="post-">Post 작성하기</h3>
 
-        <h2>
-          <a class="post-link" href="/python/outlook/2014/03/24/change-outlook-subject-with-python.html">Change Outlook Subject with Python</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 9, 2014</span>
+<p><code class="highlighter-rouge">rake new_post</code> 명령을 통해 만들어진 <code class="highlighter-rouge">source/_post/YYYY-MM-DD-post-title.markdown</code> 파일을 자신이 원하는 에디터로 수정합니다.
+yaml meta data로 선언된 categories는 아래와 같이 방식으로 추가할 수 있습니다.
+```
+# One category
+categories: Sass</p>
 
-        <h2>
-          <a class="post-link" href="/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob.html">SSH 로그인시 접속지연 해결방법</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 14, 2012</span>
+<h1 id="multiple-categories-example-1">Multiple categories example 1</h1>
+<p>categories: [CSS3, Sass, Media Queries]</p>
 
-        <h2>
-          <a class="post-link" href="/tip/git/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon.html">PUSH된 COMMIT내용 수정하기(Gerrit Review전)</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 13, 2012</span>
+<h1 id="multiple-categories-example-2">Multiple categories example 2</h1>
+<p>categories:
+- CSS3
+- Sass
+- Media Queries
+```</p>
 
-        <h2>
-          <a class="post-link" href="/vim/2012/12/13/gvim-gibon-sijag-wici-byeongyeong.html">Gvim 기본 시작 위치 변경</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 18, 2012</span>
+<p><code class="highlighter-rouge">---</code> 아래에 markdown 문법으로 블로그를 작성합니다.</p>
 
-        <h2>
-          <a class="post-link" href="/octopress/blog/2012/11/18/octopress-gandan-sayongbeob.html">Octopress 간단 사용법</a>
-        </h2>
-      </li>
-    
-  </ul>
+<h3 id="page-">Page 만들기</h3>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<폴더명>\index.html로 만드는 방식과 <원하는 파일명="">.html 형식으로 만들 수 있습니다.
+
+```
+rake new_page[super-awesome]
+# creates /source/super-awesome/index.markdown
+
+rake new_page[super-awesome/page.html]
+# creates /source/super-awesome/page.html
+```
+
+### 만든 Post &amp; Page 게시하기
+
+* markdown으로 만들어진 문서를 html로 변경하는 명령  
+`rake generate`  
+* 만들어진 문서를 미리보기  
+`rake preview`  
+* 웹으로 게시하기  
+`rake deploy`  
+  
+* `rake generat`와 `rake deploy`를 동시에 수행하기  
+`rake gen_deploy`
+</원하는></폴더명>
+
+  </article>
 
 </div>
 

@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Alex Kyoungdon's Blog</title>
-  <meta name="description" content="Alex Kyoungdon Jang's Blog.
-">
+  <title>SSH 로그인시 접속지연 해결방법</title>
+  <meta name="description" content="사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시 로그인 과정에서 3,4초 딜레이가 발생한다.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://code4rain.github.io/">
+  <link rel="canonical" href="http://code4rain.github.io/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob.html">
   <link rel="alternate" type="application/rss+xml" title="Alex Kyoungdon's Blog" href="http://code4rain.github.io/feed.xml" />
 </head>
 
@@ -55,71 +54,23 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">SSH 로그인시 접속지연 해결방법</h1>
+    <p class="post-meta">Mar 9, 2014</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Feb 17, 2015</span>
+  <article class="post-content">
+    <p>사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시 로그인 과정에서 3,4초 딜레이가 발생한다.</p>
 
-        <h2>
-          <a class="post-link" href="/outlook/vba/2015/02/17/outlook-conversation-topicbyeongyeonghagi-by-vba-sciprt.html">Outlook Conversation Topic변경하기 by VBA sciprt</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 6, 2014</span>
+<p><code class="highlighter-rouge">/etc/ssh/sshd_config</code>파일에 <code class="highlighter-rouge">UseDNS no</code>을 추가하면 딜레이를 없앨 수 있다.</p>
 
-        <h2>
-          <a class="post-link" href="/tool/2014/08/06/tmuxseoljeong.html">TMUX설정</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 24, 2014</span>
+<p>파일 수정 수 ssh 데몬 재시작이 필요.</p>
 
-        <h2>
-          <a class="post-link" href="/python/outlook/2014/03/24/change-outlook-subject-with-python.html">Change Outlook Subject with Python</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 9, 2014</span>
+<p><code class="highlighter-rouge">$sudo /etc/init.d/ssh restart 혹은 service ssh restart</code></p>
 
-        <h2>
-          <a class="post-link" href="/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob.html">SSH 로그인시 접속지연 해결방법</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 14, 2012</span>
-
-        <h2>
-          <a class="post-link" href="/tip/git/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon.html">PUSH된 COMMIT내용 수정하기(Gerrit Review전)</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 13, 2012</span>
-
-        <h2>
-          <a class="post-link" href="/vim/2012/12/13/gvim-gibon-sijag-wici-byeongyeong.html">Gvim 기본 시작 위치 변경</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 18, 2012</span>
-
-        <h2>
-          <a class="post-link" href="/octopress/blog/2012/11/18/octopress-gandan-sayongbeob.html">Octopress 간단 사용법</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </article>
 
 </div>
 

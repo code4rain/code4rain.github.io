@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Change Outlook Subject with Python</title>
+  <meta name="description" content="Progress..직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://code4rain.github.io/python/outlook/2014/03/24/change-outlook-subject-with-python.html">
+  <link rel="alternate" type="application/rss+xml" title="Alex Kyoungdon's Blog" href="http://code4rain.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Alex Kyoungdon's Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Change Outlook Subject with Python</h1>
+    <p class="post-meta">Mar 24, 2014</p>
+  </header>
+
+  <article class="post-content">
+    <h2 id="progress">Progress..</h2>
+<p>직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.</p>
+
+<p>아웃룩 2003까지는 뭐 그러려니 하고 search plugin을 설치해서 쓰고 있다가, 2010에 <a href="http://support.microsoft.com/kb/2274243/ko">conversation view(대화보기)</a>라는 기능이 추가된 것을 알게 되었습니다. 메일 제목을 기준으로(엄밀히 이야기하면 메일 제목은 아닙니다만 :) 메일을 묶어주는 기능입니다.</p>
+
+<p>하루에 오는 메일들이 대부분 Reply나 Foword 형식이기 때문에 이 기능을 쓰게 되면 하루에 오는 몇 백통의 메일을 몇 십개로 묶어서 보여주는 효과가 있습니다.</p>
+
+<p><strong>오호라~!</strong></p>
+
+<p>하지만 난관에 봉착합니다. 이 기능은 아웃룩에서 수발신한 메일들만 묶어줍니다. 회사메일에서 reply, foword를 하게되면 다른 conversation subject를 가진 메일로 인식하고 묶어주질 못하는 거죠. (통재라.ㅠㅠ)</p>
+
+<p>SW engineer가 이대로 포기할 순 없어서 검색해보기 시작합니다.</p>
+
+<p>우리의 친구 Google과 stackoverflow를 찾아보다가 <a href="http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython">힌트</a>를 발견합니다.
+Python으로 뭔가 쿵짝쿵짝하면 될 것같은 느낌이 듭니다. 오호~</p>
+
+<p>열심히 스크립트도 만들고 수정해봅니다.</p>
+
+<p><strong>뭔가 되는 듯하더니 안됩니다.ㅠㅠ</strong></p>
+
+<p>음 다시 Google과 stackoverflow를 뒤져봅니다.
+<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN</a>에 나온 걸 보니 conversationTopic을 변경이 안된다고 합니다. - READ Only attribute.</p>
+
+<p>이런…</p>
+
+<p>하지만 또 뒤져봅니다.</p>
+
+<p>… (_ _) (- - ) ( - -)</p>
+
+<p>걸렸습니다. Redemption DLL을 깔면 수정할 수 있답니다. (예~)</p>
+
+<p>그래서 기존에 온 메일을 일괄 정리하는 스크립트를 만듭니다. 쓱싹쓱싹 돌 때 심심하니 메일 하나를 처리하면 .하나를 찍어주도록 합니다.
+다 되고 나서 Conversation View로 바꿔봅니다.</p>
+
+<p><strong>오예</strong></p>
+
+<p>잘됩니다.ㅋㅋㅋㅋ</p>
+
+<p>이제 매번 스크립트를 돌리기가 귀찮아집니다. 보통은 여기까지하고 그만두지만, 이번엔 아웃룩 VBA까지 건들여봅니다. 뚝딱뚝딱</p>
+
+<p><strong>이힝~</strong></p>
+
+<p>이제 메일이 오면 자동으로 정리해주도록 변경합니다. 아.. 내가 만든 VBA스크립트는 인증받지 않은 스크립트라 보안을 해제해줘야 합니다.
+설마 회사에 스팸용 VBA 스크립트가 들어오진 않을테니, 보안담당자를 믿고 보안도 해제합니다.</p>
+
+<p>길고긴 삽질이 끝났습니다.</p>
+
+<h2 id="section">설치 방법</h2>
+<ol>
+  <li>Download and install
+    <ul>
+      <li>Windows용 Python을 설치합니다.</li>
+      <li>Python은 Outlook을 32bit을 설치했으면 32bit을, 64bit을 설치했으면 64bit을 설치합니다.</li>
+      <li>다른 addon과의 호환성을 고려해서(attachemement remover는 32bit에서만 동작합니다.ㅠㅠ) 32bit을 설치합니다.</li>
+      <li>Python Download : <a href="http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi">2.7.5 32bit</a></li>
+      <li>Python용 win32 library도 다운받습니다. : <a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe/download">pywin32-218.win32-py2.7.exe</a></li>
+      <li>Redemption DLL도 설치합니다. (설치가 잘 안되면 관리자 권한으로 설치합니다.) : <a href="http://www.dimastr.com/redemption/Redemption.zip">Redemption</a></li>
+    </ul>
+  </li>
+  <li>Make script</li>
+</ol>
+
+<p>스크립트를 작성합니다. 아래 내용을 복붙해서 conversation.py로 만듭니다.
+python이 제대로 설치되었다면 conversation.py를 double click하면 잘 실행이 됩니다.</p>
+
+<p>``` python
+import os, sys, re
+import win32com.client</p>
+
+<p>from win32com.client import Dispatch, constants</p>
+
+<p>def parse_folder(folder):
+    print “Processing ## %s “%folder.Name.encode(‘euc-kr’)
+    items = folder.Items
+    while True:
+        item = items.GetNext()
+        if item == None:
+            print “Done”
+            break
+        #print ‘\n’.join(dir(item))</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    objrdoitem = session.GetMessageFromID(item.EntryID, item.Parent.StoreID)
+
+    sys.stdout.write('.')
+
+    if objrdoitem.ConversationIndex == '' :
+        continue
+
+    if objrdoitem.ConversationIndex != '' :
+        objrdoitem.ConversationIndex = ''
+        objrdoitem.Save()
+
+    if re.compile(r'(Re|RE|Fwd|FW|Rq)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*').search(item.ConversationTopic):
+        NewTopic = re.sub(r'(Re|RE|Fwd|FW)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*','', item.ConversationTopic)
+        objrdoitem.ConversationTopic = NewTopic
+        objrdoitem.Save()
+
+    if re.compile(r'(Re|RE|Fwd|FW|Rq)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*').search(item.Subject):
+        NewTopic = re.sub(r'(Re|RE|Fwd|FW)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*','', item.Subject)
+        objrdoitem.ConversationTopic = NewTopic
+        objrdoitem.Save()
+        #break
+
+for i in range(1, folder.Folders.Count + 1):
+    parse_folder(folder.Folders[i])
+</code></pre>
+</div>
+
+<p>win32com.client.gencache.EnsureDispatch(“Outlook.Application”)
+outlook = win32com.client.Dispatch(“Outlook.Application”)
+mapi = outlook.GetNamespace(‘MAPI’)
+mapi.Logon()
+session = win32com.client.Dispatch(“Redemption.RDOSession”)
+session.Logon()
+#top = mapi.Folders.Item(“Archives”)
+for i in range(1, mapi.Folders.Count + 1):
+        parse_folder(mapi.Folders[i])</p>
+
+<p>```</p>
+
+<h2 id="bonus">Bonus</h2>
+<p>메일이 오면 자동으로 변경해주는 건 VBA스크립트를 만들어야 합니다.
+방법이 살짝 귀찮으니 다음 Posting에 올립니다. :-)</p>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Alex Kyoungdon's Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Alex Kyoungdon's Blog</li>
+          <li><a href="mailto:code4rain@gmail.com">code4rain@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/code4rain">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">code4rain</span>
+            </a>
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Alex Kyoungdon Jang's Blog.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

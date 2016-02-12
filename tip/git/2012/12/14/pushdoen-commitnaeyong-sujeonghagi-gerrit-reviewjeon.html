@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Alex Kyoungdon's Blog</title>
-  <meta name="description" content="Alex Kyoungdon Jang's Blog.
-">
+  <title>PUSH된 COMMIT내용 수정하기(Gerrit Review전)</title>
+  <meta name="description" content="Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://code4rain.github.io/">
+  <link rel="canonical" href="http://code4rain.github.io/tip/git/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon.html">
   <link rel="alternate" type="application/rss+xml" title="Alex Kyoungdon's Blog" href="http://code4rain.github.io/feed.xml" />
 </head>
 
@@ -55,71 +54,38 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">PUSH된 COMMIT내용 수정하기(Gerrit Review전)</h1>
+    <p class="post-meta">Dec 14, 2012</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Feb 17, 2015</span>
+  <article class="post-content">
+    <p>Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.</p>
 
-        <h2>
-          <a class="post-link" href="/outlook/vba/2015/02/17/outlook-conversation-topicbyeongyeonghagi-by-vba-sciprt.html">Outlook Conversation Topic변경하기 by VBA sciprt</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 6, 2014</span>
+<p><code class="highlighter-rouge">수정하고 싶은 commit이 현재 HEAD라고 가정</code></p>
 
-        <h2>
-          <a class="post-link" href="/tool/2014/08/06/tmuxseoljeong.html">TMUX설정</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 24, 2014</span>
+<h3 id="comit------">comit에 있는 일부 파일만 변경하고 싶을 때</h3>
 
-        <h2>
-          <a class="post-link" href="/python/outlook/2014/03/24/change-outlook-subject-with-python.html">Change Outlook Subject with Python</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Mar 9, 2014</span>
+<ol>
+  <li>수정하고 싶은 파일(a.c) 편집</li>
+  <li>git add a.c</li>
+  <li>git commit –amend -C HEAD // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.</li>
+  <li>git push</li>
+</ol>
 
-        <h2>
-          <a class="post-link" href="/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob.html">SSH 로그인시 접속지연 해결방법</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 14, 2012</span>
+<h3 id="commit--------">commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h3>
 
-        <h2>
-          <a class="post-link" href="/tip/git/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon.html">PUSH된 COMMIT내용 수정하기(Gerrit Review전)</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 13, 2012</span>
+<ol>
+  <li>git checkout HEAD^ – <돌리고 싶은="" 파일명=""> // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.</돌리고></li>
+  <li>git add <돌리고 싶은="" 파일명=""></돌리고></li>
+  <li>git commit –amend -C HEAD</li>
+  <li>git push</li>
+</ol>
 
-        <h2>
-          <a class="post-link" href="/vim/2012/12/13/gvim-gibon-sijag-wici-byeongyeong.html">Gvim 기본 시작 위치 변경</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 18, 2012</span>
 
-        <h2>
-          <a class="post-link" href="/octopress/blog/2012/11/18/octopress-gandan-sayongbeob.html">Octopress 간단 사용법</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </article>
 
 </div>
 
