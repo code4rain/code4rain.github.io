@@ -6,8 +6,8 @@
 </description>
     <link>http://code4rain.github.io/</link>
     <atom:link href="http://code4rain.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 13 Feb 2016 22:57:31 +0900</pubDate>
-    <lastBuildDate>Sat, 13 Feb 2016 22:57:31 +0900</lastBuildDate>
+    <pubDate>Sat, 13 Feb 2016 23:09:23 +0900</pubDate>
+    <lastBuildDate>Sat, 13 Feb 2016 23:09:23 +0900</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
     
       <item>
@@ -45,13 +45,9 @@
 &lt;h1 id=&quot;section&quot;&gt;.&lt;/h1&gt;
 </description>
         <pubDate>Tue, 17 Feb 2015 18:08:00 +0900</pubDate>
-        <link>http://code4rain.github.io/outlook/vba/2015/02/17/outlook-conversation-topicbyeongyeonghagi-by-vba-sciprt.html</link>
-        <guid isPermaLink="true">http://code4rain.github.io/outlook/vba/2015/02/17/outlook-conversation-topicbyeongyeonghagi-by-vba-sciprt.html</guid>
+        <link>http://code4rain.github.io/2015/02/17/outlook-conversation-topicbyeongyeonghagi-by-vba-sciprt.html</link>
+        <guid isPermaLink="true">http://code4rain.github.io/2015/02/17/outlook-conversation-topicbyeongyeonghagi-by-vba-sciprt.html</guid>
         
-        
-        <category>Outlook</category>
-        
-        <category>VBA</category>
         
       </item>
     
@@ -267,11 +263,9 @@ setw -g monitor-activity on
 
 </description>
         <pubDate>Wed, 06 Aug 2014 16:46:00 +0900</pubDate>
-        <link>http://code4rain.github.io/tool/2014/08/06/tmuxseoljeong.html</link>
-        <guid isPermaLink="true">http://code4rain.github.io/tool/2014/08/06/tmuxseoljeong.html</guid>
+        <link>http://code4rain.github.io/2014/08/06/tmuxseoljeong.html</link>
+        <guid isPermaLink="true">http://code4rain.github.io/2014/08/06/tmuxseoljeong.html</guid>
         
-        
-        <category>Tool</category>
         
       </item>
     
@@ -403,13 +397,9 @@ for i in range(1, mapi.Folders.Count + 1):
 
 </description>
         <pubDate>Mon, 24 Mar 2014 10:42:00 +0900</pubDate>
-        <link>http://code4rain.github.io/python/outlook/2014/03/24/change-outlook-subject-with-python.html</link>
-        <guid isPermaLink="true">http://code4rain.github.io/python/outlook/2014/03/24/change-outlook-subject-with-python.html</guid>
+        <link>http://code4rain.github.io/2014/03/24/change-outlook-subject-with-python.html</link>
+        <guid isPermaLink="true">http://code4rain.github.io/2014/03/24/change-outlook-subject-with-python.html</guid>
         
-        
-        <category>Python</category>
-        
-        <category>Outlook</category>
         
       </item>
     
@@ -453,16 +443,11 @@ for i in range(1, mapi.Folders.Count + 1):
   &lt;li&gt;git commit –amend -C HEAD&lt;/li&gt;
   &lt;li&gt;git push&lt;/li&gt;
 &lt;/ol&gt;
-
 </description>
         <pubDate>Fri, 14 Dec 2012 12:59:00 +0900</pubDate>
-        <link>http://code4rain.github.io/tip/git/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon.html</link>
-        <guid isPermaLink="true">http://code4rain.github.io/tip/git/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon.html</guid>
+        <link>http://code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon.html</link>
+        <guid isPermaLink="true">http://code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon.html</guid>
         
-        
-        <category>TIP</category>
-        
-        <category>GIT</category>
         
       </item>
     
@@ -474,14 +459,11 @@ for i in range(1, mapi.Folders.Count + 1):
 &lt;p&gt;이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 &lt;code class=&quot;highlighter-rouge&quot;&gt;시작 위치(S):&lt;/code&gt;에 자신이 원하는 디렉토리를 아래처럼 추가시켜준다.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/gvim_cap00.png&quot; alt=&quot;Gvim short cut sample&quot; /&gt;&lt;/p&gt;
-
 </description>
         <pubDate>Thu, 13 Dec 2012 10:40:00 +0900</pubDate>
-        <link>http://code4rain.github.io/vim/2012/12/13/gvim-gibon-sijag-wici-byeongyeong.html</link>
-        <guid isPermaLink="true">http://code4rain.github.io/vim/2012/12/13/gvim-gibon-sijag-wici-byeongyeong.html</guid>
+        <link>http://code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong.html</link>
+        <guid isPermaLink="true">http://code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong.html</guid>
         
-        
-        <category>VIM</category>
         
       </item>
     
