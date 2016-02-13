@@ -6,50 +6,9 @@
 </description>
     <link>http://code4rain.github.io/</link>
     <atom:link href="http://code4rain.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 13 Feb 2016 23:24:53 +0900</pubDate>
-    <lastBuildDate>Sat, 13 Feb 2016 23:24:53 +0900</lastBuildDate>
+    <pubDate>Sat, 13 Feb 2016 23:39:01 +0900</pubDate>
+    <lastBuildDate>Sat, 13 Feb 2016 23:39:01 +0900</lastBuildDate>
     <generator>Jekyll v3.1.1</generator>
-    
-      <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Sat, 13 Feb 2016 00:20:49 +0900</pubDate>
-        <link>http://code4rain.github.io/jekyll/update/2016/02/13/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://code4rain.github.io/jekyll/update/2016/02/13/welcome-to-jekyll.html</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
-    
-      <item>
-        <title>Outlook Conversation Topic변경하기 by VBA sciprt</title>
-        <description>&lt;p&gt;미루고 미뤄왔던 VBA스크립트 작성방법을 포스팅합니다.&lt;/p&gt;
-
-&lt;h1 id=&quot;section&quot;&gt;.&lt;/h1&gt;
-</description>
-        <pubDate>Tue, 17 Feb 2015 18:08:00 +0900</pubDate>
-        <link>http://code4rain.github.io/2015/02/17/outlook-conversation-topicbyeongyeonghagi-by-vba-sciprt.html</link>
-        <guid isPermaLink="true">http://code4rain.github.io/2015/02/17/outlook-conversation-topicbyeongyeonghagi-by-vba-sciprt.html</guid>
-        
-        
-      </item>
     
       <item>
         <title>TMUX설정</title>
@@ -409,9 +368,8 @@ for i in range(1, mapi.Folders.Count + 1):
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ssh/sshd_config&lt;/code&gt;파일에 &lt;code class=&quot;highlighter-rouge&quot;&gt;UseDNS no&lt;/code&gt;을 추가하면 딜레이를 없앨 수 있다.&lt;/p&gt;
 
-&lt;p&gt;파일 수정 수 ssh 데몬 재시작이 필요.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$sudo /etc/init.d/ssh restart 혹은 service ssh restart&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;파일 수정 수 아래 명령으로 ssh 데몬 재시작해야 합니다.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;$sudo /etc/init.d/ssh restart&lt;/code&gt; 혹은 &lt;code class=&quot;highlighter-rouge&quot;&gt;service ssh restart&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 09 Mar 2014 20:14:00 +0900</pubDate>
         <link>http://code4rain.github.io/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob.html</link>
@@ -424,24 +382,24 @@ for i in range(1, mapi.Folders.Count + 1):
         <title>PUSH된 COMMIT내용 수정하기(Gerrit Review전)</title>
         <description>&lt;p&gt;Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;수정하고 싶은 commit이 현재 HEAD라고 가정&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;수정하고 싶은 commit이 현재 HEAD일 경우입니다.&lt;/p&gt;
 
-&lt;h3 id=&quot;comit------&quot;&gt;comit에 있는 일부 파일만 변경하고 싶을 때&lt;/h3&gt;
+&lt;h1 id=&quot;comit------&quot;&gt;comit에 있는 일부 파일만 변경하고 싶을 때&lt;/h1&gt;
 
 &lt;ol&gt;
   &lt;li&gt;수정하고 싶은 파일(a.c) 편집&lt;/li&gt;
-  &lt;li&gt;git add a.c&lt;/li&gt;
-  &lt;li&gt;git commit –amend -C HEAD // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.&lt;/li&gt;
-  &lt;li&gt;git push&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git add a.c&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit --amend -C HEAD&lt;/code&gt; // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;commit--------&quot;&gt;commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄&lt;/h3&gt;
+&lt;h1 id=&quot;commit--------&quot;&gt;commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄&lt;/h1&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;git checkout HEAD^ – &lt;돌리고 싶은=&quot;&quot; 파일명=&quot;&quot;&gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.&lt;/돌리고&gt;&lt;/li&gt;
-  &lt;li&gt;git add &lt;돌리고 싶은=&quot;&quot; 파일명=&quot;&quot;&gt;&lt;/돌리고&gt;&lt;/li&gt;
-  &lt;li&gt;git commit –amend -C HEAD&lt;/li&gt;
-  &lt;li&gt;git push&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout HEAD^&lt;/code&gt; – &lt;돌리고 싶은=&quot;&quot; 파일명=&quot;&quot;&gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.&lt;/돌리고&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git add &amp;lt;돌리고 싶은 파일명&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit --amend -C HEAD&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
         <pubDate>Fri, 14 Dec 2012 12:59:00 +0900</pubDate>
