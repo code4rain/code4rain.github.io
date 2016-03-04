@@ -6,8 +6,8 @@
 </description>
     <link>http://code4rain.github.io/</link>
     <atom:link href="http://code4rain.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 04 Mar 2016 15:48:28 +0900</pubDate>
-    <lastBuildDate>Fri, 04 Mar 2016 15:48:28 +0900</lastBuildDate>
+    <pubDate>Fri, 04 Mar 2016 16:01:32 +0900</pubDate>
+    <lastBuildDate>Fri, 04 Mar 2016 16:01:32 +0900</lastBuildDate>
     <generator>Jekyll v3.0.3</generator>
     
       <item>
@@ -295,62 +295,8 @@ Python으로 뭔가 쿵짝쿵짝하면 될 것같은 느낌이 듭니다. 오호
 &lt;/ol&gt;
 
 &lt;p&gt;스크립트를 작성합니다. 아래 내용을 복붙해서 conversation.py로 만듭니다.
-python이 제대로 설치되었다면 conversation.py를 double click하면 잘 실행이 됩니다.&lt;/p&gt;
-
-&lt;p&gt;``` python
-import os, sys, re
-import win32com.client&lt;/p&gt;
-
-&lt;p&gt;from win32com.client import Dispatch, constants&lt;/p&gt;
-
-&lt;p&gt;def parse_folder(folder):
-    print “Processing ## %s “%folder.Name.encode(‘euc-kr’)
-    items = folder.Items
-    while True:
-        item = items.GetNext()
-        if item == None:
-            print “Done”
-            break
-        #print ‘\n’.join(dir(item))&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    objrdoitem = session.GetMessageFromID(item.EntryID, item.Parent.StoreID)
-
-    sys.stdout.write(&#39;.&#39;)
-
-    if objrdoitem.ConversationIndex == &#39;&#39; :
-        continue
-
-    if objrdoitem.ConversationIndex != &#39;&#39; :
-        objrdoitem.ConversationIndex = &#39;&#39;
-        objrdoitem.Save()
-
-    if re.compile(r&#39;(Re|RE|Fwd|FW|Rq)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*&#39;).search(item.ConversationTopic):
-        NewTopic = re.sub(r&#39;(Re|RE|Fwd|FW)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*&#39;,&#39;&#39;, item.ConversationTopic)
-        objrdoitem.ConversationTopic = NewTopic
-        objrdoitem.Save()
-
-    if re.compile(r&#39;(Re|RE|Fwd|FW|Rq)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*&#39;).search(item.Subject):
-        NewTopic = re.sub(r&#39;(Re|RE|Fwd|FW)+:*\s*:*(\d+|\[\d+\]|\(x*\d+\)|:|\*\d+|\(\d+\))+\s*:*\s*&#39;,&#39;&#39;, item.Subject)
-        objrdoitem.ConversationTopic = NewTopic
-        objrdoitem.Save()
-        #break
-
-for i in range(1, folder.Folders.Count + 1):
-    parse_folder(folder.Folders[i])
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;win32com.client.gencache.EnsureDispatch(“Outlook.Application”)
-outlook = win32com.client.Dispatch(“Outlook.Application”)
-mapi = outlook.GetNamespace(‘MAPI’)
-mapi.Logon()
-session = win32com.client.Dispatch(“Redemption.RDOSession”)
-session.Logon()
-#top = mapi.Folders.Item(“Archives”)
-for i in range(1, mapi.Folders.Count + 1):
-        parse_folder(mapi.Folders[i])&lt;/p&gt;
-
-&lt;p&gt;```&lt;/p&gt;
+python이 제대로 설치되었다면 conversation.py를 double click하면 잘 실행이 됩니다.
+&lt;script src=&quot;https://gist.github.com/.js?file=&quot;&gt;&lt;/script&gt;&amp;lt;div&amp;gt;&lt;noscript&gt;&amp;lt;pre&amp;gt;&lt;code&gt;&lt;/code&gt;&amp;lt;/pre&amp;gt;&lt;/noscript&gt;&amp;lt;/div&amp;gt;&lt;/p&gt;
 
 &lt;p&gt;메일이 오면 자동으로 변경해주는 건 VBA스크립트를 만들어야 합니다.&lt;/p&gt;
 
