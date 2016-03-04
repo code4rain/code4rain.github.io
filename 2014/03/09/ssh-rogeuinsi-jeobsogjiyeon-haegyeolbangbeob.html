@@ -64,10 +64,10 @@
   <article class="post-content">
     <p>사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시 로그인 과정에서 3,4초 딜레이가 발생한다.</p>
 
-<p><code class="highlighter-rouge">/etc/ssh/sshd_config</code>파일에 <code class="highlighter-rouge">UseDNS no</code>을 추가하면 딜레이를 없앨 수 있다.</p>
+<p><code>/etc/ssh/sshd_config</code>파일에 <code>UseDNS no</code>을 추가하면 딜레이를 없앨 수 있다.</p>
 
 <p>파일 수정 수 아래 명령으로 ssh 데몬 재시작해야 합니다.
-<code class="highlighter-rouge">$sudo /etc/init.d/ssh restart</code> 혹은 <code class="highlighter-rouge">service ssh restart</code></p>
+<code>$sudo /etc/init.d/ssh restart</code> 혹은 <code>service ssh restart</code></p>
 
   </article>
 
