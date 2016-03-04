@@ -66,41 +66,37 @@
 
 <p><code class="highlighter-rouge">/etc/ssh/sshd_config</code>파일에 <code class="highlighter-rouge">UseDNS no</code>을 추가하면 딜레이를 없앨 수 있다.</p>
 
-<p>파일 수정 수 ssh 데몬 재시작이 필요.</p>
-
-<p><code class="highlighter-rouge">$sudo /etc/init.d/ssh restart 혹은 service ssh restart</code></p>
+<p>파일 수정 수 아래 명령으로 ssh 데몬 재시작해야 합니다.
+<code class="highlighter-rouge">$sudo /etc/init.d/ssh restart</code> 혹은 <code class="highlighter-rouge">service ssh restart</code></p>
 
   </article>
 
 </div>
 
-
       </div>
     </div>
 
-    <div id="disqus_thread"></div>
+    
+<div id="disqus_thread"></div>
 <script>
 /**
 * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
- * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
- */
-
-   var disqus_config = function () {
-   this.page.url = /2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob.html; // Replace PAGE_URL with your page's canonical URL variable
-   this.page.identifier = /2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob.html; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-   };
-
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+var disqus_config = function () {
+this.page.url = 'http://code4rain.github.io/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob.html'; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
 (function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
+var d = document, s = d.createElement('script');
 
-  s.src = '//code4rainsblog.disqus.com/embed.js';
+s.src = '//code4rainsblog.disqus.com/embed.js';
 
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<script id="dsq-count-scr" src="//code4rainsblog.disqus.com/count.js" async></script>
 
 
     <footer class="site-footer">

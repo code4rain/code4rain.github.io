@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Gvim 기본 시작 위치 변경</title>
-  <meta name="description" content="Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장된다.예를 들면 :w test.md라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 된다.">
+  <title>PUSH된 COMMIT내용 수정하기(Gerrit Review전)</title>
+  <meta name="description" content="Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://code4rain.github.io/vim/2012/12/13/gvim-gibon-sijag-wici-byeongyeong.html">
+  <link rel="canonical" href="http://code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon.html">
   <link rel="alternate" type="application/rss+xml" title="Alex Kyoungdon's Blog" href="http://code4rain.github.io/feed.xml" />
 </head>
 
@@ -57,50 +57,61 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Gvim 기본 시작 위치 변경</h1>
-    <p class="post-meta">Dec 13, 2012</p>
+    <h1 class="post-title">PUSH된 COMMIT내용 수정하기(Gerrit Review전)</h1>
+    <p class="post-meta">Dec 14, 2012</p>
   </header>
 
   <article class="post-content">
-    <p>Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장된다.
-예를 들면 <code class="highlighter-rouge">:w test.md</code>라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 된다.</p>
+    <p>Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.</p>
 
-<p>이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 <code class="highlighter-rouge">시작 위치(S):</code>에 자신이 원하는 디렉토리를 아래처럼 추가시켜준다.</p>
+<p>수정하고 싶은 commit이 현재 HEAD일 경우입니다.</p>
 
-<p><img src="/images/gvim_cap00.png" alt="Gvim short cut sample" /></p>
+<h1 id="comit------">comit에 있는 일부 파일만 변경하고 싶을 때</h1>
 
+<ol>
+  <li>수정하고 싶은 파일(a.c) 편집</li>
+  <li><code class="highlighter-rouge">git add a.c</code></li>
+  <li><code class="highlighter-rouge">git commit --amend -C HEAD</code> // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.</li>
+  <li><code class="highlighter-rouge">git push</code></li>
+</ol>
+
+<h1 id="commit--------">commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h1>
+
+<ol>
+  <li><code class="highlighter-rouge">git checkout HEAD^</code> – <돌리고 싶은="" 파일명=""> // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.</돌리고></li>
+  <li><code class="highlighter-rouge">git add &lt;돌리고 싶은 파일명&gt;</code></li>
+  <li><code class="highlighter-rouge">git commit --amend -C HEAD</code></li>
+  <li><code class="highlighter-rouge">git push</code></li>
+</ol>
 
   </article>
 
 </div>
 
-
       </div>
     </div>
 
-    <div id="disqus_thread"></div>
+    
+<div id="disqus_thread"></div>
 <script>
 /**
 * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
- * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
- */
-
-   var disqus_config = function () {
-   this.page.url = /vim/2012/12/13/gvim-gibon-sijag-wici-byeongyeong.html; // Replace PAGE_URL with your page's canonical URL variable
-   this.page.identifier = /vim/2012/12/13/gvim-gibon-sijag-wici-byeongyeong.html; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-   };
-
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+var disqus_config = function () {
+this.page.url = 'http://code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon.html'; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
 (function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
+var d = document, s = d.createElement('script');
 
-  s.src = '//code4rainsblog.disqus.com/embed.js';
+s.src = '//code4rainsblog.disqus.com/embed.js';
 
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<script id="dsq-count-scr" src="//code4rainsblog.disqus.com/count.js" async></script>
 
 
     <footer class="site-footer">
