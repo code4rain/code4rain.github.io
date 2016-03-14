@@ -166,7 +166,7 @@ blockquote p {
 
 h1,
 .h1 {
-  font-size: 2.998rem; }
+  font-size: 1.998rem; }
 
 h2,
 .h2 {
@@ -414,10 +414,10 @@ hr {
 
 /* Basscss Utility Headings */
 .h00 {
-  font-size: 4rem; }
+  font-size: 3rem; }
 
 .h0 {
-  font-size: 3rem; }
+  font-size: 2rem; }
 
 @media (min-width: 52em) {
   .h00-responsive {
@@ -1068,7 +1068,7 @@ blockquote footer {
 
   h1,
   .h1 {
-    font-size: 2.998rem; }
+    font-size: 1.998rem; }
 
   .site-header {
     text-align: left; }
