@@ -14,7 +14,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon's Blog" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201603150038" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201603150140" type="text/css">
 
     <!-- Fonts -->
     
@@ -129,7 +129,7 @@
   
   <span class="post-meta small">
   
-    5 minute read
+    1 minute read
   
   </span>
 </div>
@@ -153,195 +153,7 @@
 <h3 id="tmuxconf-">.tmux.conf 내용</h3>
 
 <h2 id="tmuxconf--1">.tmux.conf 내용</h2>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># use UTF8</span>
-<span class="nb">set</span> -g utf8
-<span class="nb">set</span>-window-option -g utf8 on
-
-<span class="c"># make tmux display things in 256 colors</span>
-<span class="c"># set -g default-terminal "screen-256color"</span>
-<span class="nb">set</span> -g default-terminal <span class="s2">"xterm"</span>
-<span class="nb">set</span>-window-option -g xterm-keys on
-
-<span class="c"># set scrollback history to 10000 (10k)</span>
-<span class="nb">set</span> -g <span class="nb">history</span>-limit 10000
-
-<span class="c"># set Ctrl-a as the default prefix key combination</span>
-<span class="c"># and unbind C-b to free it up</span>
-<span class="nb">set</span> -g prefix C-j
-unbind C-b
-unbind C-a
-
-<span class="c"># use send-prefix to pass C-a through to application</span>
-<span class="nb">bind </span>C-j send-prefix
-
-<span class="c"># shorten command delay</span>
-<span class="nb">set</span> -sg escape-time 1
-
-<span class="c"># set window and pane index to 1 (0 by default)</span>
-<span class="nb">set</span>-option -g base-index 1
-setw -g pane-base-index 1
-
-<span class="c"># reload ~/.tmux.conf using PREFIX r</span>
-<span class="nb">bind </span>r <span class="nb">source</span>-file ~/.tmux.conf <span class="se">\;</span> display <span class="s2">"Reloaded!"</span>
-
-<span class="c"># use PREFIX | to split window horizontally and PREFIX - to split vertically</span>
-<span class="nb">bind</span> | split-window -h
-<span class="nb">bind</span> <span class="se">\ </span>split-window -h
-<span class="nb">bind</span> - split-window -v
-
-<span class="c"># Make the current window the first window</span>
-<span class="nb">bind </span>T swap-window -t 1
-
-<span class="c"># map Vi movement keys as pane movement keys</span>
-<span class="nb">bind </span>h <span class="k">select</span>-pane -L
-<span class="nb">bind </span>j <span class="k">select</span>-pane -D
-<span class="nb">bind </span>k <span class="k">select</span>-pane -U
-<span class="nb">bind </span>l <span class="k">select</span>-pane -R
-
-<span class="c"># and use C-h and C-l to cycle thru panes</span>
-<span class="nb">bind</span> -r C-h <span class="k">select</span>-window -t :-
-<span class="nb">bind</span> -r C-l <span class="k">select</span>-window -t :+
-
-<span class="c"># resize panes using PREFIX H, J, K, L</span>
-<span class="nb">bind</span> -r H resize-pane -L 5
-<span class="nb">bind</span> -r J resize-pane -D 5
-<span class="nb">bind</span> -r K resize-pane -U 5
-<span class="nb">bind</span> -r L resize-pane -R 5
-
-<span class="c"># explicitly disable mouse control</span>
-<span class="nb">set</span> -g mode-mouse on
-<span class="nb">set</span> -g mouse-resize-pane on
-<span class="nb">set</span> -g mouse-select-pane on
-<span class="nb">set</span> -g mouse-select-window on
-<span class="nb">set</span>-option -g mouse-utf8 on
-<span class="c"># ---------------------</span>
-<span class="c"># Copy &amp; Paste</span>
-<span class="c"># ---------------------</span>
-<span class="c"># provide access to the clipboard for pbpaste, pbcopy</span>
-<span class="c"># set-option -g default-command "reattach-to-user-namespace -l zsh"</span>
-<span class="c"># set-option -g default-command "bash"</span>
-<span class="nb">set</span>-option -g default-command <span class="s2">"zsh"</span>
-<span class="nb">set</span>-window-option -g automatic-rename on
-
-<span class="c"># use vim keybindings in copy mode</span>
-setw -g mode-keys vi
-
-<span class="c"># setup 'v' to begin selection as in Vim</span>
-<span class="nb">bind</span>-key -t vi-copy v begin-selection
-<span class="c">#bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"</span>
-<span class="nb">bind</span>-key -t vi-copy y copy-pipe <span class="s2">"xclip -selection clipboard -i"</span>
-
-<span class="c"># update default binding of 'Enter' to also use copy-pipe</span>
-unbind -t vi-copy Enter
-<span class="c"># bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"</span>
-<span class="nb">bind</span>-key -t vi-copy Enter copy-pipe <span class="s2">"xclip -selection clipboard -i"</span>
-
-<span class="c"># bind y run 'tmux save-buffer - | reattach-to-user-namespace pbcopy '</span>
-<span class="c"># bind C-y run 'tmux save-buffer - | reattach-to-user-namespace pbcopy '</span>
-<span class="nb">bind </span>y run <span class="s2">"tmux show-buffer | xclip -i -selection clipboard"</span>
-<span class="nb">bind </span>C-y run <span class="s2">"tmux show-buffer | xclip -i -selection clipboard"</span>
-
-<span class="c"># ----------------------</span>
-<span class="c"># set some pretty colors</span>
-<span class="c"># ----------------------</span>
-<span class="c"># set pane colors - hilight the active pane</span>
-<span class="c"># set-option -g pane-border-fg colour235 #base02</span>
-<span class="c"># set-option -g pane-active-border-fg colour240 #base01</span>
-
-<span class="c"># colorize messages in the command line</span>
-<span class="c"># set-option -g message-bg black #base02</span>
-<span class="c"># set-option -g message-fg brightred #orange</span>
-
-<span class="c"># ----------------------</span>
-<span class="c"># Status Bar</span>
-<span class="c"># -----------------------</span>
-<span class="nb">set</span>-option -g status on                <span class="c"># turn the status bar on</span>
-<span class="nb">set</span> -g status-utf8 on                  <span class="c"># set utf-8 for the status bar</span>
-<span class="nb">set</span> -g status-interval 5               <span class="c"># set update frequencey (default 15 seconds)</span>
-<span class="nb">set</span> -g status-justify centre           <span class="c"># center window list for clarity</span>
-<span class="nb">set</span>-option -g status-position top    <span class="c"># position the status bar at top of screen</span>
-
-<span class="c"># visual notification of activity in other windows</span>
-setw -g monitor-activity on
-<span class="nb">set</span> -g visual-activity on
-
-<span class="c"># set color for status bar</span>
-<span class="c">#set-option -g status-bg colour235 #base02</span>
-<span class="c"># set-option -g status-bg default</span>
-<span class="c"># set-option -g status-fg yellow #yellow</span>
-<span class="c"># set-option -g status-fg white</span>
-<span class="c"># set-option -g status-attr dim</span>
-
-<span class="c"># set window list colors - red for active and cyan for inactive</span>
-<span class="nb">set</span>-window-option -g window-status-fg white
-<span class="nb">set</span>-window-option -g window-status-bg colour236
-<span class="nb">set</span>-window-option -g window-status-attr bright
-
-<span class="nb">set</span>-window-option -g window-status-current-fg black
-<span class="nb">set</span>-window-option -g window-status-current-bg yellow
-<span class="nb">set</span>-window-option -g window-status-current-attr bright
-
-<span class="c"># show host name and IP address on left side of status bar</span>
-<span class="nb">set</span> -g status-left-length 70
-<span class="nb">set</span> -g status-left <span class="s2">"#[fg=green]#h@#[fg=yellow]#(ifconfig eth0 | grep 'inet ' | awk '{print </span><span class="nv">$2</span><span class="s2">}')"</span>
-
-<span class="c"># show session name, window &amp; pane number, date and time on right side of</span>
-<span class="c"># status bar</span>
-<span class="nb">set</span> -g status-right-length 60
-<span class="nb">set</span> -g status-right <span class="s2">"#[fg=blue]#S #I:#P#[fg=yellow]::%d %b %Y::#[fg=green]%l:%M %p::"</span>
-
-<span class="c">#### COLOUR (Solarized 256)</span>
-
-<span class="c"># default statusbar colors</span>
-<span class="nb">set</span>-option -g status-bg colour235 <span class="c">#base02</span>
-<span class="nb">set</span>-option -g status-fg colour136 <span class="c">#yellow</span>
-<span class="nb">set</span>-option -g status-attr default
-
-<span class="c"># default window title colors</span>
-<span class="c"># set-window-option -g window-status-fg colour244 #base0</span>
-<span class="c"># set-window-option -g window-status-bg default</span>
-<span class="c">#set-window-option -g window-status-attr dim</span>
-
-<span class="c"># active window title colors</span>
-<span class="c"># set-window-option -g window-status-current-fg colour166 #orange</span>
-<span class="c"># set-window-option -g window-status-current-bg default</span>
-<span class="c">#set-window-option -g window-status-current-attr bright</span>
-
-<span class="nb">set</span>-window-option -g window-status-current-format <span class="s2">"#[fg=colour235, bg=colour166]⮀#[fg=colour255, bg=colour166]#I:#W #[fg=colour166, bg=colour235]⮀"</span>
-<span class="nb">set</span>-window-option -g window-status-format <span class="s2">"#[fg=colour235, bg=colour244]⮀#[fg=colour255, bg=colour244]#I:#W#F#[fg=colour244, bg=colour235]⮀"</span>
-<span class="c"># pane border</span>
-<span class="nb">set</span>-option -g pane-border-fg colour235 <span class="c">#base02</span>
-<span class="nb">set</span>-option -g pane-active-border-fg colour240 <span class="c">#base01</span>
-
-<span class="c"># message text</span>
-<span class="nb">set</span>-option -g message-bg colour235 <span class="c">#base02</span>
-<span class="nb">set</span>-option -g message-fg colour166 <span class="c">#orange</span>
-
-<span class="c"># pane number display</span>
-<span class="nb">set</span>-option -g display-panes-active-colour colour33 <span class="c">#blue</span>
-<span class="nb">set</span>-option -g display-panes-colour colour166 <span class="c">#orange</span>
-
-<span class="c"># clock</span>
-<span class="nb">set</span>-window-option -g clock-mode-colour colour64 <span class="c">#green</span>
-<span class="c"># Smart pane switching with awareness of vim splits</span>
-<span class="nb">bind</span> -n C-h run <span class="s2">"(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|</span><span class="se">\/</span><span class="s2">)vim(diff)?</span><span class="nv">$'</span><span class="s2"> &amp;&amp; tmux send-keys C-h) || tmux select-pane -L"</span>
-<span class="nb">bind</span> -n C-j run <span class="s2">"(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|</span><span class="se">\/</span><span class="s2">)vim(diff)?</span><span class="nv">$'</span><span class="s2"> &amp;&amp; tmux send-keys C-j) || tmux select-pane -D"</span>
-<span class="nb">bind</span> -n C-k run <span class="s2">"(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|</span><span class="se">\/</span><span class="s2">)vim(diff)?</span><span class="nv">$'</span><span class="s2"> &amp;&amp; tmux send-keys C-k) || tmux select-pane -U"</span>
-<span class="nb">bind</span> -n C-l run <span class="s2">"(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|</span><span class="se">\/</span><span class="s2">)vim(diff)?</span><span class="nv">$'</span><span class="s2"> &amp;&amp; tmux send-keys C-l) || tmux select-pane -R"</span>
-<span class="nb">bind</span> -n C-<span class="se">\ </span>run <span class="s2">"(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|</span><span class="se">\/</span><span class="s2">)vim(diff)?</span><span class="nv">$'</span><span class="s2"> &amp;&amp; tmux send-keys 'C-</span><span class="se">\\</span><span class="s2">') || tmux select-pane -l"</span>
-
-<span class="c"># key binding for ALT+num</span>
-<span class="c"># switch windows alt+number</span>
-<span class="nb">bind</span>-key -n M-1 <span class="k">select</span>-window -t 1
-<span class="nb">bind</span>-key -n M-2 <span class="k">select</span>-window -t 2
-<span class="nb">bind</span>-key -n M-3 <span class="k">select</span>-window -t 3
-<span class="nb">bind</span>-key -n M-4 <span class="k">select</span>-window -t 4
-<span class="nb">bind</span>-key -n M-5 <span class="k">select</span>-window -t 5
-<span class="nb">bind</span>-key -n M-6 <span class="k">select</span>-window -t 6
-<span class="nb">bind</span>-key -n M-7 <span class="k">select</span>-window -t 7
-<span class="nb">bind</span>-key -n M-8 <span class="k">select</span>-window -t 8
-<span class="nb">bind</span>-key -n M-9 <span class="k">select</span>-window -t 9</code></pre></figure>
+<script src="https://gist.github.com/code4rain/374c53829bea88cbe328.js"> </script>
 
 
 </article>
