@@ -19,26 +19,26 @@
 &lt;li&gt;Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;&gt;설치방법&lt;/h2&gt;
+&lt;h3 id=&quot;&gt;설치방법&lt;/h3&gt;
 
-&lt;ol&gt;
-&lt;li&gt;TMUX최신 버전을 설치합니다. (&lt;code&gt;apt-get install tmux&lt;/code&gt;로도 설치가능하지만 굉장히 오래전 버전입니다&amp;hellip;)&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h3 id=&quot;tmux&quot;&gt;TMUX최신 버전을 설치합니다.&lt;/h3&gt;
+
+&lt;p&gt;(&lt;code&gt;apt-get install tmux&lt;/code&gt;로도 설치가능하지만 굉장히 오래전 버전입니다&amp;hellip;)&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;To get and build the latest from version control:
 $ git clone git://git.code.sf.net/p/tmux/tmux-code tmux
 $ cd tmux
 $ sh autogen.sh
 $ ./configure &amp;amp;&amp;amp; make
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;ol&gt;
-&lt;li&gt;Root권한이 있는 사용자라면 &lt;code&gt;sudo make install&lt;/code&gt;로 모든 사용자가 해당 버전을 사용하게끔해 줄 수 있습니다.&lt;/li&gt;
-&lt;li&gt;제가 설정해둔 설정파일을 사용하시면 좀 더 편할 듯싶습니다. \
-&lt;code&gt;~/.tmux.conf&lt;/code&gt;로 저장하시면 됩니다.&lt;/li&gt;
-&lt;li&gt;VI의 color scheme이 정상적으로 동작하게끔하기 위해서 .bashrc 등에 아래 줄을 추가해둡니다. \
-&lt;code&gt;alias tmux=&amp;#39;TERM=xterm-256color tmux -2&amp;#39;&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Root권한이 있는 사용자라면 &lt;code&gt;sudo make install&lt;/code&gt;로 모든 사용자가 해당 버전을 사용하게끔해 줄 수 있습니다.&lt;br&gt;
+제가 설정해둔 설정파일을 사용하시면 좀 더 편할 듯싶습니다. &lt;/p&gt;
 
-&lt;h2 id=&quot;&gt;사용방법&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;~/.tmux.conf&lt;/code&gt;로 저장하시면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;VI의 color scheme이 정상적으로 동작하게끔하기 위해서 .bashrc 등에 아래 줄을 추가해둡니다.&lt;br&gt;
+&lt;code&gt;alias tmux=&amp;#39;TERM=xterm-256color tmux -2&amp;#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;&gt;사용방법&lt;/h3&gt;
 
 &lt;p&gt;제 설정파일(설정파일은 포스팅 마지막에 있습니다.)을 적용했다고 가정하고 사용법을 설명드리도록 하겠습니다.&lt;br&gt;
 기본적인 invoke키는 &lt;code&gt;Ctrl+b&lt;/code&gt;이지만 저는 &lt;code&gt;Ctrl+j&lt;/code&gt;로 변경해두었습니다.&lt;/p&gt;
@@ -87,27 +87,27 @@ $ ./configure &amp;amp;&amp;amp; make
 
 &lt;h2 id=&quot;more&quot;&gt;More&lt;/h2&gt;
 
-&lt;ol&gt;
-&lt;li&gt;제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.
+&lt;h3 id=&quot;bash-zsh-tmux&quot;&gt;제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.&lt;/h3&gt;
+
+&lt;p&gt;해당 설정을 원래대로 bash로 변경하고 싶으시면 &lt;code&gt;~/.tmux.conf&lt;/code&gt;에서&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;     # set-option -g default-command &quot;bash&quot;
+     set-option -g default-command &quot;zsh&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;zsh 부부분을 주석처리하시고 bash부분을 주석해제 해주시면 됩니다. (#은 주석처리입니다.)&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;해당 설정을 원래대로 bash로 변경하고 싶으시면 &lt;code&gt;~/.tmux.conf&lt;/code&gt;에서&lt;br&gt;
-&lt;code&gt;# set-option -g default-command &amp;quot;bash&amp;quot;
-set-option -g default-command &amp;quot;zsh&amp;quot;&lt;/code&gt;&lt;br&gt;
-두 부분을 바꾸시면 됩니다. (#은 주석처리입니다.)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;tmux에 간단한 설명은 아래를 참고하세요.
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;&quot;&gt;http://nodeqa.com/nodejs_ref/99&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://nodeqa.com/nodejs_ref/99&quot;&gt;http://nodeqa.com/nodejs_ref/99&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;매번 tmux를 설정하고 창을 분할하는 작업을 하게 되는데 이걸 미리 설정해서 할 수 있는 Tool도 있습니다.
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;&quot;&gt;https://github.com/tmuxinator/tmuxinator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tmuxinator/tmuxinator&quot;&gt;https://github.com/tmuxinator/tmuxinator&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;저도 설정해서 쓰고 있는데 mux session-name으로 간단히 new/attache를 할 수 있어서 편합니다.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;tmux-conf&quot;&gt;.tmux.conf&lt;/h2&gt;
 

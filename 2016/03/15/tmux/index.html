@@ -14,7 +14,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon's Blog" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201603150244" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201603150256" type="text/css">
 
     <!-- Fonts -->
     
@@ -145,26 +145,26 @@
 <li>Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)</li>
 </ol>
 
-<h2 id=">설치방법</h2>
+<h3 id=">설치방법</h3>
 
-<ol>
-<li>TMUX최신 버전을 설치합니다. (<code>apt-get install tmux</code>로도 설치가능하지만 굉장히 오래전 버전입니다&hellip;)</li>
-</ol>
+<h3 id="tmux">TMUX최신 버전을 설치합니다.</h3>
+
+<p>(<code>apt-get install tmux</code>로도 설치가능하지만 굉장히 오래전 버전입니다&hellip;)</p>
 <div class="highlight"><pre><code class="language-" data-lang="">To get and build the latest from version control:
 $ git clone git://git.code.sf.net/p/tmux/tmux-code tmux
 $ cd tmux
 $ sh autogen.sh
 $ ./configure &amp;&amp; make
 </code></pre></div>
-<ol>
-<li>Root권한이 있는 사용자라면 <code>sudo make install</code>로 모든 사용자가 해당 버전을 사용하게끔해 줄 수 있습니다.</li>
-<li>제가 설정해둔 설정파일을 사용하시면 좀 더 편할 듯싶습니다. \
-<code>~/.tmux.conf</code>로 저장하시면 됩니다.</li>
-<li>VI의 color scheme이 정상적으로 동작하게끔하기 위해서 .bashrc 등에 아래 줄을 추가해둡니다. \
-<code>alias tmux=&#39;TERM=xterm-256color tmux -2&#39;</code></li>
-</ol>
+<p>Root권한이 있는 사용자라면 <code>sudo make install</code>로 모든 사용자가 해당 버전을 사용하게끔해 줄 수 있습니다.<br>
+제가 설정해둔 설정파일을 사용하시면 좀 더 편할 듯싶습니다. </p>
 
-<h2 id=">사용방법</h2>
+<p><code>~/.tmux.conf</code>로 저장하시면 됩니다.</p>
+
+<p>VI의 color scheme이 정상적으로 동작하게끔하기 위해서 .bashrc 등에 아래 줄을 추가해둡니다.<br>
+<code>alias tmux=&#39;TERM=xterm-256color tmux -2&#39;</code></p>
+
+<h3 id=">사용방법</h3>
 
 <p>제 설정파일(설정파일은 포스팅 마지막에 있습니다.)을 적용했다고 가정하고 사용법을 설명드리도록 하겠습니다.<br>
 기본적인 invoke키는 <code>Ctrl+b</code>이지만 저는 <code>Ctrl+j</code>로 변경해두었습니다.</p>
@@ -213,27 +213,27 @@ $ ./configure &amp;&amp; make
 
 <h2 id="more">More</h2>
 
-<ol>
-<li>제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.
+<h3 id="bash-zsh-tmux">제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.</h3>
+
+<p>해당 설정을 원래대로 bash로 변경하고 싶으시면 <code>~/.tmux.conf</code>에서</p>
+<div class="highlight"><pre><code class="language-" data-lang="">     # set-option -g default-command "bash"
+     set-option -g default-command "zsh"
+</code></pre></div>
+<p>zsh 부부분을 주석처리하시고 bash부분을 주석해제 해주시면 됩니다. (#은 주석처리입니다.)</p>
 
 <ul>
-<li>해당 설정을 원래대로 bash로 변경하고 싶으시면 <code>~/.tmux.conf</code>에서<br>
-<code># set-option -g default-command &quot;bash&quot;
-set-option -g default-command &quot;zsh&quot;</code><br>
-두 부분을 바꾸시면 됩니다. (#은 주석처리입니다.)</li>
-</ul></li>
 <li>tmux에 간단한 설명은 아래를 참고하세요.
 
 <ul>
-<li><a href="">http://nodeqa.com/nodejs_ref/99</a></li>
+<li><a href="http://nodeqa.com/nodejs_ref/99">http://nodeqa.com/nodejs_ref/99</a></li>
 </ul></li>
 <li>매번 tmux를 설정하고 창을 분할하는 작업을 하게 되는데 이걸 미리 설정해서 할 수 있는 Tool도 있습니다.
 
 <ul>
-<li><a href="">https://github.com/tmuxinator/tmuxinator</a></li>
+<li><a href="https://github.com/tmuxinator/tmuxinator">https://github.com/tmuxinator/tmuxinator</a></li>
 <li>저도 설정해서 쓰고 있는데 mux session-name으로 간단히 new/attache를 할 수 있어서 편합니다.</li>
 </ul></li>
-</ol>
+</ul>
 
 <h2 id="tmux-conf">.tmux.conf</h2>
 
