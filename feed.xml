@@ -64,33 +64,6 @@ vi, 혹은 그 변형인 vim과 emacs이다.&lt;/p&gt;
       </item>
     
       <item>
-        <title>TMUX설정</title>
-        <description>&lt;h2 id=&quot;tmux&quot;&gt;TMUX&lt;/h2&gt;
-&lt;p&gt;TMUX는 터미널화면을 분할하거나 Tab을 만들어서 사용할 수 있도록 도와주는 툴이다. &lt;br /&gt;
-(정확히는 Terminal multiplexer로 terminal접속을 동시에 해주는 툴 정도의 느낌이지만, 내 기준으로 사용하기에는 이정도의 정의가 알맞다.)&lt;/p&gt;
-
-&lt;p&gt;비슷한 프로그램으로는 &lt;a href=&quot;https://www.gnu.org/software/screen/&quot; title=&quot;SCREEN&quot;&gt;SCREEN&lt;/a&gt;이 있다.&lt;/p&gt;
-
-&lt;p&gt;TMUX에 간단한 소개는 아래 링크를 참고하세요.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://nodeqa.com/nodejs_ref/99&quot;&gt;http://nodeqa.com/nodejs_ref/99&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;tmux-1&quot;&gt;나의 TMUX설정&lt;/h2&gt;
-&lt;p&gt;설정 후 화면 - 상단에 3개의 window가 떠 있는 것을 확인할 수 있다.
-&lt;img src=&quot;/images/tmux_preview.png&quot; alt=&quot;preview&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;tmuxconf-&quot;&gt;.tmux.conf 내용&lt;/h2&gt;
-&lt;script src=&quot;https://gist.github.com/code4rain/374c53829bea88cbe328.js&quot;&gt; &lt;/script&gt;
-
-</description>
-        <pubDate>Wed, 06 Aug 2014 16:46:00 +0900</pubDate>
-        <link>http://code4rain.github.io/2014/08/06/tmuxseoljeong/</link>
-        <guid isPermaLink="true">http://code4rain.github.io/2014/08/06/tmuxseoljeong/</guid>
-      </item>
-    
-      <item>
         <title>Change Outlook Subject with Python</title>
         <description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.&lt;/p&gt;
