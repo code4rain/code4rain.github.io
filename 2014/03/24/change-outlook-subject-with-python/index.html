@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Change Outlook Subject with Python &#8211; Alex Kyoungdon's Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Alex Kyoungdon Jang&#39;s Blog.
+">
+    <meta name="robots" content="all">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://code4rain.github.io/2014/03/24/change-outlook-subject-with-python/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon's Blog" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201603142124" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Change Outlook Subject with Python">
+    <meta property="og:description" content="Alex Kyoungdon Jang&#39;s Blog.
+">
+    <meta property="og:url" content="http://code4rain.github.io/2014/03/24/change-outlook-subject-with-python/">
+    <meta property="og:site_name" content="Alex Kyoungdon&#39;s Blog">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Change Outlook Subject with Python" />
+    <meta name="twitter:description" content="Alex Kyoungdon Jang's Blog.
+" />
+    <meta name="twitter:url" content="http://code4rain.github.io/2014/03/24/change-outlook-subject-with-python/" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://code4rain.github.io" class="site-title">Alex Kyoungdon's Blog</a>
+      <nav class="site-nav">
+        
+    
+
+    
+        <a href="/about/">About Pixyll</a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+        <a href="/contact/">Say Hello</a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>Change Outlook Subject with Python</h1>
+  <span class="post-meta">2014-03-24 10:42:00 +0900</span><br>
+  
+  <span class="post-meta small">
+  
+    2 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <h2 id="introduction">Introduction</h2>
+<p>직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.</p>
+
+<p>아웃룩 2003까지는 뭐 그러려니 하고 search plugin을 설치해서 쓰고 있다가, 2010에 <a href="http://support.microsoft.com/kb/2274243/ko">conversation view(대화보기)</a>라는 기능이 추가된 것을 알게 되었습니다. 메일 제목을 기준으로(엄밀히 이야기하면 메일 제목은 아닙니다만) 메일을 묶어주는 기능입니다.</p>
+
+<p>하루에 오는 메일들이 대부분 Reply나 Foword 형식이기 때문에 이 기능을 쓰게 되면 하루에 오는 몇 백통의 메일을 몇 십개 Thread로 묶어서 보여주는 효과가 있습니다.</p>
+
+<p><strong>오호라~!</strong></p>
+
+<p>하지만 난관에 봉착합니다. 이 기능은 아웃룩에서 수발신한 메일들만 묶어줍니다. 회사메일에서 reply, foword를 하게되면 다른 conversation subject를 가진 메일로 인식하고 묶어주질 못하는 거죠.</p>
+
+<p>SW engineer가 이대로 포기할 순 없어서 검색해보기 시작합니다.</p>
+
+<p>우리의 친구 Google과 stackoverflow를 찾아보다가 <a href="http://stackoverflow.com/questions/1440233/possible-to-intercept-and-rewrite-email-on-outlook-client-side-using-ironpython">힌트</a>를 발견합니다.
+Python으로 뭔가 쿵짝쿵짝하면 될 것같은 느낌이 듭니다. 오호~</p>
+
+<p>열심히 스크립트도 만들고 수정해봅니다.</p>
+
+<p><strong>뭔가 되는 듯하더니 안됩니다.ㅠㅠ</strong></p>
+
+<p>음 다시 Google과 stackoverflow를 뒤져봅니다.
+<a href="http://msdn.microsoft.com/en-us/library/office/ff869318.aspx">MSDN</a>에 나온 걸 보니 conversationTopic을 변경이 안된다고 합니다. - READ Only attribute.</p>
+
+<p>이런…</p>
+
+<p>하지만 또 뒤져봅니다.</p>
+
+<p>… (_ _) (- - ) ( - -)</p>
+
+<p>걸렸습니다. Redemption DLL을 깔면 수정할 수 있답니다. (오예~)</p>
+
+<p>그래서 기존에 온 메일을 일괄 정리하는 스크립트를 만듭니다. 쓱싹쓱싹 돌 때 심심하니 메일 하나를 처리하면 .하나를 찍어주도록 합니다.
+다 되고 나서 Conversation View로 바꿔봅니다.</p>
+
+<p>…</p>
+
+<p>잘됩니다.ㅋㅋㅋㅋ</p>
+
+<p>이제 매번 스크립트를 돌리기가 귀찮아집니다. 보통은 여기까지하고 그만두지만, 이번엔 아웃룩 VBA까지 건들여봅니다. 뚝딱뚝딱</p>
+
+<p><strong>이힝~</strong></p>
+
+<p>이제 메일이 오면 자동으로 정리해주도록 변경합니다. 아.. 내가 만든 VBA스크립트는 인증받지 않은 스크립트라 보안을 해제해줘야 합니다.
+설마 회사에 스팸용 VBA 스크립트가 들어오진 않을테니, 보안담당자를 믿고 보안도 해제합니다.</p>
+
+<p>길고긴 삽질이 끝났습니다.</p>
+
+<h2 id="section">설치 방법</h2>
+<ol>
+  <li>Download and install
+    <ul>
+      <li>Windows용 Python을 설치합니다.</li>
+      <li>Python은 Outlook을 32bit을 설치했으면 32bit을, 64bit을 설치했으면 64bit을 설치합니다.
+        <ul>
+          <li>Python Download : <a href="http://www.python.org/ftp/python/2.7.5/python-2.7.5.msi">2.7.5 32bit</a></li>
+          <li>Python용 win32 library도 다운받습니다. : <a href="http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/pywin32-218.win32-py2.7.exe/download">pywin32-218.win32-py2.7.exe</a></li>
+        </ul>
+      </li>
+      <li>Redemption DLL도 설치합니다. (설치가 잘 안되면 관리자 권한으로 설치합니다.) : <a href="http://www.dimastr.com/redemption/Redemption.zip">Redemption</a></li>
+    </ul>
+  </li>
+  <li>기존 메일을 정리하는 스크립트</li>
+</ol>
+
+<p>스크립트를 작성합니다. 아래 내용을 복붙해서 conversation.py로 만듭니다.
+python이 제대로 설치되었다면 conversation.py를 double click하면 잘 실행이 됩니다.</p>
+
+<script src="https://gist.github.com/code4rain/28057bc26d7ba343e59f.js?file=conversation.py"> </script>
+
+<p>메일이 오면 자동으로 변경해주는 건 VBA스크립트를 만들어야 합니다.</p>
+
+
+</article>
+
+
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'code4rainsblog';
+    var disqus_identifier = '/2014/03/24/change-outlook-subject-with-python';
+    var disqus_title      = 'Change Outlook Subject with Python';
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+    </small>
+  </div>
+</footer>
+
+</body>
+</html>

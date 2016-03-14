@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>About Pixyll &#8211; Alex Kyoungdon's Blog</title>
+    <title>SSH 로그인시 접속지연 해결방법 &#8211; Alex Kyoungdon's Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Alex Kyoungdon Jang&#39;s Blog.
 ">
     <meta name="robots" content="all">
     <meta name="author" content="">
-    
-    <link rel="canonical" href="http://code4rain.github.io/about/">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://code4rain.github.io/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon's Blog" href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -34,19 +34,19 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="About Pixyll">
+    <meta property="og:title" content="SSH 로그인시 접속지연 해결방법">
     <meta property="og:description" content="Alex Kyoungdon Jang&#39;s Blog.
 ">
-    <meta property="og:url" content="http://code4rain.github.io/about/">
+    <meta property="og:url" content="http://code4rain.github.io/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/">
     <meta property="og:site_name" content="Alex Kyoungdon&#39;s Blog">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     
-    <meta name="twitter:title" content="About Pixyll" />
+    <meta name="twitter:title" content="SSH 로그인시 접속지연 해결방법" />
     <meta name="twitter:description" content="Alex Kyoungdon Jang's Blog.
 " />
-    <meta name="twitter:url" content="http://code4rain.github.io/about/" />
+    <meta name="twitter:url" content="http://code4rain.github.io/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -126,29 +126,53 @@
 
     <div class="post p2 p-responsive wrap" role="main">
       <div class="measure">
-        <div class="post">
-  <header class="post-header">
-    <h1 class="h2">About Pixyll</h1>
-  </header>
-  <article class="post-content">
-  <p>This Jekyll theme was crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a>
-(<a href="https://twitter.com/4lpine">@4lpine</a>).</p>
+        
 
-<p>Checkout the <a href="https://github.com/johnotander/pixyll">Github repository</a> to download it,
-request a feature, report a bug, or contribute. It’s free, and open source
-(<a href="http://opensource.org/licenses/MIT">MIT</a>).</p>
 
-<p>Thanks to the following:</p>
-
-<ul>
-  <li><a href="http://basscss.com">BASSCSS</a></li>
-  <li><a href="http://jekyllrb.com">Jekyll</a></li>
-  <li><a href="http://refills.bourbon.io/">Refills</a></li>
-  <li><a href="http://type-scale.com/">Type Scale</a></li>
-</ul>
-
-  </article>
+<div class="post-header mb2">
+  <h1>SSH 로그인시 접속지연 해결방법</h1>
+  <span class="post-meta">2014-03-09 20:14:00 +0900</span><br>
+  
+  <span class="post-meta small">
+  
+    1 minute read
+  
+  </span>
 </div>
+
+<article class="post-content">
+  <p>사내망의 서버나 PC와 같이 IP에 대해 DNS에 도메인 네임이 등록되지 않는 서버에 접속시 로그인 과정에서 3,4초 딜레이가 발생한다.</p>
+
+<p><code class="highlighter-rouge">/etc/ssh/sshd_config</code>파일에 <code class="highlighter-rouge">UseDNS no</code>을 추가하면 딜레이를 없앨 수 있다.</p>
+
+<p>파일 수정 수 아래 명령으로 ssh 데몬 재시작해야 합니다.
+<code class="highlighter-rouge">$sudo /etc/init.d/ssh restart</code> 혹은 <code class="highlighter-rouge">service ssh restart</code></p>
+
+</article>
+
+
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'code4rainsblog';
+    var disqus_identifier = '/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob';
+    var disqus_title      = 'SSH 로그인시 접속지연 해결방법';
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
 
       </div>
     </div>

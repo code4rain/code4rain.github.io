@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Migrated From Vim to Emacs &#8211; Alex Kyoungdon's Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Alex Kyoungdon Jang&#39;s Blog.
+">
+    <meta name="robots" content="all">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon's Blog" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?201603142124" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Migrated From Vim to Emacs">
+    <meta property="og:description" content="Alex Kyoungdon Jang&#39;s Blog.
+">
+    <meta property="og:url" content="http://code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/">
+    <meta property="og:site_name" content="Alex Kyoungdon&#39;s Blog">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Migrated From Vim to Emacs" />
+    <meta name="twitter:description" content="Alex Kyoungdon Jang's Blog.
+" />
+    <meta name="twitter:url" content="http://code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+    
+</head>
+
+<body class="site">
+  
+	
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://code4rain.github.io" class="site-title">Alex Kyoungdon's Blog</a>
+      <nav class="site-nav">
+        
+    
+
+    
+        <a href="/about/">About Pixyll</a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+
+    
+        <a href="/contact/">Say Hello</a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        
+
+
+<div class="post-header mb2">
+  <h1>Migrated From Vim to Emacs</h1>
+  <span class="post-meta">2016-03-14 19:30:27 +0900</span><br>
+  
+  <span class="post-meta small">
+  
+    2 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <p>프로그래머 세계에서 끊이지 않는 논쟁 중 하나는 어떤 에디터를 사용하는 지에 관한 논쟁이다.
+세상에 있는 수많은 에디터와 그 에디터들을 찬양하는 수많은 글들을 읽다가 보면 과연 어떠한 에디터가 최고의 에디터인지에 대해 혼란해지기도 한다.</p>
+
+<p>이러한 에디터 논쟁에서 빠지지 않고 그 자리를 차지하는 두 가지 에디터가 있다.
+vi, 혹은 그 변형인 vim과 emacs이다.</p>
+
+<p>두 가지 에디터 모두 오랜 역사를 가지고 있고, 오랜 시간 동안 사람들의 사랑을 받을 만한 많은 장점이 있다.</p>
+
+<p>공통된 장점으로 보자면 에디터의 기능을 확장시킬 수 있는 수많은 플러그인이 존재한다는 점을 들 수 있다. 두 에디터 단순한 에디터라기 보다는 일종의 플랫폼으로 동작하여 수많은 플러그인을 활용하여 스스로의 기능을 발전시켜왔다.</p>
+
+<p>vi의 경우를 보자면 특이한 키맵과 편집모드가 있다. 초심자에게, 특히나 GUI로 컴퓨터를 접하기 시작한 사람들에게는 괴랄한 인터페이스가 초기 진입장벽을 만들지만 한 번 익숙해지면 마우스 없이 키보드에서 손을 거의 떼지않고 문서 편집을 할 수 있다는 장점때문에 vi의 신봉자로 거듭나게 된다. 나 역시 초기의 어려움을 극복(?)하고 나서부터는 거의 모든 편집을 vi를 사용하거나 에디터에 있는 키맵을 수정하여 vi와 비슷하게 맞추게 되어버렸다.</p>
+
+<p>emacs의 경우는 일종의 편집기라기 보다는 플랫폼이라는 말이 어울릴 정도로 프로그래머에게 높은 자유도와 확장성을 제공한다. 하지만 이러한 확장성은 lisp라는 언어를 배우고 그에 맞게 자신이 커스터마이즈해야하는 노력과 시간이 많이 들어가는 까다로움도 동시에 존재했다. 사실 나도 vi를 배우기 시작할 때 또 다른 옵션의 하나로 emacs를 고려했지만 초기 설정의 어려움으로 인해서 결국 적응하지 못하고 포기한 바 있다.</p>
+
+<p>하지만 시간이 흐르고 vi에 익숙해지면서 vi로 할 수 있는 기능의 제약성을 조금씩 느끼기 시작했다. 아무래도 vi가 가진 에디터라는 한계로 인해 다양한 다른 툴과 연계를 해야하지만 이러한 과정에서 나타나는 인터페이스의 비일관성과 귀찮음이 점점 커져가고 있었던 것이다. 이러한 도중에 Youtube에서 보게된 <a href="https://www.youtube.com/watch?v=JWD1Fpdd4Pc">Evil Mode: Or, How I Learned to Stop Worrying and Love Emacs</a>라는 동영상은 emacs에 대한 관심을 다시 불러일으키게 되었다.
+기존 vi사용자를 위해 emacs에 추가된 evil package는 vi keymap때문에 못 옮긴다는 핑계를 날려주었고, 초기 설정의 복잡함은 <a href="https://github.com/syl20bnr/spacemacs">spacemacs</a>라는 프로젝트 덕분에 명령어 몇 줄과 설정파일 수정 몇 줄을 통해서 간단히 해결되게 되었다.</p>
+
+<p>덕분에 지금은 윈도우를 켜자마자 emacs를 켜고 파일 편집, 논문 작성, 블로그 작성, todo list관리를 하나의 에디터에서 수행할 수 있게 되었다.</p>
+
+<h1 id="recommand-for-previous-vimer">recommand for previous vimer</h1>
+
+<ol>
+  <li>evil package를 설치하자.</li>
+  <li>기왕이면 spacemacs를 통채로 설치하면 초기 설정이 편하다. (spacemacs의 기본 keymap은 vim을 base로 한다.)</li>
+  <li>emacs 첫 구동에는 시간이 걸린다. 하지만 종료를 하지 않으면 된다…</li>
+  <li>todo 관리를 위해서 org모드 사용법은 배워두면 좋다.</li>
+  <li>vi에서 사용하던 플러그인은 대부분 찾아보면 다 있다. (더 좋은 경우가 많다.)</li>
+  <li>windows용 gvim보다 emacs가 linux/windows를 가리지 않는 호환성이 더 좋다. (애초에 거의 모든 기능이 자체적으로 구현되어 있다.)</li>
+  <li>lifetime editor로 emacs는 좋은 선택이다.</li>
+</ol>
+
+
+</article>
+
+
+
+
+
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname  = 'code4rainsblog';
+    var disqus_identifier = '/2016/03/14/migrated-from-vim-to-emacs';
+    var disqus_title      = 'Migrated From Vim to Emacs';
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      Theme crafted with &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>).<br>
+      &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll">Github</a>.
+    </small>
+  </div>
+</footer>
+
+</body>
+</html>
