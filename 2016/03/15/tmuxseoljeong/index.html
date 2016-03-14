@@ -10,7 +10,7 @@
     <meta name="robots" content="all">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <link rel="canonical" href="http://code4rain.github.io/2016/03/15/tmux/">
+    <link rel="canonical" href="http://code4rain.github.io/2016/03/15/tmuxseoljeong/">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon's Blog" href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -37,7 +37,7 @@
     <meta property="og:title" content="TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기">
     <meta property="og:description" content="Alex Kyoungdon Jang&#39;s Blog.
 ">
-    <meta property="og:url" content="http://code4rain.github.io/2016/03/15/tmux/">
+    <meta property="og:url" content="http://code4rain.github.io/2016/03/15/tmuxseoljeong/">
     <meta property="og:site_name" content="Alex Kyoungdon&#39;s Blog">
 
     <!-- Twitter Card -->
@@ -46,7 +46,7 @@
     <meta name="twitter:title" content="TMUX - 창분할하기 & 빌드걸고 퇴근하기" />
     <meta name="twitter:description" content="Alex Kyoungdon Jang's Blog.
 " />
-    <meta name="twitter:url" content="http://code4rain.github.io/2016/03/15/tmux/" />
+    <meta name="twitter:url" content="http://code4rain.github.io/2016/03/15/tmuxseoljeong/" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -136,77 +136,89 @@
 
 <article class="post-content">
   <p>TMX는 terminal multiplexer로 터미널에서 사용하는 프로그램들을 손쉽게 switch하거나 backgroud로 수행할 수 있게 도와주는 툴입니다.
-<img src="/image/tmux_previw.gif" alt="preview" />
+<img src="/images/tmux_previw.gif" alt="preview" />
 TMUX를 사용하면
 1. 터미널창을 분할해서 사용할 수 있습니다. (위 그림에서는 왼쪽에는 VI, 오른쪽 위는 TIG, 오른쪽 아래는 Shell로 분할했습니다.)
 2. Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)</p>
 
 <h2 id="section">설치방법</h2>
+
 <ol>
-  <li>TMUX최신 버전을 설치합니다. (<code class="highlighter-rouge">apt-get install tmux</code>로도 설치가능하지만 굉장히 오래전 버전입니다…)
-<code class="highlighter-rouge">
+  <li>TMUX최신 버전을 설치합니다. (<code class="highlighter-rouge">apt-get install tmux</code>로도 설치가능하지만 굉장히 오래전 버전입니다…)</li>
+</ol>
+
+<p><code class="highlighter-rouge">
 To get and build the latest from version control:
- $ git clone git://git.code.sf.net/p/tmux/tmux-code tmux
- $ cd tmux
- $ sh autogen.sh
- $ ./configure &amp;&amp; make
-</code></li>
+	$ git clone git://git.code.sf.net/p/tmux/tmux-code tmux
+	$ cd tmux
+	$ sh autogen.sh
+	$ ./configure &amp;&amp; make
+</code></p>
+
+<ol>
   <li>Root권한이 있는 사용자라면 <code class="highlighter-rouge">sudo make install</code>로 모든 사용자가 해당 버전을 사용하게끔해 줄 수 있습니다.</li>
-  <li>제가 설정해둔 설정파일을 사용하시면 좀 더 편할 듯싶습니다.
+  <li>제가 설정해둔 설정파일을 사용하시면 좀 더 편할 듯싶습니다. <br />
 <code class="highlighter-rouge">~/.tmux.conf</code>로 저장하시면 됩니다.</li>
-  <li>VI의 color scheme이 정상적으로 동작하게끔하기 위해서 .bashrc 등에 아래 줄을 추가해둡니다.
+  <li>VI의 color scheme이 정상적으로 동작하게끔하기 위해서 .bashrc 등에 아래 줄을 추가해둡니다. <br />
 <code class="highlighter-rouge">alias tmux='TERM=xterm-256color tmux -2'</code></li>
 </ol>
 
 <h2 id="section-1">사용방법</h2>
 
+<p>제 설정파일(설정파일은 포스팅 마지막에 있습니다.)을 적용했다고 가정하고 사용법을 설명드리도록 하겠습니다.
+기본적인 invoke키는 <code class="highlighter-rouge">Ctrl+b</code>이지만 저는 <code class="highlighter-rouge">Ctrl+j</code>로 변경해두었습니다.</p>
+
+<h4 id="section-2">시작하기</h4>
 <dl>
-  <dt>제 설정파일(설정파일은 포스팅 마지막에 있습니다.)을 적용했다고 가정하고 사용법을 설명드리도록 하겠습니다.</dt>
-  <dt>기본적인 invoke키는 <code class="highlighter-rouge">Ctrl+b</code>이지만 저는 <code class="highlighter-rouge">Ctrl+j</code>로 변경해두었습니다.</dt>
-  <dt>1. 시작하기</dt>
   <dt><code class="highlighter-rouge">tmux</code> 혹은 <code class="highlighter-rouge">tmux new -s &lt;원하는 이름&gt;</code></dt>
-  <dd>추후에 attache(재사용)을 하기 편하게끔 이름을 지정하시는게 좋습니다. <code class="highlighter-rouge">tmux new -s normal</code>
-2. 창 분할하기
-<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 | 를 누르면 좌우로 분할되고,
-<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 - 를 누르면 상하로 분할됩니다.,
-3. 창 이동하기
-<code class="highlighter-rouge">Ctrl+j</code>를 누르고 다시 <code class="highlighter-rouge">Ctrl+j</code>를 누르면 이전 창으로 돌아갑니다.
-<code class="highlighter-rouge">Ctrl+j</code>를 누르고 <code class="highlighter-rouge">q</code>를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다.
-<img src="/image/tmux_number.gif" alt="move with number" />
-4. Tab 만들기
-<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">c</code>를 누르면 새로운 tab이 생성됩니다.
-5. Tab간 이동하기
-<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">n</code>을 누르면 다음 tab으로 이동합니다.
-<code class="highlighter-rouge">Alt+&lt;숫자키&gt;</code>를 누르면 해당 tab으로 이동합니다.
-6. 창 닫기
-shell에서 exit명령을 입력합니다.
-<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">x</code>를 누르면 해당 pane을 닫을 것인지 묻습니다. 이 때 <code class="highlighter-rouge">y</code>를 선택하면 해당 창이 닫힙니다.
-7. Detache / Attache 사용하기 (build걸고 퇴근하기)
-tmux를 실행하고 나서 빌드를 실행합니다.
+  <dd>추후에 attache(재사용)을 하기 편하게끔 이름을 지정하시는게 좋습니다. <code class="highlighter-rouge">tmux new -s normal</code></dd>
+</dl>
+
+<h4 id="section-3">창 분할하기</h4>
+<p><code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 | 를 누르면 좌우로 분할되고, 
+<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 - 를 누르면 상하로 분할됩니다.</p>
+
+<h4 id="section-4">창 이동하기</h4>
+<p><code class="highlighter-rouge">Ctrl+j</code>를 누르고 다시 <code class="highlighter-rouge">Ctrl+j</code>를 누르면 이전 창으로 돌아갑니다. 
+<code class="highlighter-rouge">Ctrl+j</code>를 누르고 <code class="highlighter-rouge">q</code>를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다. 
+<img src="/images/tmux_number.gif" alt="move with number" /></p>
+
+<h4 id="tab-">Tab 만들기</h4>
+<p><code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">c</code>를 누르면 새로운 tab이 생성됩니다.</p>
+
+<h4 id="tab--1">Tab간 이동하기</h4>
+<p><code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">n</code>을 누르면 다음 tab으로 이동합니다.
+<code class="highlighter-rouge">Alt+&lt;숫자키&gt;</code>를 누르면 해당 tab으로 이동합니다.</p>
+
+<h4 id="section-5">창 닫기</h4>
+<p>shell에서 exit명령을 입력합니다.
+<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">x</code>를 누르면 해당 pane을 닫을 것인지 묻습니다. 이 때 <code class="highlighter-rouge">y</code>를 선택하면 해당 창이 닫힙니다.</p>
+
+<h4 id="detache--attache--build-">Detache / Attache 사용하기 (build걸고 퇴근하기)</h4>
+<p>tmux를 실행하고 나서 빌드를 실행합니다.
 <code class="highlighter-rouge">Ctrl+j</code>를 누르고 <code class="highlighter-rouge">d</code>를 누르면 [detached (from session xxx)] 라고 뜨면서 tmux를 실행하기 전 Shell로 빠져나옵니다.
 퇴근합니다.~
-다음날 와서 <code class="highlighter-rouge">tmux attach -t xxx</code>를 치면 퇴근 전 화면으로 돌아갑니다.
-8. Zoom기능 사용하기
-tmux최신버전에는 zoom이라는 기능이 있습니다. 창을 분할해서 사용하다가 잠시 전체 화면으로 바꾸고, 다시 원래대로 돌아갈 수 있는 기능입니다.
-<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">z</code>를 누르면 현재 커서가 위차한 창이 전체 화면으로 전환되고,
-다시 <code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">z</code>를 누르면 분할되었던 상태로 돌아가게 됩니다.</dd>
-</dl>
+다음날 와서 <code class="highlighter-rouge">tmux attach -t xxx</code>를 치면 퇴근 전 화면으로 돌아갑니다.</p>
+
+<h4 id="zoom-">Zoom기능 사용하기</h4>
+<p>tmux최신버전에는 zoom이라는 기능이 있습니다. 창을 분할해서 사용하다가 잠시 전체 화면으로 바꾸고, 다시 원래대로 돌아갈 수 있는 기능입니다.
+<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">z</code>를 누르면 현재 커서가 위차한 창이 전체 화면으로 전환되고, 다시 <code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">z</code>를 누르면 분할되었던 상태로 돌아가게 됩니다.</p>
 
 <h2 id="more">More</h2>
 
 <ol>
   <li>제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.
-해당 설정을 원래대로 bash로 변경하고 싶으시면 <code class="highlighter-rouge">~/.tmux.conf</code>에서
-<code class="highlighter-rouge">
-# set-option -g default-command "bash"
-set-option -g default-command "zsh"
+ 해당 설정을 원래대로 bash로 변경하고 싶으시면 <code class="highlighter-rouge">~/.tmux.conf</code>에서
+ <code class="highlighter-rouge">
+ # set-option -g default-command "bash"
+ set-option -g default-command "zsh"
 </code>
-두 부분을 바꾸시면 됩니다. (#은 주석처리입니다.)</li>
+ 두 부분을 바꾸시면 됩니다. (#은 주석처리입니다.)</li>
   <li>tmux에 간단한 설명은 아래를 참고하세요.
-http://nodeqa.com/nodejs_ref/99</li>
+ http://nodeqa.com/nodejs_ref/99</li>
   <li>매번 tmux를 설정하고 창을 분할하는 작업을 하게 되는데 이걸 미리 설정해서 할 수 있는 Tool도 있습니다.
-https://github.com/tmuxinator/tmuxinator
-저도 설정해서 쓰고 있는데 mux session-name으로 간단히 new/attache를 할 수 있어서 편합니다.</li>
+ https://github.com/tmuxinator/tmuxinator
+ 저도 설정해서 쓰고 있는데 mux session-name으로 간단히 new/attache를 할 수 있어서 편합니다.</li>
 </ol>
 
 <h2 id="tmuxconf">.tmux.conf</h2>
@@ -227,7 +239,7 @@ https://github.com/tmuxinator/tmuxinator
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'code4rainsblog';
-    var disqus_identifier = '/2016/03/15/tmux';
+    var disqus_identifier = '/2016/03/15/tmuxseoljeong';
     var disqus_title      = 'TMUX - 창분할하기 & 빌드걸고 퇴근하기';
 
     (function() {
@@ -245,7 +257,7 @@ https://github.com/tmuxinator/tmuxinator
   <h3 class="related-post-title">Related Posts</h3>
   
     <div class="post ml2">
-      <a href="/2016/03/15/tmuxseoljeong/" class="post-link">
+      <a href="/2016/03/15/tmux/" class="post-link">
         <h4 class="post-title">TMUX - 창분할하기 & 빌드걸고 퇴근하기</h4>
         <p class="post-summary"></p>
       </a>
