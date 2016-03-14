@@ -14,7 +14,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon's Blog" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201603150256" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201603150305" type="text/css">
 
     <!-- Fonts -->
     
@@ -145,9 +145,9 @@
 <li>Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)</li>
 </ol>
 
-<h3 id=">설치방법</h3>
+<h2>설치방법</h2>
 
-<h3 id="tmux">TMUX최신 버전을 설치합니다.</h3>
+<h3>TMUX최신 버전을 설치합니다.</h3>
 
 <p>(<code>apt-get install tmux</code>로도 설치가능하지만 굉장히 오래전 버전입니다&hellip;)</p>
 <div class="highlight"><pre><code class="language-" data-lang="">To get and build the latest from version control:
@@ -164,56 +164,56 @@ $ ./configure &amp;&amp; make
 <p>VI의 color scheme이 정상적으로 동작하게끔하기 위해서 .bashrc 등에 아래 줄을 추가해둡니다.<br>
 <code>alias tmux=&#39;TERM=xterm-256color tmux -2&#39;</code></p>
 
-<h3 id=">사용방법</h3>
+<h2>사용방법</h2>
 
 <p>제 설정파일(설정파일은 포스팅 마지막에 있습니다.)을 적용했다고 가정하고 사용법을 설명드리도록 하겠습니다.<br>
 기본적인 invoke키는 <code>Ctrl+b</code>이지만 저는 <code>Ctrl+j</code>로 변경해두었습니다.</p>
 
-<h4 id=">시작하기</h4>
+<h4>시작하기</h4>
 
 <p><code>tmux</code> 혹은 <code>tmux new -s &lt;원하는 이름&gt;</code> <br>
 : 추후에 attache(재사용)을 하기 편하게끔 이름을 지정하시는게 좋습니다. <code>tmux new -s normal</code></p>
 
-<h4 id=">창 분할하기</h4>
+<h4>창 분할하기</h4>
 
 <p><code>Ctrl+j</code>를 누른 후에 | 를 누르면 좌우로 분할되고, <br>
 <code>Ctrl+j</code>를 누른 후에 - 를 누르면 상하로 분할됩니다. </p>
 
-<h4 id=">창 이동하기</h4>
+<h4>창 이동하기</h4>
 
 <p><code>Ctrl+j</code>를 누르고 다시 <code>Ctrl+j</code>를 누르면 이전 창으로 돌아갑니다. <br>
 <code>Ctrl+j</code>를 누르고 <code>q</code>를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다. <br>
 <img src="/images/tmux_number.gif" alt="move with number"></p>
 
-<h4 id="tab">Tab 만들기</h4>
+<h4>Tab 만들기</h4>
 
 <p><code>Ctrl+j</code>를 누른 후에 <code>c</code>를 누르면 새로운 tab이 생성됩니다.</p>
 
-<h4 id="tab">Tab간 이동하기</h4>
+<h4>Tab간 이동하기</h4>
 
 <p><code>Ctrl+j</code>를 누른 후에 <code>n</code>을 누르면 다음 tab으로 이동합니다.<br>
 <code>Alt+&lt;숫자키&gt;</code>를 누르면 해당 tab으로 이동합니다.</p>
 
-<h4 id=">창 닫기</h4>
+<h4>창 닫기</h4>
 
 <p>shell에서 exit명령을 입력합니다.<br>
 <code>Ctrl+j</code>를 누른 후에 <code>x</code>를 누르면 해당 pane을 닫을 것인지 묻습니다. 이 때 <code>y</code>를 선택하면 해당 창이 닫힙니다.</p>
 
-<h4 id="detache-attache-build">Detache / Attache 사용하기 (build걸고 퇴근하기)</h4>
+<h4>Detache / Attache 사용하기 (build걸고 퇴근하기)</h4>
 
 <p>tmux를 실행하고 나서 빌드를 실행합니다.<br>
 <code>Ctrl+j</code>를 누르고 <code>d</code>를 누르면 [detached (from session xxx)] 라고 뜨면서 tmux를 실행하기 전 Shell로 빠져나옵니다.<br>
 퇴근합니다.~<br>
 다음날 와서 <code>tmux attach -t xxx</code>를 치면 퇴근 전 화면으로 돌아갑니다.</p>
 
-<h4 id="zoom">Zoom기능 사용하기</h4>
+<h4>Zoom기능 사용하기</h4>
 
 <p>tmux최신버전에는 zoom이라는 기능이 있습니다. 창을 분할해서 사용하다가 잠시 전체 화면으로 바꾸고, 다시 원래대로 돌아갈 수 있는 기능입니다.<br>
 <code>Ctrl+j</code>를 누른 후에 <code>z</code>를 누르면 현재 커서가 위차한 창이 전체 화면으로 전환되고, 다시 <code>Ctrl+j</code>를 누른 후에 <code>z</code>를 누르면 분할되었던 상태로 돌아가게 됩니다.</p>
 
-<h2 id="more">More</h2>
+<h2>More</h2>
 
-<h3 id="bash-zsh-tmux">제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.</h3>
+<h3>제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.</h3>
 
 <p>해당 설정을 원래대로 bash로 변경하고 싶으시면 <code>~/.tmux.conf</code>에서</p>
 <div class="highlight"><pre><code class="language-" data-lang="">     # set-option -g default-command "bash"
@@ -235,7 +235,7 @@ $ ./configure &amp;&amp; make
 </ul></li>
 </ul>
 
-<h2 id="tmux-conf">.tmux.conf</h2>
+<h2>.tmux.conf</h2>
 
 <p><code>.tmumx.conf</code>파일입니다. 아래 파일을 <code>~/.tmux.conf</code>로 저장하시면 됩니다.<br>
 <script src="https://gist.github.com/code4rain/374c53829bea88cbe328.js"> </script></p>

@@ -19,9 +19,9 @@
 &lt;li&gt;Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h3 id=&quot;&gt;설치방법&lt;/h3&gt;
+&lt;h2&gt;설치방법&lt;/h2&gt;
 
-&lt;h3 id=&quot;tmux&quot;&gt;TMUX최신 버전을 설치합니다.&lt;/h3&gt;
+&lt;h3&gt;TMUX최신 버전을 설치합니다.&lt;/h3&gt;
 
 &lt;p&gt;(&lt;code&gt;apt-get install tmux&lt;/code&gt;로도 설치가능하지만 굉장히 오래전 버전입니다&amp;hellip;)&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;To get and build the latest from version control:
@@ -38,56 +38,56 @@ $ ./configure &amp;amp;&amp;amp; make
 &lt;p&gt;VI의 color scheme이 정상적으로 동작하게끔하기 위해서 .bashrc 등에 아래 줄을 추가해둡니다.&lt;br&gt;
 &lt;code&gt;alias tmux=&amp;#39;TERM=xterm-256color tmux -2&amp;#39;&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;&gt;사용방법&lt;/h3&gt;
+&lt;h2&gt;사용방법&lt;/h2&gt;
 
 &lt;p&gt;제 설정파일(설정파일은 포스팅 마지막에 있습니다.)을 적용했다고 가정하고 사용법을 설명드리도록 하겠습니다.&lt;br&gt;
 기본적인 invoke키는 &lt;code&gt;Ctrl+b&lt;/code&gt;이지만 저는 &lt;code&gt;Ctrl+j&lt;/code&gt;로 변경해두었습니다.&lt;/p&gt;
 
-&lt;h4 id=&quot;&gt;시작하기&lt;/h4&gt;
+&lt;h4&gt;시작하기&lt;/h4&gt;
 
 &lt;p&gt;&lt;code&gt;tmux&lt;/code&gt; 혹은 &lt;code&gt;tmux new -s &amp;lt;원하는 이름&amp;gt;&lt;/code&gt; &lt;br&gt;
 : 추후에 attache(재사용)을 하기 편하게끔 이름을 지정하시는게 좋습니다. &lt;code&gt;tmux new -s normal&lt;/code&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;&gt;창 분할하기&lt;/h4&gt;
+&lt;h4&gt;창 분할하기&lt;/h4&gt;
 
 &lt;p&gt;&lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 | 를 누르면 좌우로 분할되고, &lt;br&gt;
 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 - 를 누르면 상하로 분할됩니다. &lt;/p&gt;
 
-&lt;h4 id=&quot;&gt;창 이동하기&lt;/h4&gt;
+&lt;h4&gt;창 이동하기&lt;/h4&gt;
 
 &lt;p&gt;&lt;code&gt;Ctrl+j&lt;/code&gt;를 누르고 다시 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누르면 이전 창으로 돌아갑니다. &lt;br&gt;
 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누르고 &lt;code&gt;q&lt;/code&gt;를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다. &lt;br&gt;
 &lt;img src=&quot;/images/tmux_number.gif&quot; alt=&quot;move with number&quot;&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;tab&quot;&gt;Tab 만들기&lt;/h4&gt;
+&lt;h4&gt;Tab 만들기&lt;/h4&gt;
 
 &lt;p&gt;&lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 &lt;code&gt;c&lt;/code&gt;를 누르면 새로운 tab이 생성됩니다.&lt;/p&gt;
 
-&lt;h4 id=&quot;tab&quot;&gt;Tab간 이동하기&lt;/h4&gt;
+&lt;h4&gt;Tab간 이동하기&lt;/h4&gt;
 
 &lt;p&gt;&lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 &lt;code&gt;n&lt;/code&gt;을 누르면 다음 tab으로 이동합니다.&lt;br&gt;
 &lt;code&gt;Alt+&amp;lt;숫자키&amp;gt;&lt;/code&gt;를 누르면 해당 tab으로 이동합니다.&lt;/p&gt;
 
-&lt;h4 id=&quot;&gt;창 닫기&lt;/h4&gt;
+&lt;h4&gt;창 닫기&lt;/h4&gt;
 
 &lt;p&gt;shell에서 exit명령을 입력합니다.&lt;br&gt;
 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 &lt;code&gt;x&lt;/code&gt;를 누르면 해당 pane을 닫을 것인지 묻습니다. 이 때 &lt;code&gt;y&lt;/code&gt;를 선택하면 해당 창이 닫힙니다.&lt;/p&gt;
 
-&lt;h4 id=&quot;detache-attache-build&quot;&gt;Detache / Attache 사용하기 (build걸고 퇴근하기)&lt;/h4&gt;
+&lt;h4&gt;Detache / Attache 사용하기 (build걸고 퇴근하기)&lt;/h4&gt;
 
 &lt;p&gt;tmux를 실행하고 나서 빌드를 실행합니다.&lt;br&gt;
 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누르고 &lt;code&gt;d&lt;/code&gt;를 누르면 [detached (from session xxx)] 라고 뜨면서 tmux를 실행하기 전 Shell로 빠져나옵니다.&lt;br&gt;
 퇴근합니다.~&lt;br&gt;
 다음날 와서 &lt;code&gt;tmux attach -t xxx&lt;/code&gt;를 치면 퇴근 전 화면으로 돌아갑니다.&lt;/p&gt;
 
-&lt;h4 id=&quot;zoom&quot;&gt;Zoom기능 사용하기&lt;/h4&gt;
+&lt;h4&gt;Zoom기능 사용하기&lt;/h4&gt;
 
 &lt;p&gt;tmux최신버전에는 zoom이라는 기능이 있습니다. 창을 분할해서 사용하다가 잠시 전체 화면으로 바꾸고, 다시 원래대로 돌아갈 수 있는 기능입니다.&lt;br&gt;
 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 &lt;code&gt;z&lt;/code&gt;를 누르면 현재 커서가 위차한 창이 전체 화면으로 전환되고, 다시 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누른 후에 &lt;code&gt;z&lt;/code&gt;를 누르면 분할되었던 상태로 돌아가게 됩니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;more&quot;&gt;More&lt;/h2&gt;
+&lt;h2&gt;More&lt;/h2&gt;
 
-&lt;h3 id=&quot;bash-zsh-tmux&quot;&gt;제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.&lt;/h3&gt;
+&lt;h3&gt;제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.&lt;/h3&gt;
 
 &lt;p&gt;해당 설정을 원래대로 bash로 변경하고 싶으시면 &lt;code&gt;~/.tmux.conf&lt;/code&gt;에서&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;     # set-option -g default-command &quot;bash&quot;
@@ -109,7 +109,7 @@ $ ./configure &amp;amp;&amp;amp; make
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;tmux-conf&quot;&gt;.tmux.conf&lt;/h2&gt;
+&lt;h2&gt;.tmux.conf&lt;/h2&gt;
 
 &lt;p&gt;&lt;code&gt;.tmumx.conf&lt;/code&gt;파일입니다. 아래 파일을 &lt;code&gt;~/.tmux.conf&lt;/code&gt;로 저장하시면 됩니다.&lt;br&gt;
 &lt;script src=&quot;https://gist.github.com/code4rain/374c53829bea88cbe328.js&quot;&gt; &lt;/script&gt;&lt;/p&gt;
@@ -157,7 +157,7 @@ vi, 혹은 그 변형인 vim과 emacs이다.&lt;/p&gt;
 
 &lt;p&gt;덕분에 지금은 윈도우를 켜자마자 emacs를 켜고 파일 편집, 논문 작성, 블로그 작성, todo list관리를 하나의 에디터에서 수행할 수 있게 되었다.&lt;/p&gt;
 
-&lt;h1 id=&quot;recommand-for-previous-vimer&quot;&gt;recommand for previous vimer&lt;/h1&gt;
+&lt;h1&gt;recommand for previous vimer&lt;/h1&gt;
 
 &lt;ol&gt;
 &lt;li&gt;evil package를 설치하자.&lt;/li&gt;
@@ -176,7 +176,7 @@ vi, 혹은 그 변형인 vim과 emacs이다.&lt;/p&gt;
     
       <item>
         <title>Change Outlook Subject with Python</title>
-        <description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+        <description>&lt;h2&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.&lt;/p&gt;
 
@@ -224,7 +224,7 @@ Python으로 뭔가 쿵짝쿵짝하면 될 것같은 느낌이 듭니다. 오호
 
 &lt;p&gt;길고긴 삽질이 끝났습니다.&lt;/p&gt;
 
-&lt;h2 id=&quot;&gt;설치 방법&lt;/h2&gt;
+&lt;h2&gt;설치 방법&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Download and install&lt;/p&gt;
@@ -260,7 +260,7 @@ python이 제대로 설치되었다면 conversation.py를 double click하면 잘
 
 &lt;p&gt;수정하고 싶은 commit이 현재 HEAD일 경우입니다.&lt;/p&gt;
 
-&lt;h1 id=&quot;comit&quot;&gt;comit에 있는 일부 파일만 변경하고 싶을 때&lt;/h1&gt;
+&lt;h1&gt;comit에 있는 일부 파일만 변경하고 싶을 때&lt;/h1&gt;
 
 &lt;ol&gt;
 &lt;li&gt;수정하고 싶은 파일(a.c) 편집&lt;/li&gt;
@@ -269,7 +269,7 @@ python이 제대로 설치되었다면 conversation.py를 double click하면 잘
 &lt;li&gt;&lt;code&gt;git push&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&quot;commit&quot;&gt;commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄&lt;/h1&gt;
+&lt;h1&gt;commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄&lt;/h1&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;git checkout HEAD^&lt;/code&gt; &amp;ndash; &amp;lt;돌리고 싶은 파일명&amp;gt; // HEAD&lt;sup&gt;는&lt;/sup&gt; 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.&lt;/li&gt;
