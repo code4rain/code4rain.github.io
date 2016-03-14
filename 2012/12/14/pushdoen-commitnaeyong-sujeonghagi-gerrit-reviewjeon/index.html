@@ -14,7 +14,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon's Blog" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201603150218" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201603150244" type="text/css">
 
     <!-- Fonts -->
     
@@ -139,22 +139,22 @@
 
 <p>수정하고 싶은 commit이 현재 HEAD일 경우입니다.</p>
 
-<h1 id="comit------">comit에 있는 일부 파일만 변경하고 싶을 때</h1>
+<h1 id="comit">comit에 있는 일부 파일만 변경하고 싶을 때</h1>
 
 <ol>
-  <li>수정하고 싶은 파일(a.c) 편집</li>
-  <li><code class="highlighter-rouge">git add a.c</code></li>
-  <li><code class="highlighter-rouge">git commit --amend -C HEAD</code> // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.</li>
-  <li><code class="highlighter-rouge">git push</code></li>
+<li>수정하고 싶은 파일(a.c) 편집</li>
+<li><code>git add a.c</code></li>
+<li><code>git commit --amend -C HEAD</code> // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.</li>
+<li><code>git push</code></li>
 </ol>
 
-<h1 id="commit--------">commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h1>
+<h1 id="commit">commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h1>
 
 <ol>
-  <li><code class="highlighter-rouge">git checkout HEAD^</code> – <돌리고 싶은="" 파일명=""> // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.</돌리고></li>
-  <li><code class="highlighter-rouge">git add &lt;돌리고 싶은 파일명&gt;</code></li>
-  <li><code class="highlighter-rouge">git commit --amend -C HEAD</code></li>
-  <li><code class="highlighter-rouge">git push</code></li>
+<li><code>git checkout HEAD^</code> &ndash; &lt;돌리고 싶은 파일명&gt; // HEAD<sup>는</sup> 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.</li>
+<li><code>git add &lt;돌리고 싶은 파일명&gt;</code></li>
+<li><code>git commit --amend -C HEAD</code></li>
+<li><code>git push</code></li>
 </ol>
 
 </article>
@@ -196,13 +196,6 @@
     </div>
   
     <div class="post ml2">
-      <a href="/2016/03/15/tmuxseoljeong/" class="post-link">
-        <h4 class="post-title">TMUX - 창분할하기 & 빌드걸고 퇴근하기</h4>
-        <p class="post-summary"></p>
-      </a>
-    </div>
-  
-    <div class="post ml2">
       <a href="/2016/03/14/move-jekyll/" class="post-link">
         <h4 class="post-title">Restart blogging</h4>
         <p class="post-summary"></p>
@@ -219,13 +212,6 @@
     <div class="post ml2">
       <a href="/2014/03/24/change-outlook-subject-with-python/" class="post-link">
         <h4 class="post-title">Change Outlook Subject with Python</h4>
-        <p class="post-summary"></p>
-      </a>
-    </div>
-  
-    <div class="post ml2">
-      <a href="/2014/03/09/ssh-rogeuinsi-jeobsogjiyeon-haegyeolbangbeob/" class="post-link">
-        <h4 class="post-title">SSH 로그인시 접속지연 해결방법</h4>
         <p class="post-summary"></p>
       </a>
     </div>
