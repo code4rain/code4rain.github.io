@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/</loc>
+<lastmod>2016-05-09T04:11:32+09:00</lastmod>
+</url>
+<url>
 <loc>http://code4rain.github.io/computer/2016/05/09/update-generate-gtags-with-git-update/</loc>
 <lastmod>2016-05-09T03:07:24+09:00</lastmod>
 </url>
@@ -52,5 +56,8 @@
 </url>
 <url>
 <loc>http://code4rain.github.io/page2/</loc>
+</url>
+<url>
+<loc>http://code4rain.github.io/page3/</loc>
 </url>
 </urlset>
