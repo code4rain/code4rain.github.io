@@ -17,14 +17,12 @@
 
 &lt;ol&gt;
 &lt;li&gt;Download the package: simply use &lt;code&gt;M-x package-install tumblesocks&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Add the followings to your &lt;code&gt;.emcacs&lt;/code&gt;:&lt;/p&gt;
-
-&lt;p&gt;(require &amp;lsquo;tumblesocks)&lt;/p&gt;
-
-&lt;p&gt;(setq tumblesocks-blog &amp;ldquo;YourBlogName.tumblr.com&amp;rdquo;)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Run &lt;code&gt;M-x tumblesocks-api-test-auth&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;tumblesocks will open the browser and access to tumblr to get auth code.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Copy the auth code and paste it to emacs prompt&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Add the followings to your &lt;code&gt;.emcacs&lt;/code&gt;:
+&lt;pre&gt;&lt;code&gt;(require &amp;#39;tumblesocks)
+(setq tumblesocks-blog &amp;quot;YourBlogName.tumblr.com&amp;quot;)&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;M-x tumblesocks-api-test-auth&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;tumblesocks will open the browser and access to tumblr to get auth code.&lt;/li&gt;
+&lt;li&gt;Copy the auth code and paste it to emacs prompt&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h1&gt;How to post with tumblesocks&lt;/h1&gt;

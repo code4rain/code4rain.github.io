@@ -14,7 +14,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon's Blog" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201605090133" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201605090140" type="text/css">
 
     <!-- Fonts -->
     
@@ -143,14 +143,12 @@
 
 <ol>
 <li>Download the package: simply use <code>M-x package-install tumblesocks</code></li>
-<li><p>Add the followings to your <code>.emcacs</code>:</p>
-
-<p>(require &lsquo;tumblesocks)</p>
-
-<p>(setq tumblesocks-blog &ldquo;YourBlogName.tumblr.com&rdquo;)</p></li>
-<li><p>Run <code>M-x tumblesocks-api-test-auth</code></p></li>
-<li><p>tumblesocks will open the browser and access to tumblr to get auth code.</p></li>
-<li><p>Copy the auth code and paste it to emacs prompt</p></li>
+<li>Add the followings to your <code>.emcacs</code>:
+<pre><code>(require &#39;tumblesocks)
+(setq tumblesocks-blog &quot;YourBlogName.tumblr.com&quot;)</code></pre></li>
+<li>Run <code>M-x tumblesocks-api-test-auth</code></li>
+<li>tumblesocks will open the browser and access to tumblr to get auth code.</li>
+<li>Copy the auth code and paste it to emacs prompt</li>
 </ol>
 
 <h1>How to post with tumblesocks</h1>
