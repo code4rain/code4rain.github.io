@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Posting to Tumblr With Emacs &#8211; Alex Kyoungdon Jang's Blog</title>
+    <title>Update/Generate GTAGS With Git Update &#8211; Alex Kyoungdon Jang's Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Alex Kyoungdon Jang&#39;s Blog.
 ">
     <meta name="robots" content="all">
     <meta name="author" content="">
-    <meta name="keywords" content="">
-    <link rel="canonical" href="http://code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/">
+    <meta name="keywords" content="computer">
+    <link rel="canonical" href="http://code4rain.github.io/computer/2016/05/09/update-generate-gtags-with-git-update/">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon Jang's Blog" href="/feed.xml" />
 
     <!-- Custom CSS -->
@@ -34,19 +34,19 @@
     <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Posting to Tumblr With Emacs">
+    <meta property="og:title" content="Update/Generate GTAGS With Git Update">
     <meta property="og:description" content="Alex Kyoungdon Jang&#39;s Blog.
 ">
-    <meta property="og:url" content="http://code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/">
+    <meta property="og:url" content="http://code4rain.github.io/computer/2016/05/09/update-generate-gtags-with-git-update/">
     <meta property="og:site_name" content="Alex Kyoungdon Jang&#39;s Blog">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     
-    <meta name="twitter:title" content="Posting to Tumblr With Emacs" />
+    <meta name="twitter:title" content="Update/Generate GTAGS With Git Update" />
     <meta name="twitter:description" content="Alex Kyoungdon Jang's Blog.
 " />
-    <meta name="twitter:url" content="http://code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/" />
+    <meta name="twitter:url" content="http://code4rain.github.io/computer/2016/05/09/update-generate-gtags-with-git-update/" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -174,8 +174,8 @@
 
 
 <div class="post-header mb2">
-  <h1 class="h0">Posting to Tumblr With Emacs</h1>
-  <span class="post-meta">2016-05-09 01:29:16 +0900</span><br>
+  <h1 class="h0">Update/Generate GTAGS With Git Update</h1>
+  <span class="post-meta">2016-05-09 03:07:24 +0900</span><br>
   
   <span class="post-meta small">
   
@@ -185,40 +185,41 @@
 </div>
 
 <article class="post-content">
-  <h1>What is the tumblesocks</h1>
+  <h1>Why GTAGS(<a href="https://www.gnu.org/software/global/">GNU Global</a>)?</h1>
 
-<p><a href="https://github.com/gcr/tumblesocks">tumblesocks</a> is the one of emacs package. It helps to post tumblr via emacs editor. You can download it from melpa, gnu and github.</p>
+<ul>
+<li>Find better than ctags</li>
+<li>Find faster than ctags/cscope</li>
+<li>Build faster thant ctags/cscope</li>
+<li>Integrate better with emacs</li>
+</ul>
+
+<h1>Why git and gtags</h1>
+
+<ul>
+<li>git is good scm tool used everywhere :)</li>
+<li>gtags made good reference with many languages</li>
+<li>git only maintains original source code</li>
+<li>gtags can update partially - git use diff for commit!</li>
+</ul>
 
 <h1>How to setup</h1>
 
 <ol>
-<li>Download the package: simply use <code>M-x package-install tumblesocks</code></li>
-<li>Add the followings to your <code>.emcacs</code>:
-<pre><code>(require &#39;tumblesocks)
-(setq tumblesocks-blog &quot;YourBlogName.tumblr.com&quot;)</code></pre></li>
-<li>Run <code>M-x tumblesocks-api-test-auth</code></li>
-<li>tumblesocks will open the browser and access to tumblr to get auth code.</li>
-<li>Copy the auth code and paste it to emacs prompt</li>
+<li>Instatll git and gnu global(gtags) to your system</li>
+<li>make <code>~/.git_template/hooks</code> directory</li>
+<li>move directory: <code>cd ~/.git_template/hooks</code></li>
+<li>make <code>gtags</code> file include below contents
+<script src="https://gist.github.com/code4rain/6934e4c29163f4f7e04e286db26e890a.js"></script></li>
+<li>make <code>post-checkout</code>, <code>post-commit</code>, <code>post-merge</code> as below (same contents)
+<script src="https://gist.github.com/code4rain/3104edb17699948ab829314bfce23708.js"></script></li>
+<li>make <code>post-rewrite</code> as below
+<script src="https://gist.github.com/code4rain/66ac28c0b4256308808a351d71d1aed0.js"></script></li>
+<li>run below command to add default git template.
+<script src="https://gist.github.com/code4rain/23f3217d2e784bc18e662ec7bf3f549f.js"></script></li>
 </ol>
 
-<h1>How to post with tumblesocks</h1>
-
-<ol>
-<li>Make new post: <code>M-x tumblesocks-compose-new-post</code> or other commands.</li>
-<li>Write the post - I recommnad <em>markdown</em> editor.</li>
-<li>Finish writing: <code>M-x tumblesocks-compose-finish</code></li>
-<li>If you need to edit existing post, use <code>M-x tumblesocks-compose-edit-post</code> - <strong>currently not working for me.</strong></li>
-</ol>
-
-<h1>Some commands to make the post</h1>
-
-<ul>
-<li><code>tumblesocks-text-post-from-region</code>: Instantly create a post with the contents of region.</li>
-<li><code>tumblesocks-text-post-from-buffer</code>: Instantly create a post from the entire buffer</li>
-<li><code>tumblesocks-compose-new-from-region</code>: Open a buffer and start writing a new post. The contents of region will be copied over.</li>
-<li><code>tumblesocks-compose-new-from-highlighted-region</code>: Open a buffer and start writing a new post. The contents of region will be syntax-highlighted and copied into the post as formatted HTML. This is super-useful for including source code into your tumbles.</li>
-<li><code>tumblesocks-compose-insert-highlighted-region</code>: Insert the syntax-highlighted region at the end of post you&rsquo;re currently writing.</li>
-</ul>
+<p>refer from <a href="http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html">Effortless Ctags with Git</a></p>
 
 </article>
 
@@ -234,8 +235,8 @@
   <div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname  = 'code4rainsblog';
-    var disqus_identifier = '/2016/05/09/posting-to-tumblr-with-emacs';
-    var disqus_title      = 'Posting to Tumblr With Emacs';
+    var disqus_identifier = '/computer/2016/05/09/update-generate-gtags-with-git-update';
+    var disqus_title      = 'Update/Generate GTAGS With Git Update';
 
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -252,8 +253,8 @@
   <h3 class="related-post-title">Related Posts</h3>
   
     <div class="post ml2">
-      <a href="/computer/2016/05/09/update-generate-gtags-with-git-update/" class="post-link">
-        <h4 class="post-title">Update/Generate GTAGS With Git Update</h4>
+      <a href="/2016/05/09/posting-to-tumblr-with-emacs/" class="post-link">
+        <h4 class="post-title">Posting to Tumblr With Emacs</h4>
         <p class="post-summary"></p>
       </a>
     </div>

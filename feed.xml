@@ -8,6 +8,49 @@
     <atom:link href="http://code4rain.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Update/Generate GTAGS With Git Update</title>
+        <description>&lt;h1&gt;Why GTAGS(&lt;a href=&quot;https://www.gnu.org/software/global/&quot;&gt;GNU Global&lt;/a&gt;)?&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Find better than ctags&lt;/li&gt;
+&lt;li&gt;Find faster than ctags/cscope&lt;/li&gt;
+&lt;li&gt;Build faster thant ctags/cscope&lt;/li&gt;
+&lt;li&gt;Integrate better with emacs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;Why git and gtags&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;git is good scm tool used everywhere :)&lt;/li&gt;
+&lt;li&gt;gtags made good reference with many languages&lt;/li&gt;
+&lt;li&gt;git only maintains original source code&lt;/li&gt;
+&lt;li&gt;gtags can update partially - git use diff for commit!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;How to setup&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Instatll git and gnu global(gtags) to your system&lt;/li&gt;
+&lt;li&gt;make &lt;code&gt;~/.git_template/hooks&lt;/code&gt; directory&lt;/li&gt;
+&lt;li&gt;move directory: &lt;code&gt;cd ~/.git_template/hooks&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;make &lt;code&gt;gtags&lt;/code&gt; file include below contents
+&lt;script src=&quot;https://gist.github.com/code4rain/6934e4c29163f4f7e04e286db26e890a.js&quot;&gt;&lt;/script&gt;&lt;/li&gt;
+&lt;li&gt;make &lt;code&gt;post-checkout&lt;/code&gt;, &lt;code&gt;post-commit&lt;/code&gt;, &lt;code&gt;post-merge&lt;/code&gt; as below (same contents)
+&lt;script src=&quot;https://gist.github.com/code4rain/3104edb17699948ab829314bfce23708.js&quot;&gt;&lt;/script&gt;&lt;/li&gt;
+&lt;li&gt;make &lt;code&gt;post-rewrite&lt;/code&gt; as below
+&lt;script src=&quot;https://gist.github.com/code4rain/66ac28c0b4256308808a351d71d1aed0.js&quot;&gt;&lt;/script&gt;&lt;/li&gt;
+&lt;li&gt;run below command to add default git template.
+&lt;script src=&quot;https://gist.github.com/code4rain/23f3217d2e784bc18e662ec7bf3f549f.js&quot;&gt;&lt;/script&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;refer from &lt;a href=&quot;http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html&quot;&gt;Effortless Ctags with Git&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 09 May 2016 03:07:24 +0900</pubDate>
+        <link>http://code4rain.github.io/computer/2016/05/09/update-generate-gtags-with-git-update/</link>
+        <guid isPermaLink="true">http://code4rain.github.io/computer/2016/05/09/update-generate-gtags-with-git-update/</guid>
+      </item>
+    
+      <item>
         <title>Posting to Tumblr With Emacs</title>
         <description>&lt;h1&gt;What is the tumblesocks&lt;/h1&gt;
 
