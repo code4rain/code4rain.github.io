@@ -118,14 +118,14 @@ title을 입력하면 emacsclient로 해당 파일을 열어줍니다.
     
       <item>
         <title>TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기</title>
-        <description>&lt;p&gt;TMX는 terminal multiplexer로 터미널에서 사용하는 프로그램들을 손쉽게 switch하거나 backgroud로 수행할 수 있게 도와주는 툴입니다.
-&lt;img src=&quot;/images/tmux_preview.gif&quot; alt=&quot;preview&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;TMX는 terminal multiplexer로 터미널에서 사용하는 프로그램들을 손쉽게 switch하거나 backgroud로 수행할 수 있게 도와주는 툴입니다.&lt;/p&gt;
 
 &lt;p&gt;TMUX를 사용하면&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;터미널창을 분할해서 사용할 수 있습니다. (위 그림에서는 왼쪽에는 VI, 오른쪽 위는 TIG, 오른쪽 아래는 Shell로 분할했습니다.)&lt;/li&gt;
-  &lt;li&gt;Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)&lt;/li&gt;
+  &lt;li&gt;Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)
+&lt;img src=&quot;/images/tmux_preview.gif&quot; alt=&quot;preview&quot; /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;설치방법&lt;/h2&gt;
@@ -163,13 +163,13 @@ $ ./configure &amp;amp;&amp;amp; make
 
 &lt;h4 id=&quot;section-3&quot;&gt;창 분할하기&lt;/h4&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+j&lt;/code&gt;를 누른 후에 | 를 누르면 좌우로 분할되고, 
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+j&lt;/code&gt;를 누른 후에 | 를 누르면 좌우로 분할되고,
 &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+j&lt;/code&gt;를 누른 후에 - 를 누르면 상하로 분할됩니다.&lt;/p&gt;
 
 &lt;h4 id=&quot;section-4&quot;&gt;창 이동하기&lt;/h4&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+j&lt;/code&gt;를 누르고 다시 &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+j&lt;/code&gt;를 누르면 이전 창으로 돌아갑니다. 
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+j&lt;/code&gt;를 누르고 &lt;code class=&quot;highlighter-rouge&quot;&gt;q&lt;/code&gt;를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다. 
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+j&lt;/code&gt;를 누르고 다시 &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+j&lt;/code&gt;를 누르면 이전 창으로 돌아갑니다.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+j&lt;/code&gt;를 누르고 &lt;code class=&quot;highlighter-rouge&quot;&gt;q&lt;/code&gt;를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다.
 &lt;img src=&quot;/images/tmux_number.gif&quot; alt=&quot;move with number&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;tab-&quot;&gt;Tab 만들기&lt;/h4&gt;
