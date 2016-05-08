@@ -14,7 +14,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon Jang's Blog" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201605090419" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201605090424" type="text/css">
 
     <!-- Fonts -->
     
@@ -197,22 +197,22 @@
 
 <p>수정하고 싶은 commit이 현재 HEAD일 경우입니다.</p>
 
-<h1>comit에 있는 일부 파일만 변경하고 싶을 때</h1>
+<h1 id="comit------">comit에 있는 일부 파일만 변경하고 싶을 때</h1>
 
 <ol>
-<li>수정하고 싶은 파일(a.c) 편집</li>
-<li><code>git add a.c</code></li>
-<li><code>git commit --amend -C HEAD</code> // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.</li>
-<li><code>git push</code></li>
+  <li>수정하고 싶은 파일(a.c) 편집</li>
+  <li><code class="highlighter-rouge">git add a.c</code></li>
+  <li><code class="highlighter-rouge">git commit --amend -C HEAD</code> // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.</li>
+  <li><code class="highlighter-rouge">git push</code></li>
 </ol>
 
-<h1>commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h1>
+<h1 id="commit--------">commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h1>
 
 <ol>
-<li><code>git checkout HEAD^</code> &ndash; &lt;돌리고 싶은 파일명&gt; // HEAD<sup>는</sup> 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.</li>
-<li><code>git add &lt;돌리고 싶은 파일명&gt;</code></li>
-<li><code>git commit --amend -C HEAD</code></li>
-<li><code>git push</code></li>
+  <li><code class="highlighter-rouge">git checkout HEAD^</code> – <돌리고 싶은="" 파일명=""> // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.</돌리고></li>
+  <li><code class="highlighter-rouge">git add &lt;돌리고 싶은 파일명&gt;</code></li>
+  <li><code class="highlighter-rouge">git commit --amend -C HEAD</code></li>
+  <li><code class="highlighter-rouge">git push</code></li>
 </ol>
 
 </article>
