@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.15" />
 
-  <title>TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기 &middot; </title>
+  <title>TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기 &middot; Alex Kyoungdon Jang&#39;s Blog</title>
 
   
   
@@ -21,13 +21,13 @@
   <!--<![endif]-->
 
   <!--[if lte IE 8]>
-  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <link rel="stylesheet" href="code4rain.github.io/css/side-menu-old-ie.css">
   <![endif]-->
   <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="/css/side-menu.css">
+  <link rel="stylesheet" href="code4rain.github.io/css/side-menu.css">
   <!--<![endif]-->
 
-  <link rel="stylesheet" href="/css/blackburn.css">
+  <link rel="stylesheet" href="code4rain.github.io/css/blackburn.css">
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -39,8 +39,12 @@
   
 
   
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
 
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="code4rain.github.io/code4rain.github.ioimg/favicon.ico" type="image/x-icon" />
 
 </head>
 
@@ -56,9 +60,29 @@
 <div id="menu">
 
   
+  <a class="pure-menu-heading brand" href="code4rain.github.io/">Blackburn</a>
+
 
   <div class="pure-menu">
     <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="code4rain.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
       
     </ul>
   </div>
@@ -109,6 +133,10 @@
     
 
     
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/code4rain" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
 
     
 
@@ -120,7 +148,7 @@
 
   <div>
   <div class="small-print">
-    <small></small>
+    <small>&copy; 2016. All rights reserved.</small>
   </div>
   <div class="small-print">
     <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
@@ -164,7 +192,7 @@
 <ol>
 <li>터미널창을 분할해서 사용할 수 있습니다. (위 그림에서는 왼쪽에는 VI, 오른쪽 위는 TIG, 오른쪽 아래는 Shell로 분할했습니다.)</li>
 <li>Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)
-<img src="/images/tmux_preview.gif" alt="preview" /></li>
+<img src="code4rain.github.io/images/tmux_preview.gif" alt="preview" /></li>
 </ol>
 
 <h2 id="설치방법:2a9367716efe157e70a300e7e02873db">설치방법</h2>
@@ -209,7 +237,7 @@ $ ./configure &amp;&amp; make
 
 <p><code>Ctrl+j</code>를 누르고 다시 <code>Ctrl+j</code>를 누르면 이전 창으로 돌아갑니다.
 <code>Ctrl+j</code>를 누르고 <code>q</code>를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다.
-<img src="/images/tmux_number.gif" alt="move with number" /></p>
+<img src="code4rain.github.io/images/tmux_number.gif" alt="move with number" /></p>
 
 <h4 id="tab-만들기:2a9367716efe157e70a300e7e02873db">Tab 만들기</h4>
 
@@ -274,13 +302,13 @@ $ ./configure &amp;&amp; make
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="/2016/03/14/move-jekyll/"><i class="fa fa-chevron-left"></i></a>
+    <a href="code4rain.github.io/code4rain.github.io/2016/03/14/move-jekyll/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="/2016/03/14/move-jekyll/">Restart blogging</a>
+      <a href="code4rain.github.io/code4rain.github.io/2016/03/14/move-jekyll/">Restart blogging</a>
     </nav>
     
   </div>
@@ -290,13 +318,13 @@ $ ./configure &amp;&amp; make
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="/2016/03/16/ai/">AI</a>
+      <a href="code4rain.github.io/code4rain.github.io/2016/03/16/ai/">AI</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="/2016/03/16/ai/"><i class="fa fa-chevron-right"></i></a>
+    <a href="code4rain.github.io/code4rain.github.io/2016/03/16/ai/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
@@ -304,12 +332,30 @@ $ ./configure &amp;&amp; make
 
 
   
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'code4rainblog';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
 </div>
 
 </div>
 </div>
-<script src="js/ui.js"></script>
+<script src="code4rain.github.io/code4rain.github.iojs/ui.js"></script>
 
 
 
