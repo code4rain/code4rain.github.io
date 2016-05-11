@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.15" />
 
-  <title>PUSH된 COMMIT내용 수정하기(Gerrit Review전) &middot; </title>
+  <title>Scripts for Jekyll and Octopress &middot; </title>
 
   
   
@@ -135,7 +135,7 @@
 
 
 <div class="header">
-  <h1>PUSH된 COMMIT내용 수정하기(Gerrit Review전)</h1>
+  <h1>Scripts for Jekyll and Octopress</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -144,7 +144,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>14 Dec 2012, 00:00</time>
+    <time>09 May 2016, 04:11</time>
   </div>
 
   
@@ -152,45 +152,45 @@
   
 
   
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="tags/octoress">octoress</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="tags/jekyll">jekyll</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="tags/script">script</a>
+    
+  </div>
+  
+  
 
 </div>
 
-  
+  <p>기존에 사용하던 octopress의 version 3가 개발되면서 동작 방식이 변경되었습니다. 기존에는 jekyll을 base로 추가적인 기능을 넣는 방식으로 개발이 되었지만 version 3에서는 jekyll을 설치하고 octopress를 추가적으로 설치하여 jekyll을 좀더 편하게 사용할 수 있는 방향으로 개발되고 있습니다.
+ 이와 동시에 기존에 사용하던 <code>rake</code>류의 command가 모두 <code>octopress</code>로 시작되는 command로 변경이 되어서 기존에 쓰던 script들을 사용할 수 없게 되었습니다.
+ 이를 개선하기 위해서 새로 만든 스크립트를 공유하고자 합니다~</p>
 
-<p>Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.</p>
-
-<p>수정하고 싶은 commit이 현재 HEAD일 경우입니다.</p>
-
-<h1 id="comit에-있는-일부-파일만-변경하고-싶을-때:c4c1d20b50e2e16d131dccbef23d36de">comit에 있는 일부 파일만 변경하고 싶을 때</h1>
-
-<ol>
-<li>수정하고 싶은 파일(a.c) 편집</li>
-<li><code>git add a.c</code></li>
-<li><code>git commit --amend -C HEAD</code> // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.</li>
-<li><code>git push</code></li>
-</ol>
-
-<h1 id="commit에-있는-파일-중-하나를-이전으로-돌리고-싶을-떄:c4c1d20b50e2e16d131dccbef23d36de">commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h1>
-
-<ol>
-<li><code>git checkout HEAD^</code> &ndash; &lt;돌리고 싶은 파일명&gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.</li>
-<li><code>git add &lt;돌리고 싶은 파일명&gt;</code></li>
-<li><code>git commit --amend -C HEAD</code></li>
-<li><code>git push</code></li>
-</ol>
+<p>Post를 새로 작성하는 경우,
+title을 입력하면 emacsclient로 해당 파일을 열어줍니다.
+<script src="https://gist.github.com/code4rain/717c4900d5b6c6fd7cc6fe9879fec420.js"></script>
+작성된 post를 github에 반영하고, 원본 소스 파일도 upload합니다.
+<script src="https://gist.github.com/code4rain/17b4b134919d3132ff1f9258fff71d55.js"></script></p>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/"><i class="fa fa-chevron-left"></i></a>
+    <a href="/2016/05/09/update-generate-gtags-with-git-update/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/">Gvim 기본 시작 위치 변경</a>
+      <a href="/2016/05/09/update-generate-gtags-with-git-update/">Update/Generate GTAGS With Git Update</a>
     </nav>
     
   </div>
@@ -199,14 +199,8 @@
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="/2012/12/27/change-outlook-subject-with-python/">Change Outlook Subject with Python</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="/2012/12/27/change-outlook-subject-with-python/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

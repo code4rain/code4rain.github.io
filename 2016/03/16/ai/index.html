@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.15" />
 
-  <title>PUSH된 COMMIT내용 수정하기(Gerrit Review전) &middot; </title>
+  <title>AI &middot; </title>
 
   
   
@@ -135,7 +135,7 @@
 
 
 <div class="header">
-  <h1>PUSH된 COMMIT내용 수정하기(Gerrit Review전)</h1>
+  <h1>AI</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -144,7 +144,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>14 Dec 2012, 00:00</time>
+    <time>16 Mar 2016, 00:22</time>
   </div>
 
   
@@ -155,42 +155,28 @@
 
 </div>
 
-  
+  <p>알파고와 이세돌의 대결이 최근 화제이다. 오늘로써 5판에 걸친 대국이 끝나고, 결국 4:1로 알파고의 승리로 막을 내렸다.</p>
 
-<p>Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.</p>
+<p>대결을 시작하기 전만 하더라도 유럽 바둑챔피온을 이긴 알파고의 수준은 프로 2단정도이며, 이세돌이 5:0으로 압승하리라는 의견을 믿고 있었지만, (명확한 근거가 있는 건 아니고 카더라통신으로..) 실제 경기에 들어가자 마자 알파고가 1승을 거두면서 내가 아는 모든 사람이 충격을 받았다.</p>
 
-<p>수정하고 싶은 commit이 현재 HEAD일 경우입니다.</p>
+<p>그 충격이라는 단어를 좀더 살펴보자면, 웬지 멀게만 느껴졌던 인공지능이라는 단어, 웬지 SF영화에서나 나올법한 이 용어가 우리 삶과는 괴리되어 있다고 믿고 있었던 기존 상식을 파괴하는데서 발생하는 것이 아닐까 생각된다. 인공지능이란 먼 미래에 완성될 일이고 엘런 머스크가 경고하던 인공지능의 반란같은 것은 웬지 괴짜들의 상상에 지나지 않는다고 믿었던 근거없는 믿음이 이번 대결로 인해 손상되었기 때문이다. 아무리 대단한 인공지능이라할 지라도 경우의 수가 셀 수 없는 수준의 바둑에서는 직관을 가지고 있는 인간을 이길 수 없다는 믿음이다.</p>
 
-<h1 id="comit에-있는-일부-파일만-변경하고-싶을-때:c4c1d20b50e2e16d131dccbef23d36de">comit에 있는 일부 파일만 변경하고 싶을 때</h1>
+<p>개인적으로 이번 대결을 보면서 느낀 소회 중 하나는 기계학습을 배우면서 느꼈던 감정의 연장선 상에 있다. 기계학습을 통해서 느낌 감정 중 하나는 인간이 deep learning 등과 같이 만든 학습 모델은 확률을 기반으로 만들어졌기 때문에 만들기는 인간의 손으로 만들었지만 이제 더 이상 명시적인 통제는 불가능하겠다는 점이다. 알파고와 같이 복잡한 신경망 모델을 개선하였다면 더욱 더 많은 변수가 입력되었을 테고 이를 통해서 결과를 통제하는 일은 더욱 더 어려워졌을 터이다.</p>
 
-<ol>
-<li>수정하고 싶은 파일(a.c) 편집</li>
-<li><code>git add a.c</code></li>
-<li><code>git commit --amend -C HEAD</code> // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠.</li>
-<li><code>git push</code></li>
-</ol>
-
-<h1 id="commit에-있는-파일-중-하나를-이전으로-돌리고-싶을-떄:c4c1d20b50e2e16d131dccbef23d36de">commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄</h1>
-
-<ol>
-<li><code>git checkout HEAD^</code> &ndash; &lt;돌리고 싶은 파일명&gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미. HEAD^ 위치에 원하는 Commit의 SHA ID를 써주어도 됨.</li>
-<li><code>git add &lt;돌리고 싶은 파일명&gt;</code></li>
-<li><code>git commit --amend -C HEAD</code></li>
-<li><code>git push</code></li>
-</ol>
+<p>인공지능이 임계점에 이르러 스스로를 개선할 수 있는 수준에 오르게되면 나타나게될 초지능의 단계가 어쩌면 내가 살아있는 동안에 나타날지도 모르겠다.</p>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/"><i class="fa fa-chevron-left"></i></a>
+    <a href="/2016/03/15/tmux/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/">Gvim 기본 시작 위치 변경</a>
+      <a href="/2016/03/15/tmux/">TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기</a>
     </nav>
     
   </div>
@@ -200,13 +186,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="/2012/12/27/change-outlook-subject-with-python/">Change Outlook Subject with Python</a>
+      <a href="/2016/05/09/posting-to-tumblr-with-emacs/">Posting to Tumblr With Emacs</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="/2012/12/27/change-outlook-subject-with-python/"><i class="fa fa-chevron-right"></i></a>
+    <a href="/2016/05/09/posting-to-tumblr-with-emacs/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

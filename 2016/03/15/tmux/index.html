@@ -1,393 +1,319 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TMUX - 창분할하기 & 빌드걸고 퇴근하기 &#8211; Alex Kyoungdon Jang's Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Alex Kyoungdon Jang&#39;s Blog.
-">
-    <meta name="robots" content="all">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
-    <link rel="canonical" href="http://code4rain.github.io/2016/03/15/tmux/">
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Alex Kyoungdon Jang's Blog" href="/feed.xml" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.15" />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201605090443" type="text/css">
+  <title>TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기 &middot; </title>
 
-    <!-- Fonts -->
-    
-    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
-    
-    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
 
-    <!-- MathJax -->
-    
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
 
-    <!-- Verifications -->
-    
-    
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="/css/side-menu.css">
+  <!--<![endif]-->
 
-    <!-- Open Graph -->
-    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
-    <meta property="og:locale" content="en_US">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기">
-    <meta property="og:description" content="Alex Kyoungdon Jang&#39;s Blog.
-">
-    <meta property="og:url" content="http://code4rain.github.io/2016/03/15/tmux/">
-    <meta property="og:site_name" content="Alex Kyoungdon Jang&#39;s Blog">
+  <link rel="stylesheet" href="/css/blackburn.css">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    
-    <meta name="twitter:title" content="TMUX - 창분할하기 & 빌드걸고 퇴근하기" />
-    <meta name="twitter:description" content="Alex Kyoungdon Jang's Blog.
-" />
-    <meta name="twitter:url" content="http://code4rain.github.io/2016/03/15/tmux/" />
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- Icons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
-    
+  
+  
+
+  
+
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+
 </head>
 
-<body class="site">
+
+<body>
+<div id="layout">
+
   
-	
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
 
-  <div class="site-wrap">
-    <header class="site-header px2 px-responsive">
-  <div class="mt2 wrap">
-    <div class="measure">
-      <a href="http://code4rain.github.io" class="site-title">Alex Kyoungdon Jang's Blog</a>
-      <nav class="site-nav">
-        
-    
+  
 
-    
-        <a href="/about/">About</a>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-    
-
-    
-
-    
-        <a href="/category/">Categories</a>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-
-      </nav>
-      <div class="clearfix"></div>
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
       
-    </div>
+    </ul>
   </div>
-</header>
 
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
 
-    <div class="post p2 p-responsive wrap" role="main">
-      <div class="measure">
-        
+    
 
+    
 
-<div class="post-header mb2">
-  <h1 class="h0">TMUX - 창분할하기 & 빌드걸고 퇴근하기</h1>
-  <span class="post-meta">2016-03-15 01:50:00 +0900</span><br>
-  
-  <span class="post-meta small">
-  
-    2 minute read
-  
-  </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
 </div>
 
-<article class="post-content">
-  <p>TMX는 terminal multiplexer로 터미널에서 사용하는 프로그램들을 손쉽게 switch하거나 backgroud로 수행할 수 있게 도와주는 툴입니다.</p>
+
+  <div>
+  <div class="small-print">
+    <small></small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>15 Mar 2016, 00:00</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<p>TMX는 terminal multiplexer로 터미널에서 사용하는 프로그램들을 손쉽게 switch하거나 backgroud로 수행할 수 있게 도와주는 툴입니다.</p>
 
 <p>TMUX를 사용하면</p>
 
 <ol>
-  <li>터미널창을 분할해서 사용할 수 있습니다. (위 그림에서는 왼쪽에는 VI, 오른쪽 위는 TIG, 오른쪽 아래는 Shell로 분할했습니다.)</li>
-  <li>Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)
+<li>터미널창을 분할해서 사용할 수 있습니다. (위 그림에서는 왼쪽에는 VI, 오른쪽 위는 TIG, 오른쪽 아래는 Shell로 분할했습니다.)</li>
+<li>Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)
 <img src="/images/tmux_preview.gif" alt="preview" /></li>
 </ol>
 
-<h2 id="section">설치방법</h2>
+<h2 id="설치방법:2a9367716efe157e70a300e7e02873db">설치방법</h2>
 
-<h3 id="tmux--">TMUX최신 버전을 설치합니다.</h3>
-<p>(<code class="highlighter-rouge">apt-get install tmux</code>로도 설치가능하지만 굉장히 오래전 버전입니다…)</p>
+<h3 id="tmux최신-버전을-설치합니다:2a9367716efe157e70a300e7e02873db">TMUX최신 버전을 설치합니다.</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>To get and build the latest from version control:
+<p>(<code>apt-get install tmux</code>로도 설치가능하지만 굉장히 오래전 버전입니다&hellip;)</p>
+
+<pre><code>To get and build the latest from version control:
 $ git clone git://git.code.sf.net/p/tmux/tmux-code tmux
 $ cd tmux
 $ sh autogen.sh
 $ ./configure &amp;&amp; make
 </code></pre>
-</div>
 
-<p>Root권한이 있는 사용자라면 <code class="highlighter-rouge">sudo make install</code>로 모든 사용자가 해당 버전을 사용하게끔해 줄 수 있습니다.
+<p>Root권한이 있는 사용자라면 <code>sudo make install</code>로 모든 사용자가 해당 버전을 사용하게끔해 줄 수 있습니다.
 제가 설정해둔 설정파일을 사용하시면 좀 더 편할 듯싶습니다.</p>
 
-<p><code class="highlighter-rouge">~/.tmux.conf</code>로 저장하시면 됩니다.</p>
+<p><code>~/.tmux.conf</code>로 저장하시면 됩니다.</p>
 
 <p>VI의 color scheme이 정상적으로 동작하게끔하기 위해서 .bashrc 등에 아래 줄을 추가해둡니다.
-<code class="highlighter-rouge">alias tmux='TERM=xterm-256color tmux -2'</code></p>
+<code>alias tmux='TERM=xterm-256color tmux -2'</code></p>
 
-<h2 id="section-1">사용방법</h2>
+<h2 id="사용방법:2a9367716efe157e70a300e7e02873db">사용방법</h2>
 
 <p>제 설정파일(설정파일은 포스팅 마지막에 있습니다.)을 적용했다고 가정하고 사용법을 설명드리도록 하겠습니다.
-기본적인 invoke키는 <code class="highlighter-rouge">Ctrl+b</code>이지만 저는 <code class="highlighter-rouge">Ctrl+j</code>로 변경해두었습니다.</p>
+기본적인 invoke키는 <code>Ctrl+b</code>이지만 저는 <code>Ctrl+j</code>로 변경해두었습니다.</p>
 
-<h4 id="section-2">시작하기</h4>
+<h4 id="시작하기:2a9367716efe157e70a300e7e02873db">시작하기</h4>
 
 <dl>
-  <dt><code class="highlighter-rouge">tmux</code> 혹은 <code class="highlighter-rouge">tmux new -s &lt;원하는 이름&gt;</code></dt>
-  <dd>추후에 attache(재사용)을 하기 편하게끔 이름을 지정하시는게 좋습니다. <code class="highlighter-rouge">tmux new -s normal</code></dd>
+<dt><code>tmux</code> 혹은 <code>tmux new -s &lt;원하는 이름&gt;</code></dt>
+<dd>추후에 attache(재사용)을 하기 편하게끔 이름을 지정하시는게 좋습니다. <code>tmux new -s normal</code></dd>
 </dl>
 
-<h4 id="section-3">창 분할하기</h4>
+<h4 id="창-분할하기:2a9367716efe157e70a300e7e02873db">창 분할하기</h4>
 
-<p><code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 | 를 누르면 좌우로 분할되고,
-<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 - 를 누르면 상하로 분할됩니다.</p>
+<p><code>Ctrl+j</code>를 누른 후에 | 를 누르면 좌우로 분할되고,
+<code>Ctrl+j</code>를 누른 후에 - 를 누르면 상하로 분할됩니다.</p>
 
-<h4 id="section-4">창 이동하기</h4>
+<h4 id="창-이동하기:2a9367716efe157e70a300e7e02873db">창 이동하기</h4>
 
-<p><code class="highlighter-rouge">Ctrl+j</code>를 누르고 다시 <code class="highlighter-rouge">Ctrl+j</code>를 누르면 이전 창으로 돌아갑니다.
-<code class="highlighter-rouge">Ctrl+j</code>를 누르고 <code class="highlighter-rouge">q</code>를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다.
+<p><code>Ctrl+j</code>를 누르고 다시 <code>Ctrl+j</code>를 누르면 이전 창으로 돌아갑니다.
+<code>Ctrl+j</code>를 누르고 <code>q</code>를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다.
 <img src="/images/tmux_number.gif" alt="move with number" /></p>
 
-<h4 id="tab-">Tab 만들기</h4>
+<h4 id="tab-만들기:2a9367716efe157e70a300e7e02873db">Tab 만들기</h4>
 
-<p><code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">c</code>를 누르면 새로운 tab이 생성됩니다.</p>
+<p><code>Ctrl+j</code>를 누른 후에 <code>c</code>를 누르면 새로운 tab이 생성됩니다.</p>
 
-<h4 id="tab--1">Tab간 이동하기</h4>
+<h4 id="tab간-이동하기:2a9367716efe157e70a300e7e02873db">Tab간 이동하기</h4>
 
-<p><code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">n</code>을 누르면 다음 tab으로 이동합니다.
-<code class="highlighter-rouge">Alt+&lt;숫자키&gt;</code>를 누르면 해당 tab으로 이동합니다.</p>
+<p><code>Ctrl+j</code>를 누른 후에 <code>n</code>을 누르면 다음 tab으로 이동합니다.
+<code>Alt+&lt;숫자키&gt;</code>를 누르면 해당 tab으로 이동합니다.</p>
 
-<h4 id="section-5">창 닫기</h4>
+<h4 id="창-닫기:2a9367716efe157e70a300e7e02873db">창 닫기</h4>
 
 <p>shell에서 exit명령을 입력합니다.
-<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">x</code>를 누르면 해당 pane을 닫을 것인지 묻습니다. 이 때 <code class="highlighter-rouge">y</code>를 선택하면 해당 창이 닫힙니다.</p>
+<code>Ctrl+j</code>를 누른 후에 <code>x</code>를 누르면 해당 pane을 닫을 것인지 묻습니다. 이 때 <code>y</code>를 선택하면 해당 창이 닫힙니다.</p>
 
-<h4 id="detache--attache--build-">Detache / Attache 사용하기 (build걸고 퇴근하기)</h4>
+<h4 id="detache-attache-사용하기-build걸고-퇴근하기:2a9367716efe157e70a300e7e02873db">Detache / Attache 사용하기 (build걸고 퇴근하기)</h4>
 
 <p>tmux를 실행하고 나서 빌드를 실행합니다.
-<code class="highlighter-rouge">Ctrl+j</code>를 누르고 <code class="highlighter-rouge">d</code>를 누르면 [detached (from session xxx)] 라고 뜨면서 tmux를 실행하기 전 Shell로 빠져나옵니다.
+<code>Ctrl+j</code>를 누르고 <code>d</code>를 누르면 [detached (from session xxx)] 라고 뜨면서 tmux를 실행하기 전 Shell로 빠져나옵니다.
 퇴근합니다.~
-다음날 와서 <code class="highlighter-rouge">tmux attach -t xxx</code>를 치면 퇴근 전 화면으로 돌아갑니다.</p>
+다음날 와서 <code>tmux attach -t xxx</code>를 치면 퇴근 전 화면으로 돌아갑니다.</p>
 
-<h4 id="zoom-">Zoom기능 사용하기</h4>
+<h4 id="zoom기능-사용하기:2a9367716efe157e70a300e7e02873db">Zoom기능 사용하기</h4>
 
 <p>tmux최신버전에는 zoom이라는 기능이 있습니다. 창을 분할해서 사용하다가 잠시 전체 화면으로 바꾸고, 다시 원래대로 돌아갈 수 있는 기능입니다.
-<code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">z</code>를 누르면 현재 커서가 위차한 창이 전체 화면으로 전환되고, 다시 <code class="highlighter-rouge">Ctrl+j</code>를 누른 후에 <code class="highlighter-rouge">z</code>를 누르면 분할되었던 상태로 돌아가게 됩니다.</p>
+<code>Ctrl+j</code>를 누른 후에 <code>z</code>를 누르면 현재 커서가 위차한 창이 전체 화면으로 전환되고, 다시 <code>Ctrl+j</code>를 누른 후에 <code>z</code>를 누르면 분할되었던 상태로 돌아가게 됩니다.</p>
 
-<h2 id="more">More</h2>
+<h2 id="more:2a9367716efe157e70a300e7e02873db">More</h2>
 
-<h3 id="bash-zsh-tmux----">제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.</h3>
-<p>해당 설정을 원래대로 bash로 변경하고 싶으시면 <code class="highlighter-rouge">~/.tmux.conf</code>에서</p>
+<h3 id="제-설정에는-bash대신-zsh가-tmux로-접속하면-실행되게-되어-있습니다:2a9367716efe157e70a300e7e02873db">제 설정에는 bash대신 zsh가 tmux로 접속하면 실행되게 되어 있습니다.</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>     # set-option -g default-command "bash"
-     set-option -g default-command "zsh"
+<p>해당 설정을 원래대로 bash로 변경하고 싶으시면 <code>~/.tmux.conf</code>에서</p>
+
+<pre><code>     # set-option -g default-command &quot;bash&quot;
+     set-option -g default-command &quot;zsh&quot;
 </code></pre>
-</div>
 
 <p>zsh 부부분을 주석처리하시고 bash부분을 주석해제 해주시면 됩니다. (#은 주석처리입니다.)</p>
 
 <ul>
-  <li>tmux에 간단한 설명은 아래를 참고하세요.
-    <ul>
-      <li>http://nodeqa.com/nodejs_ref/99</li>
-    </ul>
-  </li>
-  <li>매번 tmux를 설정하고 창을 분할하는 작업을 하게 되는데 이걸 미리 설정해서 할 수 있는 Tool도 있습니다.
-    <ul>
-      <li>https://github.com/tmuxinator/tmuxinator</li>
-      <li>저도 설정해서 쓰고 있는데 mux session-name으로 간단히 new/attache를 할 수 있어서 편합니다.</li>
-    </ul>
-  </li>
+<li>tmux에 간단한 설명은 아래를 참고하세요.
+
+<ul>
+<li><a href="http://nodeqa.com/nodejs_ref/99">http://nodeqa.com/nodejs_ref/99</a></li>
+</ul></li>
+<li>매번 tmux를 설정하고 창을 분할하는 작업을 하게 되는데 이걸 미리 설정해서 할 수 있는 Tool도 있습니다.
+
+<ul>
+<li><a href="https://github.com/tmuxinator/tmuxinator">https://github.com/tmuxinator/tmuxinator</a></li>
+<li>저도 설정해서 쓰고 있는데 mux session-name으로 간단히 new/attache를 할 수 있어서 편합니다.</li>
+</ul></li>
 </ul>
 
-<h2 id="tmuxconf">.tmux.conf</h2>
-<p><code class="highlighter-rouge">.tmumx.conf</code>파일입니다. 아래 파일을 <code class="highlighter-rouge">~/.tmux.conf</code>로 저장하시면 됩니다.
-<script src="https://gist.github.com/code4rain/374c53829bea88cbe328.js"> </script></p>
+<h2 id="tmux-conf:2a9367716efe157e70a300e7e02873db">.tmux.conf</h2>
 
-</article>
+<p><code>.tmumx.conf</code>파일입니다. 아래 파일을 <code>~/.tmux.conf</code>로 저장하시면 됩니다.</p>
 
-
+<script src="https://gist.github.com/code4rain/374c53829bea88cbe328.js"></script>
 
 
-  <div class="py2 post-footer">
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="/2016/03/14/move-jekyll/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="/2016/03/14/move-jekyll/">Restart blogging</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="/2016/03/16/ai/">AI</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="/2016/03/16/ai/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
 </div>
 
 
 
-
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-    var disqus_shortname  = 'code4rainsblog';
-    var disqus_identifier = '/2016/03/15/tmux';
-    var disqus_title      = 'TMUX - 창분할하기 & 빌드걸고 퇴근하기';
-
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
-
-
-  <h3 class="related-post-title">Related Posts</h3>
-  
-    <div class="post ml2">
-      <a href="/computer/2016/05/09/scripts-for-jekyll-and-octopress/" class="post-link">
-        <h4 class="post-title">Scripts for Jekyll and Octopress</h4>
-        <p class="post-summary"></p>
-      </a>
-    </div>
-  
-    <div class="post ml2">
-      <a href="/computer/2016/05/09/update-generate-gtags-with-git-update/" class="post-link">
-        <h4 class="post-title">Update/Generate GTAGS With Git Update</h4>
-        <p class="post-summary"></p>
-      </a>
-    </div>
-  
-    <div class="post ml2">
-      <a href="/2016/05/09/posting-to-tumblr-with-emacs/" class="post-link">
-        <h4 class="post-title">Posting to Tumblr With Emacs</h4>
-        <p class="post-summary"></p>
-      </a>
-    </div>
-  
-    <div class="post ml2">
-      <a href="/2016/03/14/move-jekyll/" class="post-link">
-        <h4 class="post-title">Restart blogging</h4>
-        <p class="post-summary"></p>
-      </a>
-    </div>
-  
-    <div class="post ml2">
-      <a href="/2016/03/14/migrated-from-vim-to-emacs/" class="post-link">
-        <h4 class="post-title">Migrated From Vim to Emacs</h4>
-        <p class="post-summary"></p>
-      </a>
-    </div>
-  
-    <div class="post ml2">
-      <a href="/2014/03/24/change-outlook-subject-with-python/" class="post-link">
-        <h4 class="post-title">Change Outlook Subject with Python</h4>
-        <p class="post-summary"></p>
-      </a>
-    </div>
-  
-    <div class="post ml2">
-      <a href="/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/" class="post-link">
-        <h4 class="post-title">PUSH된 COMMIT내용 수정하기(Gerrit Review전)</h4>
-        <p class="post-summary"></p>
-      </a>
-    </div>
-  
-    <div class="post ml2">
-      <a href="/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/" class="post-link">
-        <h4 class="post-title">Gvim 기본 시작 위치 변경</h4>
-        <p class="post-summary"></p>
-      </a>
-    </div>
   
 
+</div>
 
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+<script src="js/ui.js"></script>
 
-  <footer class="center">
-</footer>
+
+
 
 </body>
 </html>
+
