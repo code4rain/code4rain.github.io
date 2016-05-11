@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Alex Kyoungdon Jang&#39;s Blog</title>
-    <link>code4rain.github.io/post/</link>
+    <link>http://code4rain.github.io/post/</link>
     <description>Recent content in Posts on Alex Kyoungdon Jang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Mon, 09 May 2016 04:11:32 +0000</lastBuildDate>
-    <atom:link href="code4rain.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://code4rain.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Scripts for Jekyll and Octopress</title>
-      <link>/code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/</link>
+      <link>http://code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/</link>
       <pubDate>Mon, 09 May 2016 04:11:32 +0000</pubDate>
       
-      <guid>/code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/</guid>
+      <guid>http://code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/</guid>
       <description>&lt;p&gt;기존에 사용하던 octopress의 version 3가 개발되면서 동작 방식이 변경되었습니다. 기존에는 jekyll을 base로 추가적인 기능을 넣는 방식으로 개발이 되었지만 version 3에서는 jekyll을 설치하고 octopress를 추가적으로 설치하여 jekyll을 좀더 편하게 사용할 수 있는 방향으로 개발되고 있습니다.
  이와 동시에 기존에 사용하던 &lt;code&gt;rake&lt;/code&gt;류의 command가 모두 &lt;code&gt;octopress&lt;/code&gt;로 시작되는 command로 변경이 되어서 기존에 쓰던 script들을 사용할 수 없게 되었습니다.
  이를 개선하기 위해서 새로 만든 스크립트를 공유하고자 합니다~&lt;/p&gt;
@@ -29,10 +29,10 @@ title을 입력하면 emacsclient로 해당 파일을 열어줍니다.
     
     <item>
       <title>Update/Generate GTAGS With Git Update</title>
-      <link>/code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</link>
+      <link>http://code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</link>
       <pubDate>Mon, 09 May 2016 03:07:24 +0000</pubDate>
       
-      <guid>/code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</guid>
+      <guid>http://code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</guid>
       <description>
 
 &lt;p&gt;Tumblr에 작성했던 내용을 옮겨왔습니다. 기존에는 vi와 cscope를 활용해서 tag를 관리하다가 gnu에서 만든 global(gtags)를 알게되서 이를 활용할 수 있는 방법을 찾아보던 중에 ctags와 git을 활용하는 방법이 있어 이를 개선해서 gtags용으로 변경한 방법을 공유합니다.&lt;/p&gt;
@@ -77,10 +77,10 @@ title을 입력하면 emacsclient로 해당 파일을 열어줍니다.
     
     <item>
       <title>Posting to Tumblr With Emacs</title>
-      <link>/code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/</link>
+      <link>http://code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/</link>
       <pubDate>Mon, 09 May 2016 01:29:16 +0000</pubDate>
       
-      <guid>/code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/</guid>
+      <guid>http://code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/</guid>
       <description>
 
 &lt;p&gt;최근에 주력 에디터를 vi에서 emacs로 변경하였습니다. emacs를 쓰면서 다양한 부가기능들을 하나씩 사용해보던 중에 tumblr post도 emacs내에서 작성할 수 있는 방법을 찾게되어 공유하고자 합니다. tumblr에 썻던 글이라 영문으로 작성되어 있습니다.&lt;/p&gt;
@@ -124,10 +124,10 @@ title을 입력하면 emacsclient로 해당 파일을 열어줍니다.
     
     <item>
       <title>AI</title>
-      <link>/code4rain.github.io/2016/03/16/ai/</link>
+      <link>http://code4rain.github.io/2016/03/16/ai/</link>
       <pubDate>Wed, 16 Mar 2016 00:22:21 +0000</pubDate>
       
-      <guid>/code4rain.github.io/2016/03/16/ai/</guid>
+      <guid>http://code4rain.github.io/2016/03/16/ai/</guid>
       <description>&lt;p&gt;알파고와 이세돌의 대결이 최근 화제이다. 오늘로써 5판에 걸친 대국이 끝나고, 결국 4:1로 알파고의 승리로 막을 내렸다.&lt;/p&gt;
 
 &lt;p&gt;대결을 시작하기 전만 하더라도 유럽 바둑챔피온을 이긴 알파고의 수준은 프로 2단정도이며, 이세돌이 5:0으로 압승하리라는 의견을 믿고 있었지만, (명확한 근거가 있는 건 아니고 카더라통신으로..) 실제 경기에 들어가자 마자 알파고가 1승을 거두면서 내가 아는 모든 사람이 충격을 받았다.&lt;/p&gt;
@@ -142,10 +142,10 @@ title을 입력하면 emacsclient로 해당 파일을 열어줍니다.
     
     <item>
       <title>TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기</title>
-      <link>/code4rain.github.io/2016/03/15/tmux/</link>
+      <link>http://code4rain.github.io/2016/03/15/tmux/</link>
       <pubDate>Tue, 15 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>/code4rain.github.io/2016/03/15/tmux/</guid>
+      <guid>http://code4rain.github.io/2016/03/15/tmux/</guid>
       <description>
 
 &lt;p&gt;TMX는 terminal multiplexer로 터미널에서 사용하는 프로그램들을 손쉽게 switch하거나 backgroud로 수행할 수 있게 도와주는 툴입니다.&lt;/p&gt;
@@ -155,7 +155,7 @@ title을 입력하면 emacsclient로 해당 파일을 열어줍니다.
 &lt;ol&gt;
 &lt;li&gt;터미널창을 분할해서 사용할 수 있습니다. (위 그림에서는 왼쪽에는 VI, 오른쪽 위는 TIG, 오른쪽 아래는 Shell로 분할했습니다.)&lt;/li&gt;
 &lt;li&gt;Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)
-&lt;img src=&#34;code4rain.github.io/images/tmux_preview.gif&#34; alt=&#34;preview&#34; /&gt;&lt;/li&gt;
+&lt;img src=&#34;http://code4rain.github.io/images/tmux_preview.gif&#34; alt=&#34;preview&#34; /&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&#34;설치방법:2a9367716efe157e70a300e7e02873db&#34;&gt;설치방법&lt;/h2&gt;
@@ -200,7 +200,7 @@ $ ./configure &amp;amp;&amp;amp; make
 
 &lt;p&gt;&lt;code&gt;Ctrl+j&lt;/code&gt;를 누르고 다시 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누르면 이전 창으로 돌아갑니다.
 &lt;code&gt;Ctrl+j&lt;/code&gt;를 누르고 &lt;code&gt;q&lt;/code&gt;를 누르면 창마다 숫자가 나오는데 이 때 해당 숫자를 누르면 그 창으로 이동합니다.
-&lt;img src=&#34;code4rain.github.io/images/tmux_number.gif&#34; alt=&#34;move with number&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;http://code4rain.github.io/images/tmux_number.gif&#34; alt=&#34;move with number&#34; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&#34;tab-만들기:2a9367716efe157e70a300e7e02873db&#34;&gt;Tab 만들기&lt;/h4&gt;
 
@@ -264,10 +264,10 @@ $ ./configure &amp;amp;&amp;amp; make
     
     <item>
       <title>Restart blogging</title>
-      <link>/code4rain.github.io/2016/03/14/move-jekyll/</link>
+      <link>http://code4rain.github.io/2016/03/14/move-jekyll/</link>
       <pubDate>Mon, 14 Mar 2016 20:09:55 +0000</pubDate>
       
-      <guid>/code4rain.github.io/2016/03/14/move-jekyll/</guid>
+      <guid>http://code4rain.github.io/2016/03/14/move-jekyll/</guid>
       <description>&lt;p&gt;기존에는 tistory나 wordpress와 같은 블로깅툴을 사용하고 있었다. (많이 쓰지는 않고 있었지만…)&lt;/p&gt;
 
 &lt;p&gt;하지만 해당 툴을 사용하게 되면 특정 웹사이트로 접속해서 글을 남겨야하고 이 때 내가 사용하는 에디터가 아닌 웹화면에서 글을 남기는 건 좀 불편한 일이었다. 물론 에디터에서 수정하고 복붙하는 방법도 있지만 웬지 귀찮아져서 잘하지 않게 되었다.&lt;/p&gt;
@@ -282,10 +282,10 @@ $ ./configure &amp;amp;&amp;amp; make
     
     <item>
       <title>Migrated From Vim to Emacs</title>
-      <link>/code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/</link>
+      <link>http://code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/</link>
       <pubDate>Mon, 14 Mar 2016 19:30:27 +0000</pubDate>
       
-      <guid>/code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/</guid>
+      <guid>http://code4rain.github.io/2016/03/14/migrated-from-vim-to-emacs/</guid>
       <description>
 
 &lt;p&gt;프로그래머 세계에서 끊이지 않는 논쟁 중 하나는 어떤 에디터를 사용하는 지에 관한 논쟁이다.
@@ -323,10 +323,10 @@ vi, 혹은 그 변형인 vim과 emacs이다.&lt;/p&gt;
     
     <item>
       <title>Change Outlook Subject with Python</title>
-      <link>/code4rain.github.io/2012/12/27/change-outlook-subject-with-python/</link>
+      <link>http://code4rain.github.io/2012/12/27/change-outlook-subject-with-python/</link>
       <pubDate>Thu, 27 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>/code4rain.github.io/2012/12/27/change-outlook-subject-with-python/</guid>
+      <guid>http://code4rain.github.io/2012/12/27/change-outlook-subject-with-python/</guid>
       <description>
 
 &lt;h2 id=&#34;introduction:8c92298222cc05cc21303af66ac31b93&#34;&gt;Introduction&lt;/h2&gt;
@@ -406,10 +406,10 @@ python이 제대로 설치되었다면 conversation.py를 double click하면 잘
     
     <item>
       <title>PUSH된 COMMIT내용 수정하기(Gerrit Review전)</title>
-      <link>/code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</link>
+      <link>http://code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</link>
       <pubDate>Fri, 14 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>/code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</guid>
+      <guid>http://code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</guid>
       <description>
 
 &lt;p&gt;Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법을 설명한다.&lt;/p&gt;
@@ -438,16 +438,16 @@ python이 제대로 설치되었다면 conversation.py를 double click하면 잘
     
     <item>
       <title>Gvim 기본 시작 위치 변경</title>
-      <link>/code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</link>
+      <link>http://code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</link>
       <pubDate>Thu, 13 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>/code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</guid>
+      <guid>http://code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</guid>
       <description>&lt;p&gt;Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장된다.
 예를 들면 &lt;code&gt;:w test.md&lt;/code&gt;라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 된다.&lt;/p&gt;
 
 &lt;p&gt;이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 &lt;code&gt;시작 위치(S):&lt;/code&gt;에 자신이 원하는 디렉토리를 아래처럼 추가시켜준다.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;code4rain.github.io/images/gvim_cap00.png&#34; alt=&#34;Gvim short cut sample&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://code4rain.github.io/images/gvim_cap00.png&#34; alt=&#34;Gvim short cut sample&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
