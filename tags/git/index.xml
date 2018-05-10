@@ -1,60 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on Alex Kyoungdon Jang&#39;s Blog</title>
-    <link>http://code4rain.github.io/tags/git/</link>
-    <description>Recent content in Git on Alex Kyoungdon Jang&#39;s Blog</description>
+    <title>Git on Code Rain</title>
+    <link>http://localhost:1313/tags/git/</link>
+    <description>Recent content in Git on Code Rain</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <language>ko-KR</language>
     <lastBuildDate>Mon, 09 May 2016 03:07:24 +0000</lastBuildDate>
-    <atom:link href="http://code4rain.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Update/Generate GTAGS With Git Update</title>
-      <link>http://code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</link>
+      <link>http://localhost:1313/2016/05/09/update-generate-gtags-with-git-update/</link>
       <pubDate>Mon, 09 May 2016 03:07:24 +0000</pubDate>
       
-      <guid>http://code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</guid>
-      <description>
-
-&lt;p&gt;Tumblr에 작성했던 내용을 옮겨왔습니다. 기존에는 vi와 cscope를 활용해서 tag를 관리하다가 gnu에서 만든 global(gtags)를 알게되서 이를 활용할 수 있는 방법을 찾아보던 중에 ctags와 git을 활용하는 방법이 있어 이를 개선해서 gtags용으로 변경한 방법을 공유합니다.&lt;/p&gt;
-
-&lt;h1 id=&#34;why-gtags-gnu-global-https-www-gnu-org-software-global:fff0c5bc802c255c2966b9031d8ebf21&#34;&gt;Why GTAGS(&lt;a href=&#34;https://www.gnu.org/software/global/&#34;&gt;GNU Global&lt;/a&gt;)?&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Find better than ctags&lt;/li&gt;
-&lt;li&gt;Find faster than ctags/cscope&lt;/li&gt;
-&lt;li&gt;Build faster thant ctags/cscope&lt;/li&gt;
-&lt;li&gt;Integrate better with emacs&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;why-git-and-gtags:fff0c5bc802c255c2966b9031d8ebf21&#34;&gt;Why git and gtags&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;git is good scm tool used everywhere :)&lt;/li&gt;
-&lt;li&gt;gtags made good reference with many languages&lt;/li&gt;
-&lt;li&gt;git only maintains original source code&lt;/li&gt;
-&lt;li&gt;gtags can update partially - git use diff for commit!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;how-to-setup:fff0c5bc802c255c2966b9031d8ebf21&#34;&gt;How to setup&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Instatll git and gnu global(gtags) to your system&lt;/li&gt;
-&lt;li&gt;make &lt;code&gt;~/.git_template/hooks&lt;/code&gt; directory&lt;/li&gt;
-&lt;li&gt;move directory: &lt;code&gt;cd ~/.git_template/hooks&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;make &lt;code&gt;gtags&lt;/code&gt; file include below contents
-&lt;script src=&#34;https://gist.github.com/code4rain/6934e4c29163f4f7e04e286db26e890a.js&#34;&gt;&lt;/script&gt;&lt;/li&gt;
-&lt;li&gt;make &lt;code&gt;post-checkout&lt;/code&gt;, &lt;code&gt;post-commit&lt;/code&gt;, &lt;code&gt;post-merge&lt;/code&gt; as below (same contents)
-&lt;script src=&#34;https://gist.github.com/code4rain/3104edb17699948ab829314bfce23708.js&#34;&gt;&lt;/script&gt;&lt;/li&gt;
-&lt;li&gt;make &lt;code&gt;post-rewrite&lt;/code&gt; as below
-&lt;script src=&#34;https://gist.github.com/code4rain/66ac28c0b4256308808a351d71d1aed0.js&#34;&gt;&lt;/script&gt;&lt;/li&gt;
-&lt;li&gt;run below command to add default git template.
-&lt;script src=&#34;https://gist.github.com/code4rain/23f3217d2e784bc18e662ec7bf3f549f.js&#34;&gt;&lt;/script&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;refer from &lt;a href=&#34;http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html&#34;&gt;Effortless Ctags with Git&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>http://localhost:1313/2016/05/09/update-generate-gtags-with-git-update/</guid>
+      <description>Tumblr에 작성했던 내용을 옮겨왔습니다. 기존에는 vi와 cscope를 활용해서 tag를 관리하다가 gnu에서 만든 global(gtags)를 알게되서 이를 활용할 수 있는 방법을 찾아보던 중에 ctags와 git을 활용하는 방법이 있어 이를 개선해서 gtags용으로 변경한 방법을 공유합니다.
+Why GTAGS(GNU Global)?  Find better than ctags Find faster than ctags/cscope Build faster thant ctags/cscope Integrate better with emacs  Why git and gtags  git is good scm tool used everywhere :) gtags made good reference with many languages git only maintains original source code gtags can update partially - git use diff for commit!</description>
+    </item>
+    
+    <item>
+      <title>PUSH된 COMMIT내용 수정하기(Gerrit Review전)</title>
+      <link>http://localhost:1313/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</link>
+      <pubDate>Fri, 14 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</guid>
+      <description>Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법입니다.
+아래 방법은 수정하고 싶은 commit이 현재 HEAD일 경우입니다.
+comit에 있는 일부 파일만 변경하고 싶을 때  수정하고 싶은 파일(a.c) 편집 git add a.c git commit --amend -C HEAD // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠. git push  commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄  git checkout HEAD^ &amp;ndash; &amp;lt;돌리고 싶은 파일명&amp;gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미.</description>
     </item>
     
   </channel>

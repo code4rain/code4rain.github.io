@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Code Rain</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Code Rain</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-KR</language>
+    <lastBuildDate>Mon, 09 May 2016 03:07:24 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git</title>
+      <link>http://localhost:1313/tags/git/</link>
+      <pubDate>Mon, 09 May 2016 03:07:24 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gnu</title>
+      <link>http://localhost:1313/tags/gnu/</link>
+      <pubDate>Mon, 09 May 2016 03:07:24 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/gnu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gtags</title>
+      <link>http://localhost:1313/tags/gtags/</link>
+      <pubDate>Mon, 09 May 2016 03:07:24 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/gtags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jekyll</title>
+      <link>http://localhost:1313/tags/jekyll/</link>
+      <pubDate>Mon, 09 May 2016 04:11:32 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Octoress</title>
+      <link>http://localhost:1313/tags/octoress/</link>
+      <pubDate>Mon, 09 May 2016 04:11:32 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/octoress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Outlook</title>
+      <link>http://localhost:1313/tags/outlook/</link>
+      <pubDate>Thu, 27 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/outlook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Thu, 27 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Script</title>
+      <link>http://localhost:1313/tags/script/</link>
+      <pubDate>Mon, 09 May 2016 04:11:32 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/script/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>http://localhost:1313/tags/vim/</link>
+      <pubDate>Thu, 13 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>생각</title>
+      <link>http://localhost:1313/tags/%EC%83%9D%EA%B0%81/</link>
+      <pubDate>Wed, 16 Mar 2016 00:22:21 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/%EC%83%9D%EA%B0%81/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
