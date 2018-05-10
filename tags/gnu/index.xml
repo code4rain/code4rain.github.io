@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gnu on Code Rain</title>
-    <link>http://localhost:1313/tags/gnu/</link>
+    <link>http://code4rain.github.io/tags/gnu/</link>
     <description>Recent content in Gnu on Code Rain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <lastBuildDate>Mon, 09 May 2016 03:07:24 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/gnu/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://code4rain.github.io/tags/gnu/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Update/Generate GTAGS With Git Update</title>
-      <link>http://localhost:1313/2016/05/09/update-generate-gtags-with-git-update/</link>
+      <link>http://code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</link>
       <pubDate>Mon, 09 May 2016 03:07:24 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/05/09/update-generate-gtags-with-git-update/</guid>
+      <guid>http://code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</guid>
       <description>Tumblr에 작성했던 내용을 옮겨왔습니다. 기존에는 vi와 cscope를 활용해서 tag를 관리하다가 gnu에서 만든 global(gtags)를 알게되서 이를 활용할 수 있는 방법을 찾아보던 중에 ctags와 git을 활용하는 방법이 있어 이를 개선해서 gtags용으로 변경한 방법을 공유합니다.
 Why GTAGS(GNU Global)?  Find better than ctags Find faster than ctags/cscope Build faster thant ctags/cscope Integrate better with emacs  Why git and gtags  git is good scm tool used everywhere :) gtags made good reference with many languages git only maintains original source code gtags can update partially - git use diff for commit!</description>
     </item>

@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code Rain</title>
-    <link>http://localhost:1313/</link>
+    <link>http://code4rain.github.io/</link>
     <description>Recent content on Code Rain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     <lastBuildDate>Mon, 09 May 2016 04:11:32 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://code4rain.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Scripts for Jekyll and Octopress</title>
-      <link>http://localhost:1313/2016/05/09/scripts-for-jekyll-and-octopress/</link>
+      <link>http://code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/</link>
       <pubDate>Mon, 09 May 2016 04:11:32 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/05/09/scripts-for-jekyll-and-octopress/</guid>
+      <guid>http://code4rain.github.io/2016/05/09/scripts-for-jekyll-and-octopress/</guid>
       <description>기존에 사용하던 octopress의 version 3가 개발되면서 동작 방식이 변경되었습니다. 기존에는 jekyll을 base로 추가적인 기능을 넣는 방식으로 개발이 되었지만 version 3에서는 jekyll을 설치하고 octopress를 추가적으로 설치하여 jekyll을 좀더 편하게 사용할 수 있는 방향으로 개발되고 있습니다. 이와 동시에 기존에 사용하던 rake류의 command가 모두 octopress로 시작되는 command로 변경이 되어서 기존에 쓰던 script들을 사용할 수 없게 되었습니다. 이를 개선하기 위해서 새로 만든 스크립트를 공유하고자 합니다~
 Post를 새로 작성하는 경우, title을 입력하면 emacsclient로 해당 파일을 열어줍니다.</description>
     </item>
     
     <item>
       <title>Update/Generate GTAGS With Git Update</title>
-      <link>http://localhost:1313/2016/05/09/update-generate-gtags-with-git-update/</link>
+      <link>http://code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</link>
       <pubDate>Mon, 09 May 2016 03:07:24 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/05/09/update-generate-gtags-with-git-update/</guid>
+      <guid>http://code4rain.github.io/2016/05/09/update-generate-gtags-with-git-update/</guid>
       <description>Tumblr에 작성했던 내용을 옮겨왔습니다. 기존에는 vi와 cscope를 활용해서 tag를 관리하다가 gnu에서 만든 global(gtags)를 알게되서 이를 활용할 수 있는 방법을 찾아보던 중에 ctags와 git을 활용하는 방법이 있어 이를 개선해서 gtags용으로 변경한 방법을 공유합니다.
 Why GTAGS(GNU Global)?  Find better than ctags Find faster than ctags/cscope Build faster thant ctags/cscope Integrate better with emacs  Why git and gtags  git is good scm tool used everywhere :) gtags made good reference with many languages git only maintains original source code gtags can update partially - git use diff for commit!</description>
     </item>
     
     <item>
       <title>Posting to Tumblr With Emacs</title>
-      <link>http://localhost:1313/2016/05/09/posting-to-tumblr-with-emacs/</link>
+      <link>http://code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/</link>
       <pubDate>Mon, 09 May 2016 01:29:16 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/05/09/posting-to-tumblr-with-emacs/</guid>
+      <guid>http://code4rain.github.io/2016/05/09/posting-to-tumblr-with-emacs/</guid>
       <description>최근에 주력 에디터를 vi에서 emacs로 변경하였습니다.(다시 vim으로 돌아왔습니다&amp;hellip; 아직까지 적응하기가 힘드네요) emacs를 쓰면서 다양한 부가기능들을 하나씩 사용해보던 중에 tumblr post도 emacs내에서 작성할 수 있는 방법을 찾게되어 공유하고자 합니다. tumblr에 썻던 글이라 영문으로 작성되어 있습니다.
 What is the tumblesocks tumblesocks is the one of emacs package. It helps to post tumblr via emacs editor. You can download it from melpa, gnu and github.
 How to setup  Download the package: simply use M-x package-install tumblesocks Add the followings to your .</description>
@@ -44,10 +44,10 @@ How to setup  Download the package: simply use M-x package-install tumblesocks A
     
     <item>
       <title>AI</title>
-      <link>http://localhost:1313/2016/03/16/ai/</link>
+      <link>http://code4rain.github.io/2016/03/16/ai/</link>
       <pubDate>Wed, 16 Mar 2016 00:22:21 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/03/16/ai/</guid>
+      <guid>http://code4rain.github.io/2016/03/16/ai/</guid>
       <description>알파고와 이세돌의 대결이 최근 화제이다. 오늘로써 5판에 걸친 대국이 끝나고, 결국 4:1로 알파고의 승리로 막을 내렸다.
 대결을 시작하기 전만 하더라도 유럽 바둑챔피온을 이긴 알파고의 수준은 프로 2단정도이며, 이세돌이 5:0으로 압승하리라는 의견을 믿고 있었지만, (명확한 근거가 있는 건 아니고 카더라통신으로..) 실제 경기에 들어가자 마자 알파고가 1승을 거두면서 내가 아는 모든 사람이 충격을 받았다.
 그 충격이라는 단어를 좀더 살펴보자면, 웬지 멀게만 느껴졌던 인공지능이라는 단어, 웬지 SF영화에서나 나올법한 이 용어가 우리 삶과는 괴리되어 있다고 믿고 있었던 기존 상식을 파괴하는데서 발생하는 것이 아닐까 생각된다.</description>
@@ -55,10 +55,10 @@ How to setup  Download the package: simply use M-x package-install tumblesocks A
     
     <item>
       <title>TMUX - 창분할하기 &amp; 빌드걸고 퇴근하기</title>
-      <link>http://localhost:1313/2016/03/15/tmux/</link>
+      <link>http://code4rain.github.io/2016/03/15/tmux/</link>
       <pubDate>Tue, 15 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2016/03/15/tmux/</guid>
+      <guid>http://code4rain.github.io/2016/03/15/tmux/</guid>
       <description>TMX는 terminal multiplexer로 터미널에서 사용하는 프로그램들을 손쉽게 switch하거나 backgroud로 수행할 수 있게 도와주는 툴입니다.
 TMUX를 사용하면
  터미널창을 분할해서 사용할 수 있습니다. (위 그림에서는 왼쪽에는 VI, 오른쪽 위는 TIG, 오른쪽 아래는 Shell로 분할했습니다.) Perforce Sync / 모델 빌드를 걸어두고 다음날 출근해서 확인할 수 있습니다. (session유지)   설치방법 TMUX최신 버전을 설치합니다. (apt-get install tmux로도 설치가능하지만 굉장히 오래전 버전입니다&amp;hellip;)
@@ -67,19 +67,19 @@ To get and build the latest from version control: $ git clone git://git.</descri
     
     <item>
       <title>Change Outlook Subject with Python</title>
-      <link>http://localhost:1313/2012/12/27/change-outlook-subject-with-python/</link>
+      <link>http://code4rain.github.io/2012/12/27/change-outlook-subject-with-python/</link>
       <pubDate>Thu, 27 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/12/27/change-outlook-subject-with-python/</guid>
+      <guid>http://code4rain.github.io/2012/12/27/change-outlook-subject-with-python/</guid>
       <description>Introduction 직장에 다니게 되면서 e-mail은 뗄레야 뗄 수 없는 사이가 되었습니다. 업무지시부터 각종 정보에 이르기까지 모든 것이 e-mail을 통해서 전달되기 때문이죠. 그런데 회사 메일은 받은 편지함 공간에 제약이 있었습니다. 읽지 않은 메일은 2주간, 읽은 메일은 1주일간만 보관 가능했습니다. 워낙 많은 사람들이 쓰고 있어서 공간제약은 어쩔 수 없는 면이 있죠. 그래서 대부분 선배, 동료, 후배들은 백업 용도로 아웃룩을 사용하고 있습니다. 출장 나가서 본 많은 주재원분들이나 업체에서는 아웃룩을 메인으로 쓰지만 회사 내부 규정상 아웃룩 발신을 제한하고 있어서 우리 회사에서는 메인보다는 백업용도로 사용하고 있습니다.</description>
     </item>
     
     <item>
       <title>PUSH된 COMMIT내용 수정하기(Gerrit Review전)</title>
-      <link>http://localhost:1313/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</link>
+      <link>http://code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</link>
       <pubDate>Fri, 14 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</guid>
+      <guid>http://code4rain.github.io/2012/12/14/pushdoen-commitnaeyong-sujeonghagi-gerrit-reviewjeon/</guid>
       <description>Git에서 수정하고 Gerrit에 Push를 하였으나 아직 Review가 끝나지 않아 Merge되지 않은 상태에서 Commit을 수정해서 다시 Gerrit에 Patch #2로 올리는 간단한 방법입니다.
 아래 방법은 수정하고 싶은 commit이 현재 HEAD일 경우입니다.
 comit에 있는 일부 파일만 변경하고 싶을 때  수정하고 싶은 파일(a.c) 편집 git add a.c git commit --amend -C HEAD // -C옵션은 HEAD에 있는 commit 내용을 그대로 사용한다는 의미입니다. 고로 Change Id도 유지되겠죠. git push  commit에 있는 파일 중 하나를 이전으로 돌리고 싶을 떄  git checkout HEAD^ &amp;ndash; &amp;lt;돌리고 싶은 파일명&amp;gt; // HEAD^는 현재 HEAD 바로 전 commit 내용을 기준으로 돌리겠다는 의미.</description>
@@ -87,10 +87,10 @@ comit에 있는 일부 파일만 변경하고 싶을 때  수정하고 싶은 �
     
     <item>
       <title>Gvim 기본 시작 위치 변경</title>
-      <link>http://localhost:1313/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</link>
+      <link>http://code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</link>
       <pubDate>Thu, 13 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</guid>
+      <guid>http://code4rain.github.io/2012/12/13/gvim-gibon-sijag-wici-byeongyeong/</guid>
       <description>Windows에 설치된 Gvim을 메뉴에서 실행하게 되면 기본 저장 위치는 gvim이 시작된 위치로 저장됩니다. 예를 들면 :w test.md라고 명령을 주는 경우에 내 PC의 경우에는 c:\windows\system 폴더에 test.md 파일이 저장이 됩니다.
 이것을 해결하기 위해서는 메뉴에 있는 gvim icon에서 오른쪽 마우스버튼을 눌러 속성창을 띄우고 나서 시작 위치(S):에 자신이 원하는 디렉토리를 아래처럼 추가 시켜주면 됩니다.</description>
     </item>
