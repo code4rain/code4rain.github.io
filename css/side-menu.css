@@ -1,5 +1,6 @@
 body {
-    color: #777;
+    color: #555;
+    font-family: "Noto Serif KR"; 
 }
 
 .pure-img-responsive {
@@ -44,7 +45,7 @@ The content `<div>` is where all your content goes.
     padding: 0 2em;
     max-width: 800px;
     margin-bottom: 50px;
-    line-height: 1.6em;
+    line-height: 2.2em;
 }
 
 .header {
@@ -90,6 +91,7 @@ appears on the left side of the page.
     background: #191818;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    font-family: sans-serif;
 }
     /*
     All anchors inside the menu should be styled like this.
